@@ -1,0 +1,20 @@
+<html>
+    <html lang = "es">
+        <head>
+            <title> Crea tu cuenta. Argenflix </title>
+        </head>        
+        <body> 
+            <header>
+                <title> Argenflix. Registro </title>
+            </header>
+
+            <div>
+                <h2> Crea tu cuenta </h2> 
+                <form>
+                <input type="text" placeholder="Direccion de correo electronico">
+                <input type="text" placeholder="Contraseña">
+                </form>
+            </div>
+
+        </body>    
+</html>
