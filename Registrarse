@@ -11,10 +11,37 @@
             <div>
                 <h2> Crea tu cuenta </h2> 
                 <form>
-                <input type="text" placeholder="Direccion de correo electronico">
-                <input type="text" placeholder="Contraseña">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+                    <br>
+                    <br>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+                    <br>
+                    <br>            
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
+                    <br>
+                    <br>            
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
+                    <br>
+                    <br>
+                    <label for = "Selecciona el plan que mas desea"> Planes </label>
+                    <select id="opciones" name="opciones">
+                        <option value="opcion1">Suscripción con anuncios</option>
+                        <option value="opcion2">Suscripción mensual</option>
+                        <option value="opcion3">Suscripción anual</option>                        
+                    </select>
+
+                    <br>
+                    <br>
+            
+                    <input type="submit" value="Registrarse">
                 </form>
             </div>
+
+            
 
         </body>    
 </html>
