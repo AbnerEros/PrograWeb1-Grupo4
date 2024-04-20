@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="../styles/register.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+        <title>Registro</title>
+    </head>      
+    <body> 
+        <header>
+            <section class="header-section logo-section">
+                <img 
+                    id="argenflix-title"
+                    src="../img/argenflix.svg"
+                    alt="Logo de Argenflix"
+                >
+                <h1>ignoremos esta crisis juntos</h1>
+            </section>
+            <section class="header-section menu-section">
+                <nav>
+                    <ul style="margin: 0; padding: 0; padding-right: 25px;">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="./pages/series.html">Series</a></li>
+                        <li><a href="./pages/series.html">Películas</a></li>
+                        <li><a href="./pages/series.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+
+        <main>
+            <h2> Crea tu cuenta </h2> 
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+                <br>
+                <br>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+                <br>
+                <br>            
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
+                <br>
+                <br>            
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
+                <br>
+                <br>
+                <label for = "Selecciona el plan que mas desea"> Planes </label>
+                <select id="opciones" name="opciones">
+                    <option value="opcion1">Suscripción con anuncios</option>
+                    <option value="opcion2">Suscripción mensual</option>
+                    <option value="opcion3">Suscripción anual</option>                        
+                </select>
+
+                <br>
+                <br>
+        
+                <input type="submit" value="Registrarse">
+            </form>
+        </main>
+    </body>    
+</html>
