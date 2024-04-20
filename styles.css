@@ -37,7 +37,7 @@ body {
 .menu-section {
     display: flex;
     margin: 20px auto 5px;
-    width: 80%;
+    width: 90%;
 }
 
 .menu-section nav {
@@ -70,7 +70,6 @@ body {
     border-radius: 5px;
 }
 
-
 .menu-section nav ul li a:hover {
     background-color: #00d9ff;
     color: #343440;
@@ -79,4 +78,64 @@ body {
 .menu-section nav ul li::marker{
     display: none;
     color: transparent;
+}
+
+footer {
+    height: fit-content;
+    display: flex;
+    /* flex-direction: column; */
+    background-color: #343440;
+    margin: 0;
+    color: white;
+    font-family: Roboto;
+}
+
+footer img {
+    width: 150px;
+}
+
+footer .footer-section {
+    margin: auto;
+    width: 40%;
+    padding: 10px 50px;
+}
+
+footer .footer-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-text h3 {
+    font-size: 1em;
+}
+
+.footer-text h4 {
+    font-size: 0.7em;
+}
+
+.footer-text h3, .footer-text h4 {
+    margin: 0;
+}
+
+footer .footer-right-section {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+footer .footer-right-section h6 {
+    font-size: 0.75em;
+    margin: 0;
+}
+
+footer .footer-section .media-logos {
+    width: fit-content;
+    margin-left: 10px;
+    display: flex;
+}
+
+footer .footer-section .media-logos img {
+    width: 1.5em;
+    border-radius: 100%;
+    margin: auto 3px;
 }
