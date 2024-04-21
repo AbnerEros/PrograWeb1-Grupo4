@@ -37,6 +37,15 @@
     padding-left: 30px;
 }
 
+.section-details .details-info .details-info-column2 a {
+    color: #343440;
+    text-decoration: none;
+}
+
+.section-details .details-info .details-info-column2 a:hover {
+    color: #00d9ff;
+}
+
 .section-details .details-info div {
     width: 50%;
 }
