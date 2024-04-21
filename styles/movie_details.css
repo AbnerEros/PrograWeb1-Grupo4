@@ -1,0 +1,92 @@
+.section-details {
+    display: flex;
+    padding: 20px 0;
+    font-family: Roboto;
+}
+
+.section-details .details-iframe {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-details .details-iframe iframe{
+    border-radius: 0.3em;
+}
+
+.section-details .details-iframe a {
+    padding: 5px 0;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #343440;
+    border: 1px solid transparent;
+    border-radius: 0.3em;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+}
+
+.section-details .details-iframe a:hover {
+    background-color: #00d9ff;
+    color: #343440;
+    border: 1px solid #343440;
+}
+
+.section-details .details-info {
+    display: flex;
+    padding-left: 30px;
+}
+
+.section-details .details-info div {
+    width: 50%;
+}
+
+.section-similars h1 {
+    font-family: Roboto;
+}
+
+.section-similars .similar-movies  {
+    display: flex;
+    width: 100%;
+}
+
+.section-similars .similar-movies a {
+    width: 24%;
+    margin: auto;
+    display: flex;
+}
+
+.section-similars .similar-movies a#portada-kung-fu-panda {
+    background: url(../img/movies/kung-fu-panda.jpg);
+    background-size: cover;
+    min-height: 15em;
+}
+
+.section-similars .similar-movies a#portada-ratatouille {
+    background: url(../img/movies/ratatouille.jpg);
+    background-size: cover;
+    min-height: 15em;
+}
+
+.section-similars .similar-movies a#portada-shrek {
+    background: url(../img/movies/shrek1.webp);
+    background-size: cover;
+    min-height: 15em;
+}
+
+.section-similars .similar-movies a#portada-la-era-del-hielo {
+    background: url(../img/movies/la-era-del-hielo.jpg);
+    background-size: cover;
+    min-height: 15em
+}
+
+.section-similars .similar-movies a#portada-toy-story {
+    background: url(../img/movies/toy_story.webp);
+    background-size: cover;
+    min-height: 15em;
+}
+
+.section-similars .similar-movies a:first-child {
+    margin-left: 0;
+    display: block;
+}
