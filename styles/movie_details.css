@@ -7,7 +7,7 @@
 .section-details .details-iframe {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
 }
 
 .section-details .details-iframe iframe {
@@ -36,7 +36,7 @@
 .section-details .details-info {
     display: flex;
     padding-left: 30px;
-    width: 60%;
+    width: 50%;
     font-size: 0.9em;
     justify-content: space-between;
 }
