@@ -11,6 +11,10 @@ body {
     margin: 0;
 }
 
+main {
+    padding: 1em 15%;
+}
+
 .logo-section {
     height: 100%;
     width: 30%;
@@ -27,7 +31,7 @@ body {
 
 .logo-section h1 {
     font-family: "Josefin Sans", sans-serif;
-    font-size: 1em;
+    font-size: 1.2em;
     width: 100%;
     margin: 0;
     color: white;
@@ -36,7 +40,7 @@ body {
 
 .menu-section {
     display: flex;
-    margin-top: 20px 0 5px;
+    margin-top: 20px;
     width: 100%;
     height: 100%;
 }
@@ -50,19 +54,21 @@ body {
     display: flex;
     flex-direction: row;
     margin: auto;
+    list-style-type: none;
     padding: 0;
     width: 100%;
+    justify-content: space-between;
 }
 
 .menu-section nav ul li {
     width: 25%;
-    margin: auto 2px;
     text-align: center;
+    margin: 0;
     transition: width 0.2s ease-in-out;
 }
 
 .menu-section nav ul li:hover {
-    width: 30%;
+    width: 28%;
 }
 
 .menu-section nav ul li a {
@@ -80,11 +86,6 @@ body {
 .menu-section nav ul li a:hover {
     background-color: #00d9ff;
     color: #343440;
-}
-
-.menu-section nav ul li::marker{
-    display: none;
-    color: transparent;
 }
 
 .btn{
@@ -154,8 +155,4 @@ footer .footer-section .media-logos img {
     width: 1.5em;
     border-radius: 100%;
     margin: auto 3px;
-}
-
-main {
-    padding: 1em 15%;
 }

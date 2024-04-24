@@ -71,42 +71,42 @@
 
 .section-similars .similar-movies a {
     width: 24%;
-    height: 100%;
-    min-height: 15em;
+    min-height: 16em;
     border-radius: 0.3em;
     transition: width 0.2s ease-in-out;
 }
 
 .section-similars .similar-movies a:hover {
-    width: 26%;
+    outline-offset: 3px;
+    outline: rgba(0, 0, 0, 0.3) solid 4px;
 }
 
 .section-similars .similar-movies a#portada-kung-fu-panda {
     background: url(../img/movies/kung-fu-panda.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
     background-position-x: center;
 }
 
 .section-similars .similar-movies a#portada-ratatouille {
-    background: url(../img/movies/ratatouille.jpg);
-    background-size: cover;
+    background: url(../img/movies/ratatouille.webp);
+    background-size: 100% 100%;
     background-position-x: center;
 }
 
 .section-similars .similar-movies a#portada-shrek {
     background: url(../img/movies/shrek1.webp);
-    background-size: cover;
+    background-size: 100% 100%;
     background-position-x: center;
 }
 
 .section-similars .similar-movies a#portada-la-era-del-hielo {
     background: url(../img/movies/la-era-del-hielo.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
     background-position-x: center;
 }
 
 .section-similars .similar-movies a#portada-toy-story {
     background: url(../img/movies/toy_story.webp);
-    background-size: cover;
+    background-size: 100% 100%;
     background-position-x: center;
 }
