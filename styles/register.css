@@ -8,7 +8,13 @@
     font-family: Roboto;
     font-size: 1.2em;
     border-radius: 5px;
+   
 
+}
+
+.formas {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .btn{
