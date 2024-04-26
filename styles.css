@@ -78,7 +78,7 @@ main {
     text-decoration: none;
     color: white;
     font-family: Roboto, sans-serif;
-    font-size: 1.2em;
+    font-size: 1.25em;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -99,7 +99,7 @@ main {
 footer {
     height: fit-content;
     display: flex;
-    background-color: #343440;
+    background-color: #2c2c30;
     margin: 0;
     color: white;
     font-family: Roboto, sans-serif;

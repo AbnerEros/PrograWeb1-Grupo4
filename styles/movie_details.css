@@ -1,7 +1,8 @@
 .section-details {
     display: flex;
-    padding: 20px 0;
+    padding-top: 20px;
     font-family: Roboto, sans-serif;
+    min-height: 24.5em;
 }
 
 .section-details .details-iframe {
@@ -13,19 +14,21 @@
 .section-details .details-iframe iframe {
     border-radius: 0.3em;
     width: 100%;
+    height: 90%;
 }
 
 .section-details .details-iframe a {
     padding: 5px 0;
     width: 100%;
-    margin: 20px auto;
+    height: fit-content;
+    margin-top: 10px;
     text-align: center;
     background-color: #343440;
     border-radius: 0.3em;
     text-decoration: none;
     color: white;
     font-weight: 400;
-    font-size: 1.5em;
+    font-size: 1.6em;
 }
 
 .section-details .details-iframe a:hover {
@@ -37,7 +40,7 @@
     display: flex;
     padding-left: 30px;
     width: 50%;
-    font-size: 0.9em;
+    font-size: 1em;
     flex-direction: column;
     padding-top: 1.2em;
 }
@@ -51,6 +54,11 @@
 .section-details .details-info div h1.desc-a {
     width: 40%;
     margin: 0;
+}
+
+.section-details .details-info div h1.desc-a.season,
+.section-details .details-info div h1.desc-a.chapter {
+    align-self: center;
 }
 
 .section-details .details-info div h1.desc-b {
@@ -74,6 +82,10 @@
     text-overflow: '';
 }
 
+.section-details .details-info div select.desc-b:hover {
+    outline: 2px solid #343440;
+}
+
 .section-details .details-info div select.desc-b:focus-visible {
     outline: 2px solid #00d9ff;
 }
@@ -95,11 +107,20 @@
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 }
 
+.series-description h1 {
+    text-align: end;
+    font-family: Roboto, sans-serif;
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
 .series-description p {
     text-align: justify;
     font-size: 1.3em;
     font-family: sans-serif;
     text-wrap: balance;
+    margin: 0;
 }
 
 .section-details .details-info-column-series1, .section-details .details-info-column-series2 {
@@ -115,8 +136,14 @@
     height: CALC(100%/5);
 }
 
+.section-similars {
+    margin-top: 2em;
+}
+
 .section-similars h1 {
     font-family: Roboto, sans-serif;
+    font-size: 2em;
+    margin: 0.5em 0;
 }
 
 .section-similars .similar-movies  {
@@ -128,9 +155,12 @@
 
 .section-similars .similar-movies a {
     width: 24%;
-    min-height: 16em;
+    min-height: 12em;
     border-radius: 0.3em;
     transition: width 0.2s ease-in-out;
+    
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
 .section-similars .similar-movies a:hover {
@@ -140,31 +170,41 @@
 }
 
 .section-similars .similar-movies a#portada-kung-fu-panda {
-    background: url(../img/movies/kung-fu-panda.jpg);
-    background-size: 100% 100%;
-    background-position-x: center;
+    background-image: url(../img/movies/kung-fu-panda.jpg);
 }
 
 .section-similars .similar-movies a#portada-ratatouille {
-    background: url(../img/movies/ratatouille.webp);
-    background-size: 100% 100%;
-    background-position-x: center;
+    background-image: url(../img/movies/ratatouille.webp);
 }
 
 .section-similars .similar-movies a#portada-shrek {
-    background: url(../img/movies/shrek1.webp);
-    background-size: 100% 100%;
-    background-position-x: center;
+    background-image: url(../img/movies/shrek1.webp);
 }
 
 .section-similars .similar-movies a#portada-la-era-del-hielo {
-    background: url(../img/movies/la-era-del-hielo.jpg);
-    background-size: 100% 100%;
-    background-position-x: center;
+    background-image: url(../img/movies/la-era-del-hielo.jpg);
 }
 
 .section-similars .similar-movies a#portada-toy-story {
-    background: url(../img/movies/toy_story.webp);
-    background-size: 100% 100%;
-    background-position-x: center;
+    background-image: url(../img/movies/toy_story.webp);
+}
+
+.section-similars .similar-movies a#portada-black-mirror {
+    background-image: url(../img/series/black-mirror.jpg);
+}
+
+.section-similars .similar-movies a#portada-breaking-bad {
+    background-image: url(../img/series/breaking-bad.jpg);
+}
+
+.section-similars .similar-movies a#portada-friends {
+    background-image: url(../img/series/friends.jpg);
+}
+
+.section-similars .similar-movies a#portada-game-of-thrones {
+    background-image: url(../img/series/game-of-thrones.webp);
+}
+
+.section-similars .similar-movies a#portada-how-i-met-your-mother {
+    background-image: url(../img/series/how-i-met-your-mother.png);
 }
