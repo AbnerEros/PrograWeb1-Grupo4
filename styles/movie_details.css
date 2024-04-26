@@ -189,6 +189,34 @@
     background-image: url(../img/movies/toy_story.webp);
 }
 
+.section-similars .similar-movies a#portada-madagascar {
+    background-image: url(../img/movies/madagascar.webp);
+}
+
+.section-similars .similar-movies a#portada-lotr1 {
+    background-image: url(../img/movies/lotr1.avif);
+}
+
+.section-similars .similar-movies a#portada-lotr2 {
+    background-image: url(../img/movies/lotr2.jpg);
+}
+
+.section-similars .similar-movies a#portada-lotr3 {
+    background-image: url(../img/movies/lotr3.avif);
+}
+
+.section-similars .similar-movies a#portada-hobbit1 {
+    background-image: url(../img/movies/hobbit1.jpeg);
+}
+
+.section-similars .similar-movies a#portada-hobbit2 {
+    background-image: url(../img/movies/hobbit2.jpg);
+}
+
+.section-similars .similar-movies a#portada-hobbit3 {
+    background-image: url(../img/movies/hobbit3.jpg);
+}
+
 .section-similars .similar-movies a#portada-black-mirror {
     background-image: url(../img/series/black-mirror.jpg);
 }
