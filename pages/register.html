@@ -34,10 +34,12 @@
                 </nav>
             </section>
         </header>
-        <main>
+        <main>            
             <link rel = "stylesheet" href = "/styles/register.css" >
-            <section class = "registro" > 
-            <h2> Crea tu cuenta </h2>             
+            <h2> Crea tu cuenta </h2> 
+            <section class = "registro" >
+            <section class = "wrapper">                           
+            <div class = "box a">         
             <form>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
@@ -47,11 +49,12 @@
                 <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
                 <br>
                 <br> 
-                <label for="apellido">Usuario :</label>
+                <label for="apellido">Usuario:</label>
                 <input type="text" id="apellido" name="apellido" placeholder="Ingrese su usuario">
                 <br>
                 <br>   
                 <label for="email">Email:</label>
+                <br>
                 <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
                 <br>
                 <br>            
@@ -59,24 +62,30 @@
                 <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
                 <br>
                 <br> 
-            </section>
-                     <label for = "Selecciona el plan que mas desea"> Planes </label>
+                <label for="contrasena"> Repetir Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" placeholder="Repita contraseña">
+                <br>
+                <br>
+                <label for = "Selecciona el plan que mas desea"> Planes </label>
                 <select id="opciones" name="opciones">
                     <option value ="opcion1">Suscripción mensual con anuncios - 1000 pesos</option>
                     <option value ="opcion2">Suscripción anual con anuncios - 10000 pesos</option>
                     <option value ="opcion3">Suscripción mensual - 2500 pesos</option>
                     <option value ="opcion4">Suscripción anual- 25000 pesos</option>                         
-                </select>
-                <br>
-                <br>
+                </select>                
+            </div>  
+                <div class = "box b">       
                 <label for = "Pago" > Seleccione un motodo de pago </label>
-                <select id = "Tarjetas" name = "Tarjetas" >
-                    <option value = "opcion1" > Tarjeta de Credito </option>
-                    <option value = "opcion1" > Tarjeta de Debito </option>
-                </select>
                 <br>
                 <br>
-            <form>
+                <input type="radio" id="tarjetaCredito" name="metodoPago" value="tarjetaCredito">
+                <label for="tarjetaCredito">Tarjeta de Crédito</label>
+                <br>
+                <br>
+                <input type="radio" id="tarjetaDebito" name="metodoPago" value="tarjetaDebito">
+                <label for="tarjetaCredito">Tarjeta de Debito</label>
+                <br>
+                <br>
                 <label for="Datos de la Tarjeta">Datos de la Tarjeta:</label>
                 <input type= "number" id="Numeros" name="Numeros" placeholder="Numeros">
                 <br>
@@ -92,9 +101,16 @@
                 <label for = "Nombre y apellido"> Nombre y apellido del titular : </label>
                 <input type = "text" id = "nombre y apellido" name = "nombre y apellido" placeholder = "Como figura en el plastico">
                 <br>
-                <br>               
-                <button class = "btn"> Registrarse</button>   
-            </section>           
+                <br>
+                       
+                <input type="radio" id="CuponDePago" name="metodoPago" value="CuponDePago">
+                <label for="CuponDePago">Cupon de Pago </label>           
+                 </div>
+                 </section>
+                 <br>
+                 <br>
+                <button class = "btn"> Confirmar </button>   
+                <button class = "btn"> Cancelar </button>
             </form>
         </main>
         <footer>
