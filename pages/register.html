@@ -74,43 +74,47 @@
                     <option value ="opcion4">Suscripción anual- 25000 pesos</option>                         
                 </select>                
             </div>  
-                <div class = "box b">       
-                <label for = "Pago" > Seleccione un motodo de pago </label>
+                <div class = "box b">
+                <label for = "Pago" > Seleccione un motodo de pago: </label>    
                 <br>
                 <br>
-                <input type="radio" id="tarjetaCredito" name="metodoPago" value="tarjetaCredito">
-                <label for="tarjetaCredito">Tarjeta de Crédito</label>
+                <div class = "d"> 
+                <label for="tarjetaCredito">Tarjeta de Crédito</label>                            <label for="tarjetaCredito">Tarjeta de Debito</label>                          
+                <input type="radio" id="tarjetaCredito" name="metodoPago" value="tarjetaCredito"> <input type="radio" id="tarjetaDebito" name="metodoPago" value="tarjetaDebito">    
                 <br>
+                </div>
+                <div class = "e">              
+                <label for="Datos de la Tarjeta">Datos de la Tarjeta:</label>  <label for="Vencimiento">Vencimiento:</label>
+                <input type= "number" id="Numeros" name="Numeros" maxlength="16" placeholder="Numeros"> <input type="text" id="Fecha" name="Fecha" maxlength="5" placeholder="Formato MM/AA">
                 <br>
-                <input type="radio" id="tarjetaDebito" name="metodoPago" value="tarjetaDebito">
-                <label for="tarjetaCredito">Tarjeta de Debito</label>
-                <br>
-                <br>
-                <label for="Datos de la Tarjeta">Datos de la Tarjeta:</label>
-                <input type= "number" id="Numeros" name="Numeros" placeholder="Numeros">
-                <br>
-                <br>
-                <label for="Vencimiento">Vencimiento:</label>
-                <input type="number" id="Fecha" name="Fecha" placeholder="Formato MM/AA">
-                <br>
-                <br>
-                <label for="CVV"> Codigo de seguridad :</label>
-                <input type="number" id="numeros" name="numeros" placeholder="Ingresá los tres numeros">
-                <br>
-                <br>
-                <label for = "Nombre y apellido"> Nombre y apellido del titular : </label>
-                <input type = "text" id = "nombre y apellido" name = "nombre y apellido" placeholder = "Como figura en el plastico">
-                <br>
-                <br>
-                       
+                </div> 
+                <div class = "f">        
+                <label for="CVV"> Codigo de seguridad :</label>   <label for = "Nombre y apellido"> Nombre y apellido del titular : </label>
+                <input type="password" id="numeros" name="numeros" maxlength="3" placeholder="Ingresá los tres numeros">   
+                <input type = "text" id = "nombre y apellido" name = "nombre y apellido" placeholder = "Como figura en el plastico">         
+                </div>            
+                <br>                   
                 <input type="radio" id="CuponDePago" name="metodoPago" value="CuponDePago">
-                <label for="CuponDePago">Cupon de Pago </label>           
+                <label for="CuponDePago">Cupon de Pago </label>   
+                <br>
+                <br>
+                <div class = "g">
+                <input type ="checkbox" id="MetodoDePago" name ="MetodoDePago" value= "MetodoDepago"> <input type ="checkbox" id="MetodoDePago" name ="MetodoDePago" value= "MetodoDepago">
+                <label for ="MetodoDePago"> Pago Facil </label> <label for ="MetodoDePago"> RapiPago </label>
+                <br>
+                <br>
+                 </div>
+                <input type="radio" id="CuponDePago" name="metodoPago" value="Transferencia">
+                <label for="Transferencia"> Transferencia </label>
+                <h5> CBU: 8563190476523012485367 </h5>          
                  </div>
                  </section>
                  <br>
                  <br>
+                 <section class = "Botones">
                 <button class = "btn"> Confirmar </button>   
                 <button class = "btn"> Cancelar </button>
+            </section>
             </form>
         </main>
         <footer>
