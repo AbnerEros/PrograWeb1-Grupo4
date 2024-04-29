@@ -35,16 +35,40 @@
         </section>
     </header>
     <main>
-        <section>
-            <div>
-                <img src="../../img/perfilDeUsario/pngwing.com.png" alt="Perfil de Usuario" class="fotoDePerfil">
-                <p>Nombre de usuario</p>
-            </div>
-            <form action="">
-                <label for="eMail">E-mail</label>
-                <input type="email" name="mail" id="eMail">
+        <section class="perfilDeUsuario">
+            <img src="../../img/perfilDeUsario/pngwing.com.png" alt="Perfil de Usuario" id="fotoDePerfil">
+            <br>
+            <p>Nombre de usuario</p>
+        </section>
 
-            </form>
+        <section class="seccionCompletaFormulario">
+                <div class="datosDeUsuario">
+                    <h3>Datos de Usuario</h3>
+                    <form action="" method="post">
+                    <label for="eMail">E-mail</label>
+                    <input type="email" name="mail" id="eMail">
+                    <label for="contraseña">contraseña</label>
+                    <input type="password" name="password" id="password">
+                    <label for="ingresoContraseña">Nueva contraseña</label>
+                    <input type="text" name="NuevaContraseña" id="NuevaContraseña" placeholder="ingres su contraseña">
+                    <label for="ingresoDeContraseña">Repita contraseña</label>
+                    <input type="text" name="RepetirContrasea" placeholder="ingrese su contraseña" id="ingresoDeContraseña"> 
+                    </form>    
+            
+                </div>
+                <div class="seccioMetodoDePago">
+                <h3>Metodo de pago</h3>
+                <form action="" method="post">
+                    <input type="radio" id="tarjetaDeCredito" name="opcionDePago">
+                    <label for="tarjetaDeCredito">Tarjeta de cretido</label>
+                    <label for="tarjeta">Número de Tarjeta:</label><br>
+                     <input type="text" id="tarjeta" name="tarjeta" 
+                     pattern="[0-9]{13,16}" title="El número de tarjeta debe contener solo números (entre 13 y 16 dígitos)" required>
+                    <input type="text" name="tarjeta" id="tresDigitos">
+                    </form>
+            </div>
+
+
         </section>
     </main>
     <footer>
