@@ -35,39 +35,36 @@
         </section>
     </header>
     <main>
-        <section class="perfilDeUsuario">
+        <section>
+            <div class="perfilDeUsuario">
             <img src="../../img/perfilDeUsario/pngwing.com.png" alt="Perfil de Usuario" id="fotoDePerfil">
             <br>
-            <p>Nombre de usuario</p>
+            <h1>Nombre de usuario</h1>
+        </div>
         </section>
 
         <section class="seccionCompletaFormulario">
                 <div class="datosDeUsuario">
-                    <h3>Datos de Usuario</h3>
-                    <form action="" method="post">
-                    <label for="eMail">E-mail</label>
-                    <input type="email" name="mail" id="eMail">
-                    <label for="contraseña">contraseña</label>
-                    <input type="password" name="password" id="password">
-                    <label for="ingresoContraseña">Nueva contraseña</label>
-                    <input type="text" name="NuevaContraseña" id="NuevaContraseña" placeholder="ingres su contraseña">
-                    <label for="ingresoDeContraseña">Repita contraseña</label>
-                    <input type="text" name="RepetirContrasea" placeholder="ingrese su contraseña" id="ingresoDeContraseña"> 
-                    </form>    
-            
+                    <h2 id="titulos">Datos de Usuario</h2>
+                    <h3 class="datosUsuarioTexto">E-mail:</h3>
+                     <input class="inputsDatosUsuario" type="email" name="mail" id="eMail">
+                    <h3 class="datosUsuarioTexto">Contraseña:</h3>
+                    <input class="inputsDatosUsuario" type="password" name="password" id="password">
+                    <h3 class="datosUsuarioTexto">Nueva contraseña:</h3>
+                    <input class="inputsDatosUsuario" type="text" name="NuevaContraseña" id="NuevaContraseña" placeholder="ingres su contraseña">
+                    <h3 class="datosUsuarioTexto">Repita su contraseña:</h3>
+                    <input class="inputsDatosUsuario" type="text" name="RepetirContrasea" placeholder="ingrese su contraseña" id="ingresoDeContraseña"> 
+
                 </div>
                 <div class="seccioMetodoDePago">
-                <h3>Metodo de pago</h3>
-                <form action="" method="post">
-                    <input type="radio" id="tarjetaDeCredito" name="opcionDePago">
-                    <label for="tarjetaDeCredito">Tarjeta de cretido</label>
-                    <label for="tarjeta">Número de Tarjeta:</label><br>
-                     <input type="text" id="tarjeta" name="tarjeta" 
+                
+                    <h3 id="titulos">Metodo de pago</h3>
+                    <input class="inputs" type="radio" id="tarjetaDeCredito" name="opcionDePago">
+                    <h3 class="seccionTextoDePago">Ingrese su numero de tarejata</h3>
+                    <input class="inputs" type="text" id="tarjeta" name="tarjeta" 
                      pattern="[0-9]{13,16}" title="El número de tarjeta debe contener solo números (entre 13 y 16 dígitos)" required>
                     <input type="text" name="tarjeta" id="tresDigitos">
-                    </form>
-            </div>
-
+                </div>
 
         </section>
     </main>
