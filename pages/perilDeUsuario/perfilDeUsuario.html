@@ -56,16 +56,22 @@
                     <input class="inputsDatosUsuario" type="text" name="RepetirContrasea" placeholder="ingrese su contraseña" id="ingresoDeContraseña"> 
 
                 </div>
-                <div class="seccioMetodoDePago">
+                <div class="seccionMetodoDePago">
                 
-                    <h3 id="titulos">Metodo de pago</h3>
-                    <input class="inputs" type="radio" id="tarjetaDeCredito" name="opcionDePago">
-                    <h3 class="seccionTextoDePago">Ingrese su numero de tarejata</h3>
-                    <input class="inputs" type="text" id="tarjeta" name="tarjeta" 
-                     pattern="[0-9]{13,16}" title="El número de tarjeta debe contener solo números (entre 13 y 16 dígitos)" required>
-                    <input type="text" name="tarjeta" id="tresDigitos">
+                    <h2 id="titulos">Metodo de pago</h2>
+                    <h3 class="datosUsuarioTexto">Tarjeta de credito:</h3>
+                    <input  id="tarjetaDeCredito" class="tarjetaDeCreditoPrimerosDigitos" type="text" id="numero-tarjeta" placeholder="Número de Tarjeta de Crédito" maxlength="16" pattern="[0-9]{16}" title="Por favor, ingrese un número de tarjeta válido (16 dígitos).">
+                    <span id="tarjetaDeCredito" class="cvv">CVV/CVC: <input class="tresDigitos" type="text" id="cvv" maxlength="3" pattern="[0-9]{3}" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos)."></span>
+                    <h3 id="cuponDepago" class="datosUsuarioTexto">Cupon de Pago:</h3>
+                    <input class="estiloCuponDePago" id="cuponDepago" type="submit" value="Pago Facil">
+                    <input class="estiloCuponDePago" id="cuponDepago" type="submit" value="Rapipago">
+                    <h3 class="datosUsuarioTexto">Transferencia bancaria:</h3>
+                    <p><strong>CBU</strong>: 12365464646465464646546554</p>
                 </div>
-
+        </section>
+        <section class="secionBonotesDeFinal">
+            <input class="botonContinuar" type="button" value="Continuar">
+            <input class="botonCancelar" type="button" value="Cancelar">
         </section>
     </main>
     <footer>

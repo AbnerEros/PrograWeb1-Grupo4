@@ -12,13 +12,12 @@
 #titulos{
         text-align: center;
         margin: 15px;
-        margin: 0px;
+       
 }
 
 .seccionCompletaFormulario{
         display: flex;
-        height: 400px;
-        height: 340px;
+        height: 330px;
         margin: auto;
         box-shadow: 6px 7px 25px;
         border: 0.5px solid;
@@ -44,8 +43,50 @@
         width: 50%;
 }
 
-.seccioMetodoDePago{
+.seccionMetodoDePago{
         margin: 1%;
-        background-color:blueviolet;
         width: 50%;
+}
+
+.tartejtadeDrecitoTexto{
+        margin-left: 30px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        width: 50%;
+}
+
+.tarjetaDeCreditoPrimerosDigitos{
+        height: 7%;
+        border-radius: 5%;
+        border-color: black;
+}
+
+.tresDigitos{
+        height: 7%;
+        width: 50px;
+        border-radius: 5%;
+        border-color: black;
+}
+
+.estiloCuponDePago{
+        height: 8%;
+        width: 100px;
+}
+
+.secionBonotesDeFinal{
+        text-align: center;
+        margin-top: 50px;
+        
+}
+
+.botonContinuar{
+        width: 20%;
+        height: 30px;
+        border-radius: 10%;
+}
+
+.botonCancelar{
+        width: 20%;
+        height: 30px;
+        border-radius: 10%;
 }
