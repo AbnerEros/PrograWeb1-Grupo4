@@ -1,0 +1,209 @@
+header {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #2c2c30;
+    margin: 0;
+    padding: 0 15%;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(215, 223, 230);
+}
+main{
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+
+.logo-section {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    margin: 10px auto 10px;
+    text-align: end;
+}
+
+.logo-section img {
+    width: 100%;
+}
+
+.logo-section h1 {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.2em;
+    width: 100%;
+    margin: 0;
+    color: white;
+    font-weight: 400;
+}
+
+.menu-section {
+    display: flex;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-section nav {
+    margin: auto;
+    width: 100%;
+}
+
+.menu-section nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.menu-section nav ul li {
+    width: 25%;
+    text-align: center;
+    margin: 0;
+    transition: width 0.2s ease-in-out;
+}
+
+.menu-section nav ul li:hover {
+    width: 28%;
+}
+
+.menu-section nav ul li a {
+    padding: 5px 0; 
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 1.25em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.menu-section nav ul li a:hover {
+    background-color: #00d9ff;
+    color: #343440;
+}
+
+.btn {
+    outline: none;
+    border: 2px solid transparent;
+    font-family: Roboto, sans-serif;
+    padding: 0.4em;
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: 0.5em;
+    background-color: #343440;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #00d9ff;
+    color: white;
+}
+
+.btn-border {
+    outline: none;
+    border: 2px solid #343440;
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: 0.5em;
+    background-color: transparent;
+    color: #343440;
+    cursor: pointer;
+}
+
+.btn-border:hover {
+    background-color: #343440;
+    color: white;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    height: 100%;
+    margin-left: 5px;
+    
+    
+}
+#movie-poster{
+    width: 210px;
+    height: 180px;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+.top-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+}
+.categories{
+    font-family: Roboto, sans-serif;
+    padding: 10px, 30px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #343440;
+    margin-top: 40px;
+    margin-right: 400px;
+
+}
+.search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+.search-bar input{
+    height: 28px;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    font-weight: 300;
+    width: 150px;
+    border: 1px solid #343440;
+    border-radius: 10px;
+    flex:1;
+    margin-right: 10px;
+}
+#Categorias{
+    height: 30px;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    font-weight: 300;
+    width: 180px;
+    border: 1px solid #343440;
+    border-radius: 10px;
+    flex:1;
+    margin-left: 10px;
+
+}
+#pelicula-destacar{
+    text-decoration: underline ;
+    color: #00d9ff;
+
+}
+#series-destacar{
+    text-decoration: underline ;
+    color: #00d9ff;
+}
+
+
+
+   
+   
+
+
+
