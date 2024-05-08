@@ -19,6 +19,11 @@
     flex-direction: column;
 }
 
+.container .login form {
+    width: 50%;
+    margin: auto;
+}
+
 .container .title h2 {
     font-family: Roboto, sans-serif;
     font-size: 2em;
@@ -41,11 +46,11 @@
 
 .container .login input {
     margin: 0.5em auto;
-    width: 50%;
+    width: 100%;
 }
 
 .container .login .btn {
-    width: 50%;
+    width: 100%;
     margin: auto;
 }
 

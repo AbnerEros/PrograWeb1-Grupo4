@@ -79,14 +79,14 @@ main {
 }
 
 .menu-section nav ul li {
-    width: 25%;
+    width: 20%;
     text-align: center;
     margin: 0;
     transition: width 0.2s ease-in-out;
 }
 
 .menu-section nav ul li:hover {
-    width: 28%;
+    width: 24%;
 }
 
 .menu-section nav ul li a {
@@ -97,8 +97,8 @@ main {
     color: white;
     font-family: Roboto, sans-serif;
     font-size: 1.25em;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
 }
 
 .menu-section nav ul li a:hover {
@@ -200,4 +200,9 @@ footer .footer-section .media-logos img {
     width: 1.5em;
     border-radius: 100%;
     margin: auto 3px;
+}
+
+.menu-section nav ul li.header-menu-destacar a {
+    background-color: white;
+    color: #343440;
 }
