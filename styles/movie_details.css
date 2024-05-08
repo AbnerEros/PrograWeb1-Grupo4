@@ -2,7 +2,7 @@
     display: flex;
     padding-top: 20px;
     font-family: Roboto, sans-serif;
-    min-height: 24.5em;
+    min-height: 24.5rem;
 }
 
 .section-details .details-iframe {
@@ -12,7 +12,7 @@
 }
 
 .section-details .details-iframe iframe {
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     width: 100%;
     height: 90%;
 }
@@ -24,11 +24,11 @@
     margin-top: 10px;
     text-align: center;
     background-color: #343440;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     text-decoration: none;
     color: white;
     font-weight: 400;
-    font-size: 1.6em;
+    font-size: 1.6rem;
 }
 
 .section-details .details-iframe a:hover {
@@ -40,15 +40,15 @@
     display: flex;
     padding-left: 30px;
     width: 50%;
-    font-size: 1em;
+    font-size: 1rem;
     flex-direction: column;
-    padding-top: 1.2em;
+    padding-top: 1.2rem;
 }
 
 .section-details .details-info div {
     display: flex;
     padding: 0;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
 }
 
 .section-details .details-info div h1.desc-a {
@@ -71,14 +71,14 @@
     min-width: 60%;
     margin: 0;
     font-family: Roboto, sans-serif;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     border: none;
     outline: 2px solid rgba(0, 0, 0, 0.3);
-    border-radius: 0.5em;
-    min-height: 2em;
+    border-radius: 0.5rem;
+    min-height: 2rem;
     
     appearance: none;
-    text-indent: 0.5em;
+    text-indent: 0.5rem;
     text-overflow: '';
 }
 
@@ -94,7 +94,7 @@
     color: #343440;
     background-color: white;
     font-family: Roboto, sans-serif;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .section-details .details-info .movie-actor h1 a {
@@ -110,14 +110,14 @@
 .series-description h1 {
     text-align: end;
     font-family: Roboto, sans-serif;
-    font-size: 2em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .series-description p {
     text-align: justify;
-    font-size: 1.3em;
+    font-size: 1.3rem;
     font-family: sans-serif;
     text-wrap: balance;
     margin: 0;
@@ -137,13 +137,13 @@
 }
 
 .section-similars {
-    margin-top: 2em;
+    margin-top: 2rem;
 }
 
 .section-similars h1 {
     font-family: Roboto, sans-serif;
-    font-size: 2em;
-    margin: 0.5em 0;
+    font-size: 2rem;
+    margin: 0.5rem 0;
 }
 
 .section-similars .similar-movies  {
@@ -155,8 +155,8 @@
 
 .section-similars .similar-movies a {
     width: 24%;
-    min-height: 12em;
-    border-radius: 0.5em;
+    min-height: 12rem;
+    border-radius: 0.5rem;
     transition: width 0.2s ease-in-out;
     
     background-size: 100% 100%;

@@ -2,10 +2,10 @@
     outline: none;
     border: 2px solid transparent;
     font-family: Roboto, sans-serif;
-    padding: 0.4em;
-    font-size: 1em;
+    padding: 0.4rem;
+    font-size: 1rem;
     font-weight: 400;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     background-color: #343440;
     color: white;
     cursor: pointer;
@@ -22,13 +22,13 @@ h2 {
     box-shadow: none;
     margin: 0;
     font-family: Roboto, sans-serif;
-    font-size: 1em;
+    font-size: 1rem;
     border: 1;
     outline: 2px solid rgba(0, 0, 0, 0.3);
-    border-radius: 0.3em;
-    min-height: 1.8em;
+    border-radius: 0.3rem;
+    min-height: 1.8rem;
     
-    text-indent: 0.25em;
+    text-indent: 0.25rem;
 }
 
 .input_style_1:hover, 
@@ -46,7 +46,7 @@ h2 {
     text-decoration: none;
     color: rgb(12, 9, 9);
     font-family: Roboto, sans-serif;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     border-radius: 5px;
 }
 
@@ -58,7 +58,7 @@ h2 {
     text-align: center;
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     
     cursor: pointer;
 
