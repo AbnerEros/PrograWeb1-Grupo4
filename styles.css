@@ -1,5 +1,12 @@
 body {
     margin: 0;
+    min-height: 100vh;
+}
+
+main {
+    margin: 0;
+    padding: 1em 5%;
+    min-height: calc(100vh - 320px);
 }
 
 header {
@@ -9,10 +16,6 @@ header {
     background-color: #2c2c30;
     margin: 0;
     padding: 0 15%;
-}
-
-main {
-    padding: 1em 15%;
 }
 
 .input_style_1 {
@@ -142,7 +145,7 @@ main {
 }
 
 footer {
-    height: fit-content;
+    height: 120px;
     display: flex;
     background-color: #2c2c30;
     margin: 0;
@@ -202,7 +205,12 @@ footer .footer-section .media-logos img {
     margin: auto 3px;
 }
 
+.menu-section nav ul li.header-menu-destacar {
+    width: 30%;
+}
+
 .menu-section nav ul li.header-menu-destacar a {
     background-color: white;
     color: #343440;
+    width: 100%;
 }
