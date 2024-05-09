@@ -236,7 +236,7 @@ footer .footer-section .media-logos img {
         width: 100%;
         padding: 1rem 0 0;
     }
-
+.menu-section nav ul li:hover
     .logo-section {
         padding: 0;
         width: 80%;
@@ -253,6 +253,10 @@ footer .footer-section .media-logos img {
     }
 
     .menu-section nav ul li {
+        width: 100%;
+    }
+
+    .menu-section nav ul li:hover {
         width: 100%;
     }
 
