@@ -27,93 +27,91 @@
         <main>            
             <link rel = "stylesheet" href = "/styles/register.css" >
             <h2> Crea tu cuenta </h2> 
-            <section class = "registro" >
-                     <section class = "wrapper">
-                            <div class = "box a">                                              
-                                    <label for="nombre">Nombre:</label>
-                                    <input class="input_style_1" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
-                                    <br>
-                                    <br>
-                                    <label for="apellido">Apellido:</label>
-                                    <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
-                                    <br>
-                                    <br> 
-                                    <label for="apellido">Usuario:</label>
-                                    <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su usuario">
-                                    <br>
-                                    <br>   
-                                    <label for="email">Email:</label>
-                                    <br>
-                                    <input class="input_style_1" type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
-                                    <br>
-                                    <br>            
-                                    <label for="contrasena">Contraseña:</label>
-                                    <input class="input_style_1" type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
-                                    <br>
-                                    <br> 
-                                    <label for="contrasena"> Repetir Contraseña:</label>
-                                    <input class="input_style_1" type="password" id="contrasena" name="contrasena" placeholder="Repita contraseña">
-                                    <br>
-                                    <br>
-                                    <label for = "Selecciona el plan que mas desea"> Planes: </label>
-                                    <select class="input_style_1" id="opciones" name="opciones">
-                                        <option value ="opcion1">Suscripción mensual con anuncios - 1000 pesos</option>
-                                        <option value ="opcion2">Suscripción anual con anuncios - 10000 pesos</option>
-                                        <option value ="opcion3">Suscripción mensual - 2500 pesos</option>
-                                        <option value ="opcion4">Suscripción anual- 25000 pesos</option>                         
-                                    </select>                
-                            </div>  
-                            <div class = "box b">
-                                <label for = "Pago" > Seleccione un motodo de pago: </label>    
-                                <br>
-                                <br>
-                                <div class = "grid ">                                    
-                                    <label for="tarjetaCredito">Tarjeta de Crédito</label>                                     
-                                    <label for="tarjetaCredito">Tarjeta de Debito</label>                    
-                                    <input type="radio" id="tarjetaCredito" name="metodoPago" value="tarjetaCredito">                         
-                                    <input type="radio" id="tarjetaDebito" name="metodoPago" value="tarjetaDebito">                              
-                                </div>
-                                <br>
-                                <br>
-                                <div class = "grid b">                                                  
-                                    <label for="Datos de la Tarjeta">Datos de la Tarjeta:</label>                                     
-                                    <label for="Vencimiento">Vencimiento:</label>
-                                    <input class="input_style_1" type= "number" id="Numeros" name="Numeros" maxlength="16" placeholder="Numeros">
-                                    <input class="input_style_1" type="text" id="Fecha" name="Fecha" maxlength="5" placeholder="Formato MM/AA">
-                                </div> 
-                                <br>
-                                <br>
-                                <div class = "f">        
-                                    <label for="CVV"> Codigo de seguridad :</label>   <label for = "Nombre y apellido"> Nombre y apellido del titular : </label>
-                                    <input class="input_style_1" type="password" id="numeros" name="numeros" maxlength="3" placeholder="Ingresá los tres numeros">   
-                                    <input class="input_style_1" type = "text" id = "nombre y apellido" name = "nombre y apellido" placeholder = "Como figura en el plastico">         
-                                </div>            
-                                <br>                   
-                                <input type="radio" id="CuponDePago" name="metodoPago" value="CuponDePago">
-                                <label for="CuponDePago">Cupon de Pago </label>   
-                                <br>
-                                <br>
-                                <div class = "g">
-                                    <input type ="checkbox" id="MetodoDePago" name ="MetodoDePago" value= "MetodoDepago"> <input type ="checkbox" id="MetodoDePago" name ="MetodoDePago" value= "MetodoDepago">
-                                    <label for ="MetodoDePago"> Pago Facil </label> <label for ="MetodoDePago"> RapiPago </label>
-                                    <br>
-                                    <br>
-                                </div>
-                                <input type="radio" id="CuponDePago" name="metodoPago" value="Transferencia">
-                                <label for="Transferencia"> Transferencia </label>
-                                <h5> CBU: 8563190476523012485367 </h5>          
-                            </div>
+             <section class = "wrapper">
+                <div class = "box a">                                              
+                <label for="nombre">Nombre:</label>
+                <input class="input_style_1" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+                <br>
+                <br>
+                <label for="apellido">Apellido:</label>
+                <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+                <br>
+                <br> 
+                <label for="apellido">Usuario:</label>
+                <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su usuario">
+                <br>
+                <br>   
+                <label for="email">Email:</label>
+                <br>
+                <input class="input_style_1" type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
+                <br>
+                <br>            
+                <label for="contrasena">Contraseña:</label>
+                <input class="input_style_1" type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
+                <br>
+                <br> 
+                <label for="contrasena"> Repetir Contraseña:</label>
+                <input class="input_style_1" type="password" id="contrasena" name="contrasena" placeholder="Repita contraseña">
+                <br>
+                <br>
+                <label for = "Selecciona el plan que mas desea"> Planes: </label>
+                <select class="input_style_1" id="opciones" name="opciones">
+                <option value ="opcion1">Suscripción mensual con anuncios - 1000 pesos</option>
+                <option value ="opcion2">Suscripción anual con anuncios - 10000 pesos</option>
+                <option value ="opcion3">Suscripción mensual - 2500 pesos</option>
+                <option value ="opcion4">Suscripción anual- 25000 pesos</option>                         
+            </select>                
+             </div>  
+            <div class = "box b">
+                <label for = "Pago" > Seleccione un motodo de pago: </label>    
+                <br>
+                <br>
+            <div class = "grid ">                                    
+                <label for="tarjetaCredito">Tarjeta de Crédito</label>                                     
+                <label for="tarjetaCredito">Tarjeta de Debito</label>                    
+                <input type="radio" id="tarjetaCredito" name="metodoPago" value="tarjetaCredito">                         
+                <input type="radio" id="tarjetaDebito" name="metodoPago" value="tarjetaDebito">                              
+            </div>
+                <br>
+                <br>
+            <div class = "grid b">                                                  
+                <label for="Datos de la Tarjeta">Datos de la Tarjeta:</label>                                     
+                <label for="Vencimiento">Vencimiento:</label>
+                <input class="input_style_1" type= "number" id="Numeros" name="Numeros" maxlength="16" placeholder="Numeros">
+                <input class="input_style_1" type="text" id="Fecha" name="Fecha" maxlength="5" placeholder="Formato MM/AA">
+            </div> 
+                <br>
+                <br>
+            <div class = "f">        
+                <label for="CVV"> Codigo de seguridad :</label>   <label for = "Nombre y apellido"> Nombre y apellido del titular : </label>
+                <input class="input_style_1" type="password" id="numeros" name="numeros" maxlength="3" placeholder="Ingresá los tres numeros">   
+                <input class="input_style_1" type = "text" id = "nombre y apellido" name = "nombre y apellido" placeholder = "Como figura en el plastico">         
+            </div>            
+                <br>                   
+                <input type="radio" id="CuponDePago" name="metodoPago" value="CuponDePago">
+                <label for="CuponDePago">Cupon de Pago </label>   
+                <br>
+                <br>
+            <div class = "g">
+                <input type ="checkbox" id="MetodoDePago" name ="MetodoDePago" value= "MetodoDepago"> <input type ="checkbox" id="MetodoDePago" name ="MetodoDePago" value= "MetodoDepago">
+                <label for ="MetodoDePago"> Pago Facil </label> <label for ="MetodoDePago"> RapiPago </label>
+                <br>
+                <br>
+            </div>
+                <input type="radio" id="CuponDePago" name="metodoPago" value="Transferencia">
+                <label for="Transferencia"> Transferencia </label>
+                <h5> CBU: 8563190476523012485367 </h5>          
+                </div>
                     </section>                   
-                
+                <section class = "Botones">
                 <a href="../index.html">
                     <button class="btn"> Confirmar </button>
                 </a> 
                 <a href="../index.html">
                     <button class="btn"> Cancelar </button>
                 </a> 
-                
-            </section>
-        </main>
+                </section>
+                </main>
         <footer>
             <section class="footer-section footer-left-section">
                 <img 
