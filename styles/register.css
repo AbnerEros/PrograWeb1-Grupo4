@@ -1,3 +1,17 @@
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+main {
+    margin: auto auto auto auto;
+    padding: 10px;
+    min-height: calc(100vh - 320px);
+    width: 100%;
+}
+
+
 .btn{
     outline: none;
     border: 2px solid transparent;
@@ -39,8 +53,7 @@ h2 {
 
 
 .registro{
-    text-align: center;
-    padding: 5px 0; 
+    text-align: center;    
     display: block;
     width: 100%;
     text-decoration: none;
@@ -48,20 +61,27 @@ h2 {
     font-family: Roboto, sans-serif;
     font-size: 1.2rem;
     border-radius: 5px;
+    border: 5cm;
 }
 
 .wrapper{
     display: grid;
     grid-template-columns: 250px 500px;
-    grid-template-rows: auto;
-    grid-gap: 250px;
+    grid-template-rows: auto auto;
+    grid-gap: 300px;
     text-align: center;
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    border-radius: 0.5rem;
-    
+    border-radius: 0.5rem;    
     cursor: pointer;
+    width: 100%;
+    transform: translateX(15%);
 
+}
+
+.box a{
+    left: auto;
+    transform: translateX(-50%);
 }
 
 .box b {
@@ -70,22 +90,29 @@ h2 {
     gap: 5px
 }
 
-.d{
+.grid{
+    
     display: grid;
     grid-template-columns: auto auto;
-    gap: auto;
+    grid-template-rows: auto auto;
+    gap: 20px;
+
 }
 
-.e{
+
+.grid b{
     display: grid;
     grid-template-columns: auto auto;
-    gap: 5px;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    text-align: center;
 }
 
 .f{
     display: grid;
     grid-template-columns: auto auto;
     gap: 5px;
+    text-align: center;
     
 }
 
@@ -95,4 +122,110 @@ h2 {
     gap: auto;
 }
 
+.mobile {
+    display: none;
+}
 
+.desktop {
+    display: block;
+}
+
+@media screen and (max-width: 640px) {
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    header {
+        width: 100%;
+        padding: 1rem 0 0;
+    }
+    
+    .logo-section {
+        padding: 0;
+        width: 80%;
+        margin: auto;
+    }
+
+    .menu-section {
+        margin-top: 1rem;
+    }
+
+    .menu-section nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-section nav ul li {
+        width: 100%;
+    }
+
+    .menu-section nav ul li:hover {
+        width: 100%;
+    }
+
+    .menu-section nav ul li a {
+        font-size: 1.5rem;
+        min-height: 2rem;
+    }
+
+    .menu-section nav ul li.header-menu-destacar {
+        width: 100%;
+    }
+
+    .menu-section nav ul li a {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    footer {
+        flex-direction: column;
+        height: fit-content;
+        padding: 2rem;
+    }
+
+    footer .footer-section {
+        width: fit-content;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        padding-bottom: 1.5rem;
+    }
+
+    footer .footer-left-section img {
+        margin: 0 auto 1rem;
+        max-width: 50%;
+    }
+
+    footer .footer-right-section {
+        flex-direction: column;
+    }
+
+    footer .footer-text {
+        text-align: center;
+    }
+
+    footer .footer-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    footer .footer-text h4 {
+        font-size: 0.8rem;
+    }
+
+    footer .footer-right-section .media-logos {
+        width: 100%;
+        display: flex;
+        margin: 0;
+        justify-content: space-evenly;
+        margin-top: 0.5rem;
+    }
+
+    footer .footer-right-section .media-logos img {
+        width: 3rem;
+    }
+}
