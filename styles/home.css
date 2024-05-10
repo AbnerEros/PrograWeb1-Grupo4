@@ -87,7 +87,7 @@ main {
     margin-right: 1%;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1200px) {
     .top-section {
         flex-direction: column;
         padding: 0;
@@ -130,7 +130,7 @@ main {
     }
 
     .grid-container a img {
-        max-height: 14rem;
+        max-height: 10rem;
         min-height: 6rem;
     }
 }

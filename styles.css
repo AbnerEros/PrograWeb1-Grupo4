@@ -223,7 +223,7 @@ footer .footer-section .media-logos img {
     display: block;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1200px) {
     .mobile {
         display: block;
     }
@@ -252,6 +252,11 @@ footer .footer-section .media-logos img {
         flex-direction: column;
     }
 
+    .menu-section nav ul div {
+        display: flex;
+        padding: 0.25rem 1rem;
+    }
+
     .menu-section nav ul li {
         width: 100%;
     }
@@ -260,9 +265,10 @@ footer .footer-section .media-logos img {
         width: 100%;
     }
 
-    .menu-section nav ul li a {
+    .menu-section nav ul div li a {
         font-size: 1.5rem;
         min-height: 2rem;
+        border-radius: 1rem;
     }
 
     .menu-section nav ul li.header-menu-destacar {

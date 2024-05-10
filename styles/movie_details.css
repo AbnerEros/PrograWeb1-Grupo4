@@ -2,7 +2,7 @@
     display: flex;
     padding-top: 20px;
     font-family: Roboto, sans-serif;
-    min-height: 24.5rem;
+    min-height: 32rem;
 }
 
 .section-details .details-iframe {
@@ -79,7 +79,6 @@
     
     appearance: none;
     text-indent: 0.5rem;
-    text-overflow: '';
 }
 
 .section-details .details-info div select.desc-b:hover {
@@ -155,7 +154,7 @@
 
 .section-similars .similar-movies a {
     width: 24%;
-    min-height: 12rem;
+    min-height: 16rem;
     border-radius: 0.5rem;
     transition: width 0.2s ease-in-out;
     
@@ -235,4 +234,95 @@
 
 .section-similars .similar-movies a#portada-how-i-met-your-mother {
     background-image: url(../img/series/how-i-met-your-mother.png);
+}
+
+@media screen and (max-width: 1200px) {
+    main.movie-details-main {
+        padding: 5%;
+    }
+
+    .section-details {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .section-details .details-iframe iframe {
+        height: calc(90vw * 0.5625);
+        width: 90vw;
+    }
+
+    .section-details .details-iframe,
+    .section-details .details-info {
+        padding: 0;
+        width: auto;
+        height: fit-content;
+        margin-bottom: 0;
+    }
+
+    .section-details .details-info div {
+        margin-top: 1rem;
+        margin-bottom: 0;
+        flex-direction: column;
+    }
+
+    .section-details .details-info .movie-title h1.desc-a {
+        margin-top: 1rem;
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .section-details .details-info .movie-title h1.desc-b {
+        width: 100%;
+        font-size: 2rem;
+    }
+
+    .section-details .details-info .series-season h1.desc-a.season,
+    .section-details .details-info .series-chapter h1.desc-a.chapter,
+    .section-details .details-info .movie-duration h1.desc-a,
+    .section-details .details-info .movie-duration h1.desc-b,
+    .section-details .details-info .movie-genre h1.desc-a,
+    .section-details .details-info .movie-actor h1.desc-a,
+    .section-details .details-info .movie-genre h1.desc-b,
+    .section-details .details-info .movie-actor h1.desc-b {
+        width: 100%;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    } 
+    
+    .section-details .details-info div select.desc-b {
+        width: 100%;
+        min-height: 3rem;
+    }
+
+    .series-description h1 {
+        margin-top: 0;
+    }
+    
+    .series-description p {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    .section-similars {
+        display: flex;
+        margin-top: 1rem;
+        flex-direction: column;
+    }
+
+    .section-similars h1 {
+        margin: 0;
+    }
+
+    .section-similars .similar-movies {
+        flex-direction: column;
+    }
+
+    .section-similars .similar-movies a {
+        width: 100%;
+        margin: 1rem 0;
+        min-height: auto;
+        max-height: none;
+        height: calc(90vw * 0.5625);
+        width: 90vw;
+    }
 }
