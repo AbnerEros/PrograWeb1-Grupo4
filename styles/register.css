@@ -28,6 +28,8 @@ h2 {
     font-size: 200%;
 }
 
+
+
 .input_style_1 {
     box-shadow: none;
     margin: 0;
@@ -48,12 +50,17 @@ h2 {
 
 .wrapper{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% auto;
     grid-template-rows: auto auto;    
     text-align: center;
     font-family: Roboto, sans-serif;        
     cursor: pointer;
+    transform: translateX(-5%);
      
+}
+
+.box.a{
+    transform: traslateY(-15%);
 }
 
 .box b {
