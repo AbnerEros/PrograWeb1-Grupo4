@@ -133,13 +133,24 @@ footer {
     display: block;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1200px) {
     .mobile {
         display: block;
     }
 
     .desktop {
         display: none;
+    }
+
+    .wrapper{
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        gap: auto;
+    }
+
+    .box.b{
+        width: 100%;
+        
     }
 
     header {
