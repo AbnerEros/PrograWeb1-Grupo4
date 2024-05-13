@@ -20,7 +20,7 @@
 }
 
 .container .login form {
-    width: 50%;
+    width: 75%;
     margin: auto;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .container .suscribe a {
-    width: 50%;
+    width: 75%;
     margin: auto;
 }
 
@@ -81,7 +81,21 @@
     height: 2.5rem;
 }
 
-@media screen and (max-width: 1000px) {
+.argentina-campeon {
+    background: black url(../img/argentina-campeon.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    opacity: 0.1;
+    z-index: -1;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 1200px) {
     body {
         min-height: 0
     }

@@ -86,6 +86,18 @@ main {
         margin: 1.5rem 0 0.5rem;
 }
 
+.transfer {
+        align-content: space-between;
+}
+
+.transfer label {
+        margin: 1rem 0;
+}
+
+.transfer p {
+        margin: 0;
+}
+
 .pay-method .credit-card  {
         display: flex;
         flex-direction: row;
@@ -97,9 +109,32 @@ main {
         width: 77.5%;
 }
 
+.credit-card-col1 .input_style_1, .credit-card-col2 .input_style_1 {
+        margin: 1rem 0 0;
+}
+
 .credit-card .credit-card-col2 {
         margin: 0;
         width: 20%;
+}
+
+.credit-card .credit-card-col2 h3 {
+        margin: 0;
+}
+
+.credit-card-label {
+        display: flex;
+        flex-direction: row;
+}
+
+.credit-card-label h3 {
+        margin: auto 0.5rem;
+}
+
+.credit-card-label input {
+        margin: auto 0;
+        width: 20px;
+        height: 20px;
 }
 
 .pay-method .coupon-transfer {
@@ -130,12 +165,13 @@ main {
         justify-content: space-between;
 }
 
-.coupon .rapi-pago input, .coupon .pago-facil input {
-        width: 10%;
+.coupon .rapi-pago input, .coupon .pago-facil input, .transfer input {
+        width: 20px;
+        height: 20px;
         margin: 0;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
         .save-form {
                 width: 90%;
         }
@@ -159,5 +195,13 @@ main {
         .btn-border {
                 margin-bottom: 2rem;
                 height: 2rem;
+        }
+
+        .transfer h3 {
+                margin: 3rem 0 0;
+        }
+
+        .pay-method .credit-card-col2 {
+                margin: 2rem 0 0;
         }
 }

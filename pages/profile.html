@@ -73,7 +73,10 @@
                     <h1>Método de pago</h1>
                     <div class="credit-card">
                         <div class="credit-card-col1">
-                            <h3>Tarjeta de credito:</h3>
+                            <div class="credit-card-label">
+                                <input type="radio" id="tarjeta-credito" name="cupon-pago" value="tarjeta-credito">
+                                <h3>Tarjeta de credito:</h3>
+                            </div>
                             <input class="input_style_1" id="tarjetaDeCredito" type="text" id="numero-tarjeta" placeholder="Número de Tarjeta de Crédito" maxlength="16" pattern="[0-9]{16}" title="Por favor, ingrese un número de tarjeta válido (16 dígitos).">
                         </div>
                         <div class="credit-card-col2">
@@ -95,6 +98,7 @@
                         </div>
                         <div class="transfer">
                             <h3>Transferencia bancaria:</h3>
+                            <input type="radio" id="transferencia" name="cupon-pago" value="transferencia">
                             <p><strong>CBU</strong>: 12365464646465464646546554</p>
                         </div>
                     </div>
