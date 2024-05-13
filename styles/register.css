@@ -284,4 +284,8 @@ footer {
         height: 30px;
         margin: auto;
     }
+
+    .input_style_1 {
+        width: 100%;
+    }
 }

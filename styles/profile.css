@@ -83,11 +83,12 @@ main {
 }
 
 .change-password h3, .pay-method h3 {
-        margin: 1.5rem 0 0.5rem;
+        margin: 0.5rem 0;
 }
 
 .transfer {
         align-content: space-between;
+        margin: auto 0;
 }
 
 .transfer label {
@@ -197,8 +198,12 @@ main {
                 height: 2rem;
         }
 
-        .transfer h3 {
+        .transfer input {
                 margin: 3rem 0 0;
+        }
+
+        .transfer h3 {
+                margin: 0;
         }
 
         .pay-method .credit-card-col2 {
