@@ -1,92 +1,163 @@
-
-.perfilDeUsuario{
-        text-align: center;
-}
-#fotoDePerfil{
-        height: 10%;
-        width: 10%;
-        margin-top: 0px;
-               
+main {
+        margin: 0;
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-family: Roboto, sans-serif;
 }
 
-#titulos{
+.titulos {
         text-align: center;
         margin: 15px;
-       
 }
 
-.seccionCompletaFormulario{
+.save-form {
         display: flex;
-        height: 330px;
+        flex-direction: column;
+        width: 50%;
         margin: auto;
-        box-shadow: 6px 7px 25px;
-        border: 0.5px solid;
+        margin-top: 2rem;
         border-radius: 15px;
 }
 
-
-.datosDeUsuario{
-         margin: 1%;
-         width: 50%;      
- }
-
-.inputsDatosUsuario{
-        width: 98%;
-        height: 7%;
-        border-radius: 5%;
-        border-color: black;
-}
-
-.datosUsuarioTexto{
-        margin-top: 4px;
-        margin-bottom: 6px;
+.btn-cancel {
         width: 50%;
+        margin: auto;
+        margin-top: 0.5rem;
 }
 
-.seccionMetodoDePago{
-        margin: 1%;
-        width: 50%;
+.btn-cancel button {
+        width: 100%;
+        height: 2rem;
 }
 
-.tartejtadeDrecitoTexto{
-        margin-left: 30px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        width: 50%;
+.save-form div {
+        width: 100%;
+        margin: auto;
 }
 
-.tarjetaDeCreditoPrimerosDigitos{
-        height: 7%;
-        border-radius: 5%;
-        border-color: black;
+.save-form .user-name {
+        width: 100%;
+        display: flex;
 }
 
-.tresDigitos{
-        height: 7%;
-        width: 50px;
-        border-radius: 5%;
-        border-color: black;
+.save-form .user-img {
+        width: fit-content;
+        margin: 0;
+        margin-left: auto;
+        margin-right: 2rem;
 }
 
-.estiloCuponDePago{
-        height: 8%;
-        width: 100px;
+.save-form .user-img img {
+        width: 6rem;
+        border-radius: 100%;
 }
 
-.secionBonotesDeFinal{
+.save-form .user-name h1 {
         text-align: center;
-        margin-top: 50px;
-        
+        font-size: 1rem;
+        width: fit-content;
+        margin: 0;
 }
 
-.botonContinuar{
-        width: 20%;
-        height: 30px;
-        border-radius: 10%;
+.save-form .user-name h2 {
+        width: 75%;
+        text-align: start;
+        margin: 0;
+        font-size: 2.5rem;
+        align-content: center;
 }
 
-.botonCancelar{
+.save-form .change-password {
+        width: 100%;
+        margin: 2rem 0;   
+}
+
+.change-password input, .pay-method input {
+        width: 100%;
+}
+
+.change-password h1, .pay-method h1 {
+        text-align: end;
+}
+
+.change-password h3, .pay-method h3 {
+        margin: 1.5rem 0 0.5rem;
+}
+
+.pay-method .credit-card  {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+}
+
+.credit-card .credit-card-col1 {
+        margin: 0;
+        width: 77.5%;
+}
+
+.credit-card .credit-card-col2 {
+        margin: 0;
         width: 20%;
-        height: 30px;
-        border-radius: 10%;
+}
+
+.pay-method .coupon-transfer {
+        margin: 3rem 0;
+        display: flex;
+        justify-content: space-between;
+}
+
+.pay-method .coupon-transfer div {
+        width: 45%;
+}
+
+.coupon-transfer .coupon, .coupon-transfer .transfer {
+        margin: 0;
+        text-align: center;
+        align-content: center;
+}
+
+.pay-method .coupon h3 {
+        margin: 0;
+        margin-bottom: 1rem;
+}
+
+.pay-method .coupon .rapi-pago, .pay-method .coupon .pago-facil {
+        display: flex;
+        width: 100%;
+        margin: 0.5rem auto 0;
+        justify-content: space-between;
+}
+
+.coupon .rapi-pago input, .coupon .pago-facil input {
+        width: 10%;
+        margin: 0;
+}
+
+@media screen and (max-width: 1000px) {
+        .save-form {
+                width: 90%;
+        }
+
+        .btn-cancel {
+                width: 90%;
+        }
+
+        .pay-method .coupon-transfer, .pay-method .credit-card {
+                flex-direction: column;
+        }
+
+        .pay-method .coupon-transfer div, .pay-method .credit-card div {
+                width: 100%;
+        }
+
+        .pay-method .coupon .rapi-pago, .pay-method .coupon .pago-facil {
+                width: 75%;
+        }
+
+        .btn-border {
+                margin-bottom: 2rem;
+                height: 2rem;
+        }
 }

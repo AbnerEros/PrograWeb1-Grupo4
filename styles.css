@@ -102,6 +102,7 @@ header {
     font-size: 1.25em;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
+    align-content: center;
 }
 
 .menu-section nav ul li a:hover {
@@ -223,7 +224,11 @@ footer .footer-section .media-logos img {
     display: block;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
+    body {
+        min-height: 0
+    }
+    
     .mobile {
         display: block;
     }
@@ -234,7 +239,7 @@ footer .footer-section .media-logos img {
 
     header {
         width: 100%;
-        padding: 1rem 0 0;
+        padding: 1rem 0 1rem;
     }
     
     .logo-section {
@@ -259,6 +264,7 @@ footer .footer-section .media-logos img {
 
     .menu-section nav ul li {
         width: 100%;
+        margin: 0 0.25srem;
     }
 
     .menu-section nav ul li:hover {

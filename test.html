@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: Roboto, sans-serif;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+                padding-top: 10%;
+            }
+
+            main {
+                height: 50%;
+                width: 50%;
+                margin: auto;
+                padding: 1rem;
+            }
+
+            header, footer {
+                width: 50%;
+                height: 25%;
+                background-color: #222;
+                color: white;
+                margin: 0 auto;
+            }
+
+            header h1, footer h2 {
+                text-align: center;
+                font-weight: 200;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+
+            footer h2 {
+                font-size: 1rem;
+                padding: 0.5rem;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin: auto;
+                height: auto;
+            }
+
+            .container section {
+                display: flex;
+                flex-direction: column;
+                width: 40%;
+
+                height: 100%;
+                margin: 0 auto;
+                border: 1px solid gray;
+                border-radius: 10px;
+                padding: 1rem;
+            }
+
+            .container section .img-wrapper {
+                width: 80%;
+                margin: auto;
+                display: flex;
+                height: 100px;
+            }
+
+            .container section img {
+                height: 100%;
+                width: 100%;
+                margin: auto;
+            }
+
+            .container section h2 {
+                height: 10%;
+                font-size: 1.2rem;
+                margin: 1rem 0;
+            }
+            
+            .container section a {
+                height: 10%;
+                margin: 0;
+                font-size: 1rem;
+                color: #222;
+            }
+
+            .container section #pagani-wrapper {
+                background: white url(./pagani.png);
+                background-size: cover;
+                background-position-x: center;
+            }
+
+            .container section #ferrari-wrapper {
+                background: white url(./ferrari.png);
+                background-size: cover;
+                background-position-x: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Galería de Autos</h1>
+        </header>
+        <main>
+            <div class="container">
+                <section>
+                    <div id="pagani-wrapper" class="img-wrapper"></div>
+                    <h2>Marca: Pagani</h2>
+                    <a href="./pagani.html">Comprar</a>
+                </section>
+                <section>
+                    <div id="ferrari-wrapper" class="img-wrapper"></div>
+                    <h2>Marca: Ferrari</h2>
+                    <a href="./ferrari.html">Comprar</a>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <h2>Panuccio Abner Eros</h2>
+        </footer>
+    </body>
+</html>

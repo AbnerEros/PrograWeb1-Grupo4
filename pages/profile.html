@@ -50,44 +50,60 @@
         </section>  
     </header>
     <main>
-        <section>
-            <div class="perfilDeUsuario">
-            <img src="../img/profile.png" alt="Perfil de Usuario" id="fotoDePerfil">
-            <br>
-            <h1>Nombre de usuario</h1>
-        </div>
-        </section>
-
-        <section class="seccionCompletaFormulario">
-                <div class="datosDeUsuario">
-                    <h2 id="titulos">Datos de Usuario</h2>
-                    <h3 class="datosUsuarioTexto">E-mail:</h3>
-                     <input class="inputsDatosUsuario" type="email" name="mail" id="eMail">
-                    <h3 class="datosUsuarioTexto">Contraseña:</h3>
-                    <input class="inputsDatosUsuario" type="password" name="password" id="password">
-                    <h3 class="datosUsuarioTexto">Nueva contraseña:</h3>
-                    <input class="inputsDatosUsuario" type="text" name="NuevaContraseña" id="NuevaContraseña" placeholder="ingres su contraseña">
-                    <h3 class="datosUsuarioTexto">Repita su contraseña:</h3>
-                    <input class="inputsDatosUsuario" type="text" name="RepetirContrasea" placeholder="ingrese su contraseña" id="ingresoDeContraseña"> 
-
+        <form action="./profile.html" class="save-form">
+                <div class="user-name">
+                    <h2 class="title">Datos del usuario</h2>
+                    <div class="user-img">
+                        <img src="../img/capy.jpg" alt="Perfil de Usuario" id="fotoDePerfil">
+                        <h1>Carpincho22</h1>
+                    </div>
                 </div>
-                <div class="seccionMetodoDePago">
-                
-                    <h2 id="titulos">Metodo de pago</h2>
-                    <h3 class="datosUsuarioTexto">Tarjeta de credito:</h3>
-                    <input  id="tarjetaDeCredito" class="tarjetaDeCreditoPrimerosDigitos" type="text" id="numero-tarjeta" placeholder="Número de Tarjeta de Crédito" maxlength="16" pattern="[0-9]{16}" title="Por favor, ingrese un número de tarjeta válido (16 dígitos).">
-                    <span id="tarjetaDeCredito" class="cvv">CVV/CVC: <input class="tresDigitos" type="text" id="cvv" maxlength="3" pattern="[0-9]{3}" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos)."></span>
-                    <h3 id="cuponDepago" class="datosUsuarioTexto">Cupon de Pago:</h3>
-                    <input class="estiloCuponDePago" id="cuponDepago" type="submit" value="Pago Facil">
-                    <input class="estiloCuponDePago" id="cuponDepago" type="submit" value="Rapipago">
-                    <h3 class="datosUsuarioTexto">Transferencia bancaria:</h3>
-                    <p><strong>CBU</strong>: 12365464646465464646546554</p>
+                <div class="change-password">
+                    <h1>Cambiar contraseña</h1>
+                    <h3>E-mail:</h3>
+                    <input class="input_style_1" type="email" name="email" id="email">
+                    <h3>Contraseña:</h3>
+                    <input class="input_style_1" type="password" name="password" id="password">
+                    <h3>Nueva contraseña:</h3>
+                    <input class="input_style_1" type="password" name="NuevaContraseña" id="NuevaContraseña" placeholder="Ingrese su contraseña">
+                    <h3>Repita su contraseña:</h3>
+                    <input class="input_style_1" type="password" name="RepetirContrasea" placeholder="Repita su contraseña" id="ingresoDeContraseña"> 
                 </div>
-        </section>
-        <section class="secionBonotesDeFinal">
-            <input class="botonContinuar" type="button" value="Continuar">
-            <input class="botonCancelar" type="button" value="Cancelar">
-        </section>
+                <div class="pay-method">
+                    <h1>Método de pago</h1>
+                    <div class="credit-card">
+                        <div class="credit-card-col1">
+                            <h3>Tarjeta de credito:</h3>
+                            <input class="input_style_1" id="tarjetaDeCredito" type="text" id="numero-tarjeta" placeholder="Número de Tarjeta de Crédito" maxlength="16" pattern="[0-9]{16}" title="Por favor, ingrese un número de tarjeta válido (16 dígitos).">
+                        </div>
+                        <div class="credit-card-col2">
+                            <h3>CVV/CVC:</h3>
+                            <input class="input_style_1" type="text" id="cvv" maxlength="3" pattern="[0-9]{3}" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos).">
+                        </div>
+                    </div>
+                    <div class="coupon-transfer">
+                        <div class="coupon">
+                            <h3 id="cupon-pago">Cupon de Pago:</h3>
+                            <div class="pago-facil">
+                                <label for="pagofacil">Pago Fácil</label>
+                                <input id="pagofacil" type="radio" value="pagofacil" name="cupon-pago">
+                            </div>
+                            <div class="rapi-pago">
+                                <label for="rapipago">Rapipago</label>
+                                <input id="rapipago" type="radio" value="rapipago" name="cupon-pago">
+                            </div>
+                        </div>
+                        <div class="transfer">
+                            <h3>Transferencia bancaria:</h3>
+                            <p><strong>CBU</strong>: 12365464646465464646546554</p>
+                        </div>
+                    </div>
+                </div>
+            <input class="btn" type="button" value="Continuar">
+        </form>
+        <a class="btn-cancel" href="./home.html">
+            <button class="btn-border">Cancelar</button>
+        </a>
     </main>
     <footer>
         <section class="footer-section footer-left-section">
