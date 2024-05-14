@@ -31,7 +31,10 @@ header {
     text-indent: 0.25em;
 }
 
-.input_style_1:hover, 
+.input_style_1:hover {
+    outline-color: rgb(225, 225, 0);
+}
+
 .input_style_1:focus {
     outline-color: #00d9ff;
 }
