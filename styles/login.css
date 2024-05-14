@@ -64,7 +64,7 @@
 }
 
 .container .login a h5:hover {
-    color: #2c2c30;
+    color: #00d9ff;
 }
 
 .container .login a h5 {
@@ -96,8 +96,6 @@
     top: 0;
     left: 0;
 }
-
-
 
 @media screen and (max-width: 1200px) {
     body {
