@@ -54,6 +54,9 @@
 .section-details .details-info div h1.desc-a {
     width: 40%;
     margin: 0;
+    font-weight: 400;
+    color: #343440;
+    opacity: 0.75;
 }
 
 .section-details .details-info div h1.desc-a.season,
@@ -64,6 +67,8 @@
 .section-details .details-info div h1.desc-b {
     width: 60%;
     margin: 0;
+    font-weight: 800;
+    color: #343440;
 }
 
 .section-details .details-info div select.desc-b {
@@ -236,6 +241,12 @@
     background-image: url(../img/series/how-i-met-your-mother.png);
 }
 
+@media screen and (max-width: 1500px) {
+    .section-similars .similar-movies a {
+        min-height: 10rem;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     main.movie-details-main {
         padding: 5%;
@@ -273,7 +284,7 @@
 
     .section-details .details-info .movie-title h1.desc-b {
         width: 100%;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .section-details .details-info .series-season h1.desc-a.season,
@@ -292,6 +303,10 @@
     .section-details .details-info div select.desc-b {
         width: 100%;
         min-height: 3rem;
+    }
+
+    .series-description {
+        margin: 1rem 0;
     }
 
     .series-description h1 {

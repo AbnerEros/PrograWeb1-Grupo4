@@ -69,6 +69,11 @@ main {
         align-content: center;
 }
 
+.input_style_1 {
+        padding: 0;
+        margin: 0.25rem 0;
+}
+
 .save-form .change-password {
         width: 100%;
         margin: 2rem 0;   
@@ -107,7 +112,7 @@ main {
 
 .credit-card .credit-card-col1 {
         margin: 0;
-        width: 77.5%;
+        width: 67.5%;
 }
 
 .credit-card-col1 .input_style_1, .credit-card-col2 .input_style_1 {
@@ -116,7 +121,7 @@ main {
 
 .credit-card .credit-card-col2 {
         margin: 0;
-        width: 20%;
+        width: 30%;
 }
 
 .credit-card .credit-card-col2 h3 {
@@ -175,6 +180,21 @@ main {
 @media screen and (max-width: 1200px) {
         .save-form {
                 width: 90%;
+                margin-top: 0;
+        }
+
+        .save-form .user-name {
+                flex-direction: column;
+        }
+
+        .save-form .user-name h2 {
+                width: 100%;
+                text-align: center;
+        }
+
+        .save-form .user-name .user-img {
+                width: fit-content;
+                margin: 1rem auto;
         }
 
         .btn-cancel {
