@@ -33,13 +33,15 @@
                 <section class="login">
                     <h3>Iniciar Sesión</h3>
                     <form action="./pages/home.html">
-                        <input class="input_style_1" type="text" placeholder="Usuario" required>
-                        <input class="input_style_1" type="password" placeholder="Contraseña" required>
+                        <input id = "username" class="input_style_1" type="text" placeholder="Usuario" required>
+                        <input id = "password" class="input_style_1" type="password" placeholder="Contraseña" required>
                         <button class="btn">Iniciar Sesión</button>
                     </form>
                     <a href="./pages/reset-password.html">
                         <h5>Recuperar Contraseña</h5>
                     </a>
+                    <p id ="error-message"> </p>
+                    <scrip src ="scrip.js"></scrip>
                 </section>
                 <section class="suscribe">
                     <h3>¿Todavía no te suscribiste?</h3>

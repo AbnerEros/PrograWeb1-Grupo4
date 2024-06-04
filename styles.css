@@ -227,6 +227,10 @@ footer .footer-section .media-logos img {
     display: block;
 }
 
+.error-message {
+    color: red;
+}
+
 @media screen and (max-width: 1200px) {
     body {
         min-height: 0
