@@ -170,11 +170,6 @@ footer {
 }
 
 @media screen and (max-width: 1200px) {
-    main {
-        display: flex;
-        flex-direction: column;
-    }
-
     .mobile {
         display: block;
     }
