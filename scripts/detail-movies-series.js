@@ -19,11 +19,15 @@ const CONTENT_STRING = localStorage.getItem(STORAGE_LINK)
 const CONTENT_LIST = JSON.parse(CONTENT_STRING)
 const URL_VISTA = document.location.href
 const URL_GEN = new URL(URL_VISTA)
-const ACTUAL_ID = URL_GEN.searchParams.get("id")
+const PARAM_ID = URL_GEN.searchParams.get("id")
 
 function getMovieDetail() {
-    if ( !ACTUAL_ID )
-        return
+    let ACTUAL_ID;
+    if ( !PARAM_ID ) {
+        ACTUAL_ID = 0
+    } else {
+        ACTUAL_ID = PARAM_ID
+    }
 
     let nodo_iframe = document.querySelector(".details-iframe iframe")
     let nodo_video_a = document.querySelector(".details-iframe a")
@@ -116,6 +120,13 @@ function getMovieDetail() {
 }
 
 function getSerieDetail() {
+    let ACTUAL_ID;
+    if ( !PARAM_ID ) {
+        ACTUAL_ID = 0
+    } else {
+        ACTUAL_ID = PARAM_ID
+    }
+
     let nodo_iframe = document.querySelector(".details-iframe iframe")
     let nodo_video_a = document.querySelector(".details-iframe a")
     nodo_iframe.src = PREFIX_YOUTUBE_IFRAME + CONTENT_LIST[ACTUAL_ID].trailer_id
