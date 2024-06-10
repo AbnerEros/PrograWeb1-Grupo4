@@ -126,6 +126,14 @@ header {
     cursor: pointer;
 }
 
+.btn:disabled {
+    opacity: 0.5;
+}
+
+.btn:disabled:hover {
+    background-color: #343440;
+}
+
 .btn:hover {
     background-color: #00d9ff;
     color: white;

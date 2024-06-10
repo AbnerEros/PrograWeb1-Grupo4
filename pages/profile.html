@@ -69,24 +69,11 @@
                 <h3>Repita su contraseña:</h3>
                 <input class="input_style_1" type="password" name="RepetirContrasea" placeholder="Repita su contraseña" id="ingresoDeContraseña" required> 
             </div>
-            <button class="btn">Actualizar contraseña</button>
+            <button id="update-password" class="btn">Actualizar contraseña</button>
         </form>
         <form action="./home.html" class="save-form">
             <div class="pay-method">
                 <h1>Método de pago</h1>
-                <div class="credit-card">
-                    <div class="credit-card-col1">
-                        <div class="credit-card-label">
-                            <input type="radio" id="tarjeta-credito" name="cupon-pago" value="tarjeta-credito" checked>
-                            <h3>Tarjeta de credito:</h3>
-                        </div>
-                        <input class="input_style_1" id="tarjetaDeCredito" type="text" id="numero-tarjeta" placeholder="Ingrese el número de la tarjeta" maxlength="16" pattern="[0-9]{16}" title="Por favor, ingrese un número de tarjeta válido (16 dígitos)">
-                    </div>
-                    <div class="credit-card-col2">
-                        <h3>CVV/CVC:</h3>
-                        <input class="input_style_1" type="text" id="cvv" maxlength="3" pattern="[0-9]{3}" placeholder="Ingrese el CVV/CVC (3 dígitos)" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos)">
-                    </div>
-                </div>
                 <div class="coupon-transfer">
                     <div class="coupon">
                         <h3 id="cupon-pago">Cupon de Pago:</h3>
@@ -100,13 +87,26 @@
                         </div>
                     </div>
                     <div class="transfer">
-                        <input type="radio" id="transferencia" name="cupon-pago" value="transferencia">
                         <h3>Transferencia bancaria:</h3>
+                        <input type="radio" id="transferencia" name="cupon-pago" value="transferencia">
                         <p><strong>CBU</strong>: 285059094009041813520</p>
                     </div>
                 </div>
+                <div class="credit-card">
+                    <div class="credit-card-col1">
+                        <div class="credit-card-label">
+                            <input type="radio" id="tarjeta-credito" name="cupon-pago" value="tarjeta-credito" checked>
+                            <h3>Tarjeta de credito:</h3>
+                        </div>
+                        <input class="input_style_1" id="tarjetaDeCredito" type="text" id="numero-tarjeta" placeholder="Ingrese el número de la tarjeta" maxlength="16" pattern="[0-9]" title="Por favor, ingrese un número de tarjeta válido (16 dígitos)">
+                    </div>
+                    <div class="credit-card-col2">
+                        <h3>CVV/CVC:</h3>
+                        <input class="input_style_1" type="text" id="cvv" maxlength="3" pattern="[0-9]{3}" placeholder="Ingrese el CVV/CVC (3 dígitos)" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos)">
+                    </div>
+                </div>
             </div>
-            <button class="btn">Actualizar método de pago</button>
+            <button id="update-pay-method" class="btn" disabled>Actualizar método de pago</button>
         </form>
         <a class="btn-cancel" href="./home.html">
             <button class="btn-border">Cancelar</button>
@@ -133,5 +133,6 @@
             </div>
         </section>
     </footer>
+    <script src="../scripts/profile.js"></script>
 </body>
 </html>

@@ -87,8 +87,12 @@ main {
         text-align: end;
 }
 
-.change-password h3, .pay-method h3 {
+.change-password h3 {
         margin: 0.5rem 0;
+}
+
+.pay-method h3 {
+        margin: 0 0 0.75rem;
 }
 
 .transfer {
@@ -105,6 +109,7 @@ main {
 }
 
 .pay-method .credit-card  {
+        margin: 2rem 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -144,7 +149,7 @@ main {
 }
 
 .pay-method .coupon-transfer {
-        margin: 3rem 0;
+        margin: 0;
         display: flex;
         justify-content: space-between;
 }
@@ -171,10 +176,16 @@ main {
         justify-content: space-between;
 }
 
-.coupon .rapi-pago input, .coupon .pago-facil input, .transfer input {
+.coupon .rapi-pago input, .coupon .pago-facil input {
         width: 20px;
         height: 20px;
         margin: 0;
+}
+
+.transfer input {
+        width: 20px;
+        height: 20px;
+        margin: 0 0 0.5rem;
 }
 
 @media screen and (max-width: 1200px) {
@@ -218,8 +229,12 @@ main {
                 height: 2rem;
         }
 
+        .pay-method .transfer {
+                margin: 2rem 0 0;
+        }
+
         .transfer input {
-                margin: 3rem 0 0;
+                margin: 1rem 0;
         }
 
         .transfer h3 {
