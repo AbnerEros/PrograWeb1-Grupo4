@@ -8,6 +8,7 @@ const MOVIES_PAGE = "movies"
 const SERIES_PAGE = "series"
 const STORAGE_MOVIES = "movies_list"
 const STORAGE_SERIES = "series_list"
+let actual_id = 0
 
 let STORAGE_LINK;
 if ( PAGE_SUFIX == MOVIES_PAGE )
@@ -21,19 +22,19 @@ const URL_VISTA = document.location.href
 const URL_GEN = new URL(URL_VISTA)
 const PARAM_ID = URL_GEN.searchParams.get("id")
 
-function setIframeAndVideo(actual_id, parent_class) {
+function setIframeAndVideo(parent_class) {
     let nodo_iframe = document.querySelector(`${parent_class} iframe`)
     let nodo_video_a = document.querySelector(`${parent_class} a`)
     nodo_iframe.src = PREFIX_YOUTUBE_IFRAME + CONTENT_LIST[actual_id].trailer_id
     nodo_video_a.href = PREFIX_YOUTUBE_VIDEO + CONTENT_LIST[actual_id].video_id
 }
 
-function setTitle(actual_id, title_id) {
+function setTitle(title_id) {
     let nodo_title = document.querySelector(title_id);
     nodo_title.textContent = CONTENT_LIST[actual_id].serie_name
 }
 
-function setDurationAndExtDuration(actual_id, duration_id, ext_duration_id) {
+function setDurationAndExtDuration(duration_id, ext_duration_id) {
     let nodo_duration = document.querySelector(duration_id);
     nodo_duration.textContent = ''
     let hours = Math.floor(CONTENT_LIST[actual_id].duration / 60)
@@ -55,12 +56,12 @@ function setDurationAndExtDuration(actual_id, duration_id, ext_duration_id) {
     }
 }
 
-function setGenre(actual_id, genre_id) {
+function setGenre(genre_id) {
     let nodo_genre = document.querySelector(genre_id);
     nodo_genre.textContent = CONTENT_LIST[actual_id].genre
 }
 
-function setCast(actual_id, cast_id) {
+function setCast(cast_id) {
     // Para las películas de animación quiero que aparezca "Actores (de voz)" en la página
     if ( CONTENT_LIST[actual_id].genre.split(",").shift() == "Animación" ) {
         let nodo_cast_title = document.querySelector(cast_id + "-title")
@@ -85,7 +86,7 @@ function setCast(actual_id, cast_id) {
     });
 }
 
-function setSimilars(actual_id, similar_class) {
+function setSimilars(similar_class) {
     nodo_similar_movies_1 = document.querySelector(`${similar_class} ${similar_class}-1`)
     nodo_similar_movies_2 = document.querySelector(`${similar_class} ${similar_class}-2`)
 
@@ -102,7 +103,7 @@ function setSimilars(actual_id, similar_class) {
     }
 }
 
-function setSeasonAndChapter(actual_id, season_id, chapter_id) {
+function setSeasonAndChapter(season_id, chapter_id) {
     let nodo_season = document.querySelector(season_id)
     let nodo_chapter = document.querySelector(chapter_id)
     let serie_seasons = CONTENT_LIST[actual_id].seasons
@@ -132,42 +133,34 @@ function setSeasonAndChapter(actual_id, season_id, chapter_id) {
     })
 }
 
-function setDescription(actual_id, description_id) {
+function setDescription(description_id) {
     nodo_desc = document.querySelector(description_id)
     nodo_desc.textContent = CONTENT_LIST[actual_id].desc
 }
 
 function getMovieDetail() {
-    let actual_id;
-    if ( !PARAM_ID ) {
-        actual_id = 0
-    } else {
+    if ( PARAM_ID )
         actual_id = PARAM_ID
-    }
 
-    setIframeAndVideo(actual_id, "#details-iframe");
-    setTitle(actual_id, "#movie-title");
-    setDurationAndExtDuration(actual_id, "#movie-duration", "#movie-ext-duration");
-    setGenre(actual_id, "#movie-genre");
-    setCast(actual_id, "#movie-cast")
-    setSimilars(actual_id, ".similar-movies")
+    setIframeAndVideo("#details-iframe");
+    setTitle("#movie-title");
+    setDurationAndExtDuration("#movie-duration", "#movie-ext-duration");
+    setGenre("#movie-genre");
+    setCast("#movie-cast")
+    setSimilars(".similar-movies")
 }
 
 function getSerieDetail() {
-    let actual_id;
-    if ( !PARAM_ID ) {
-        actual_id = 0
-    } else {
+    if ( PARAM_ID )
         actual_id = PARAM_ID
-    }
 
-    setIframeAndVideo(actual_id, "#details-iframe");
-    setTitle(actual_id, "#serie-title");
-    setSeasonAndChapter(actual_id, "#serie-season", "#serie-chapter")
-    setGenre(actual_id, "#serie-genre");
-    setCast(actual_id, "#serie-cast")
-    setDescription(actual_id, "#series-description")
-    setSimilars(actual_id, ".similar-series")
+    setIframeAndVideo("#details-iframe");
+    setTitle("#serie-title");
+    setSeasonAndChapter("#serie-season", "#serie-chapter")
+    setGenre("#serie-genre");
+    setCast("#serie-cast")
+    setDescription("#series-description")
+    setSimilars(".similar-series")
 }
 
 if ( PAGE_SUFIX == MOVIES_PAGE )
