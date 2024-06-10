@@ -150,21 +150,24 @@
     margin: 0.5rem 0;
 }
 
-.section-similars .similar-movies  {
+.section-similars .similar-movies,
+.section-similars .similar-series  {
     display: flex;
     width: 100%;
     height: 100%;
     justify-content: space-between;
 }
 
-.section-similars .similar-movies div {
+.section-similars .similar-movies div,
+.section-similars .similar-series div {
     display: flex;
     width: 50%;
     height: 100%;
     justify-content: space-around;
 }
 
-.section-similars .similar-movies div a {
+.section-similars .similar-movies div a,
+.section-similars .similar-series div a {
     width: 49%;
     min-height: 14rem;
     border-radius: 0.5rem;
@@ -173,7 +176,8 @@
     background-position-x: center;
 }
 
-.section-similars .similar-movies div a:hover {
+.section-similars .similar-movies div a:hover,
+.section-similars .similar-series div a:hover {
     box-shadow: inset 0px 0px 15px 5px rgba(0, 0, 0, 0.75);
     outline: rgba(0, 0, 0, 0.15) solid 4px;
     outline-offset: -4px;
@@ -227,28 +231,29 @@
     background-image: url(../img/movies/hobbit3.jpg);
 }
 
-.section-similars .similar-movies div a#portada-black-mirror {
+.section-similars .similar-series div a#portada-black-mirror {
     background-image: url(../img/series/black-mirror.jpg);
 }
 
-.section-similars .similar-movies div a#portada-breaking-bad {
+.section-similars .similar-series div a#portada-breaking-bad {
     background-image: url(../img/series/breaking-bad.jpg);
 }
 
-.section-similars .similar-movies div a#portada-friends {
+.section-similars .similar-series div a#portada-friends {
     background-image: url(../img/series/friends.jpg);
 }
 
-.section-similars .similar-movies div a#portada-game-of-thrones {
+.section-similars .similar-series div a#portada-game-of-thrones {
     background-image: url(../img/series/game-of-thrones.webp);
 }
 
-.section-similars .similar-movies div a#portada-how-i-met-your-mother {
+.section-similars .similar-series div a#portada-how-i-met-your-mother {
     background-image: url(../img/series/how-i-met-your-mother.png);
 }
 
 @media screen and (max-width: 1500px) {
-    .section-similars .similar-movies div a {
+    .section-similars .similar-movies div a,
+    .section-similars .similar-series div a {
         min-height: 10rem;
     }
 }
@@ -334,17 +339,20 @@
         margin: 0;
     }
 
-    .section-similars .similar-movies {
+    .section-similars .similar-movies,
+    .section-similars .similar-series {
         flex-direction: column;
         margin: 0;
     }
 
-    .section-similars .similar-movies div {
+    .section-similars .similar-movies div,
+    .section-similars .similar-series div {
         width: 100%;
         margin: 0;
     }
 
-    .section-similars .similar-movies div a {
+    .section-similars .similar-movies div a,
+    .section-similars .similar-series div a {
         margin: 0.25rem 0;
         min-height: auto;
         max-height: none;
@@ -354,18 +362,21 @@
 }
 
 @media screen and (max-width: 600px) {
-    .section-similars .similar-movies {
+    .section-similars .similar-movies,
+    .section-similars .similar-series {
         flex-direction: column;
         margin: 0;
     }
 
-    .section-similars .similar-movies div {
+    .section-similars .similar-movies div,
+    .section-similars .similar-series div {
         flex-direction: column;
         width: 100%;
         margin: 0;
     }
 
-    .section-similars .similar-movies div a {
+    .section-similars .similar-movies div a,
+    .section-similars .similar-series div a {
         margin: 0.5rem 0;
         min-height: auto;
         max-height: none;
