@@ -21,59 +21,54 @@ const URL_VISTA = document.location.href
 const URL_GEN = new URL(URL_VISTA)
 const PARAM_ID = URL_GEN.searchParams.get("id")
 
-function getMovieDetail() {
-    let ACTUAL_ID;
-    if ( !PARAM_ID ) {
-        ACTUAL_ID = 0
-    } else {
-        ACTUAL_ID = PARAM_ID
-    }
+function setIframeAndVideo(actual_id, parent_class) {
+    let nodo_iframe = document.querySelector(`${parent_class} iframe`)
+    let nodo_video_a = document.querySelector(`${parent_class} a`)
+    nodo_iframe.src = PREFIX_YOUTUBE_IFRAME + CONTENT_LIST[actual_id].trailer_id
+    nodo_video_a.href = PREFIX_YOUTUBE_VIDEO + CONTENT_LIST[actual_id].video_id
+}
 
-    let nodo_iframe = document.querySelector(".details-iframe iframe")
-    let nodo_video_a = document.querySelector(".details-iframe a")
-    nodo_iframe.src = PREFIX_YOUTUBE_IFRAME + CONTENT_LIST[ACTUAL_ID].trailer_id
-    nodo_video_a.href = PREFIX_YOUTUBE_VIDEO + CONTENT_LIST[ACTUAL_ID].video_id
+function setTitle(actual_id, title_id) {
+    let nodo_title = document.querySelector(title_id);
+    nodo_title.textContent = CONTENT_LIST[actual_id].serie_name
+}
 
-    let nodo_title = document.querySelector("#movie-title");
-    let nodo_new_title = document.createTextNode(`${CONTENT_LIST[ACTUAL_ID].serie_name}`)
-    nodo_title.textContent = ''
-    nodo_title.appendChild(nodo_new_title)
-
-    let nodo_duration = document.querySelector("#movie-duration");
+function setDurationAndExtDuration(actual_id, duration_id, ext_duration_id) {
+    let nodo_duration = document.querySelector(duration_id);
     nodo_duration.textContent = ''
-    let hours = Math.floor(CONTENT_LIST[ACTUAL_ID].duration / 60)
-    let minutes = CONTENT_LIST[ACTUAL_ID].duration % 60
+    let hours = Math.floor(CONTENT_LIST[actual_id].duration / 60)
+    let minutes = CONTENT_LIST[actual_id].duration % 60
     let nodo_new_duration = document.createTextNode(`${hours}h ${minutes}m`)
     nodo_duration.appendChild(nodo_new_duration)
 
-    if ( CONTENT_LIST[ACTUAL_ID].ext_duration > 0 ) {
-        let nodo_ext_duration = document.querySelector("#movie-ext-duration");
+    if ( CONTENT_LIST[actual_id].ext_duration > 0 ) {
+        let nodo_ext_duration = document.querySelector(ext_duration_id);
         nodo_ext_duration.textContent = ''
-        let ext_hours = Math.floor(CONTENT_LIST[ACTUAL_ID].ext_duration / 60)
-        let ext_minutes = CONTENT_LIST[ACTUAL_ID].ext_duration % 60
+        let ext_hours = Math.floor(CONTENT_LIST[actual_id].ext_duration / 60)
+        let ext_minutes = CONTENT_LIST[actual_id].ext_duration % 60
         let nodo_new_ext_duration = document.createTextNode(`${ext_hours}h ${ext_minutes}m`)
         nodo_ext_duration.appendChild(nodo_new_ext_duration)
     } else {
         // Para las películas que no tengan versión extendida, no quiero mostrar esa sección
-        let nodo_ext_duration_container = document.querySelector("#movie-ext-duration-container")
+        let nodo_ext_duration_container = document.querySelector(ext_duration_id + "-container")
         nodo_ext_duration_container.style.display = "none"
     }
+}
 
-    let nodo_genre = document.querySelector("#movie-genre");
-    nodo_genre.textContent = ''
-    let nodo_new_genre = document.createTextNode(`${CONTENT_LIST[ACTUAL_ID].genre}`)
-    nodo_genre.appendChild(nodo_new_genre)
+function setGenre(actual_id, genre_id) {
+    let nodo_genre = document.querySelector(genre_id);
+    nodo_genre.textContent = CONTENT_LIST[actual_id].genre
+}
 
+function setCast(actual_id, cast_id) {
     // Para las películas de animación quiero que aparezca "Actores (de voz)" en la página
-    if ( CONTENT_LIST[ACTUAL_ID].genre.split(",").shift() == "Animación" ) {
-        let nodo_cast_title = document.querySelector("#movie-cast-title")
-        let nodo_new_cast_title = document.createTextNode(" (de voz)")
-        nodo_cast_title.appendChild(nodo_new_cast_title)
+    if ( CONTENT_LIST[actual_id].genre.split(",").shift() == "Animación" ) {
+        let nodo_cast_title = document.querySelector(cast_id + "-title")
+        nodo_cast_title.textContent += " (de voz)"
     }
 
-    let nodo_cast = document.querySelector("#movie-cast");
-    let cast_list = CONTENT_LIST[ACTUAL_ID].cast
-    nodo_cast.textContent = ''
+    let nodo_cast = document.querySelector(cast_id);
+    let cast_list = CONTENT_LIST[actual_id].cast
 
     cast_list.forEach((actor, index) => {
         let nodo_texto = document.createTextNode(`${actor.name}`)
@@ -88,68 +83,29 @@ function getMovieDetail() {
         nodo_a.appendChild(nodo_texto)
         nodo_cast.appendChild(nodo_a)
     });
-
-    nodo_similar_movies_1 = document.querySelector(".similar-movies .similar-movies-1")
-    nodo_similar_movies_2 = document.querySelector(".similar-movies .similar-movies-2")
-    nodo_similar_movies_1.textContent = ''
-    nodo_similar_movies_2.textContent = ''
-
-    let similars_array = CONTENT_LIST[ACTUAL_ID].similars
-
-    let nodo_a = document.createElement("a");
-    nodo_a.href = `?id=${CONTENT_LIST[ACTUAL_ID].similars[0]}`
-    nodo_a.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[0])[0].portada_id
-
-    let nodo_a2 = document.createElement("a");
-    nodo_a2.href = `?id=${CONTENT_LIST[ACTUAL_ID].similars[1]}`
-    nodo_a2.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[1])[0].portada_id
-
-    nodo_similar_movies_1.appendChild(nodo_a)
-    nodo_similar_movies_1.appendChild(nodo_a2)
-
-    let nodo_a3 = document.createElement("a");
-    nodo_a3.href = `?id=${CONTENT_LIST[ACTUAL_ID].similars[2]}`
-    nodo_a3.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[2])[0].portada_id
-
-    let nodo_a4 = document.createElement("a");
-    nodo_a4.href = `?id=${CONTENT_LIST[ACTUAL_ID].similars[3]}`
-    nodo_a4.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[3])[0].portada_id
-
-    nodo_similar_movies_2.appendChild(nodo_a3)
-    nodo_similar_movies_2.appendChild(nodo_a4)
 }
 
-function getSerieDetail() {
-    let ACTUAL_ID;
-    if ( !PARAM_ID ) {
-        ACTUAL_ID = 0
-    } else {
-        ACTUAL_ID = PARAM_ID
+function setSimilars(actual_id, similar_class) {
+    nodo_similar_movies_1 = document.querySelector(`${similar_class} ${similar_class}-1`)
+    nodo_similar_movies_2 = document.querySelector(`${similar_class} ${similar_class}-2`)
+
+    let similars_array = CONTENT_LIST[actual_id].similars
+
+    for (let i = 0; i < similars_array.length; i++) {
+        let nodo_a = document.createElement("a");
+        nodo_a.href = `?id=${CONTENT_LIST[actual_id].similars[i]}`
+        nodo_a.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[i])[0].portada_id
+        if ( i < 2 )
+            document.querySelector(`${similar_class} ${similar_class}-1`).appendChild(nodo_a)
+        else
+            document.querySelector(`${similar_class} ${similar_class}-2`).appendChild(nodo_a)
     }
+}
 
-    let nodo_iframe = document.querySelector(".details-iframe iframe")
-    let nodo_video_a = document.querySelector(".details-iframe a")
-    nodo_iframe.src = PREFIX_YOUTUBE_IFRAME + CONTENT_LIST[ACTUAL_ID].trailer_id
-    nodo_video_a.href = PREFIX_YOUTUBE_VIDEO + CONTENT_LIST[ACTUAL_ID].video_id
-
-    let nodo_title = document.querySelector("#serie-title");
-    nodo_title.textContent = ''
-    let nodo_new_title = document.createTextNode(`${CONTENT_LIST[ACTUAL_ID].serie_name}`)
-    nodo_title.appendChild(nodo_new_title)
-
-    let nodo_season = document.querySelector("#serie-season")
-    let nodo_chapter = document.querySelector("#serie-chapter")
-    let nodos_season_options = document.querySelectorAll("#serie-season option")
-    let nodos_chapter_options = document.querySelectorAll("#serie-chapter option")
-    let serie_seasons = CONTENT_LIST[ACTUAL_ID].seasons
-    
-    nodos_season_options.forEach(option => {
-        option.remove()
-    });
-
-    nodos_chapter_options.forEach(option => {
-        option.remove()
-    });
+function setSeasonAndChapter(actual_id, season_id, chapter_id) {
+    let nodo_season = document.querySelector(season_id)
+    let nodo_chapter = document.querySelector(chapter_id)
+    let serie_seasons = CONTENT_LIST[actual_id].seasons
 
     serie_seasons.forEach(season => {
         let season_el = document.createElement('option')
@@ -166,13 +122,7 @@ function getSerieDetail() {
     }
 
     nodo_season.addEventListener("change", function() {
-        let nodo_seasons = document.getElementById("serie-season")
-        let nodo_chapters = document.querySelectorAll("#serie-chapter")
-        let nodos_chapters_options = document.querySelectorAll("#serie-chapter option")
-        nodos_chapters_options.forEach(option => {
-            option.remove()
-        });
-
+        let nodo_seasons = document.querySelector(season_id)
         for ( let i = 0 ; i < serie_seasons[nodo_seasons.value-1].chapters ; i++ ) {
             let chapter_el = document.createElement('option')
             chapter_el.value = i+1
@@ -180,64 +130,44 @@ function getSerieDetail() {
             nodo_chapter.appendChild(chapter_el)
         }
     })
+}
 
-    let nodo_genre = document.querySelector("#serie-genre");
-    nodo_genre.textContent = ''
-    let nodo_new_genre = document.createTextNode(`${CONTENT_LIST[ACTUAL_ID].genre}`)
-    nodo_genre.appendChild(nodo_new_genre)
+function setDescription(actual_id, description_id) {
+    nodo_desc = document.querySelector(description_id)
+    nodo_desc.textContent = CONTENT_LIST[actual_id].desc
+}
 
-    let nodo_cast = document.querySelector("#serie-cast");
-    nodo_cast.textContent = ''
-    let cast_list = CONTENT_LIST[ACTUAL_ID].cast
+function getMovieDetail() {
+    let actual_id;
+    if ( !PARAM_ID ) {
+        actual_id = 0
+    } else {
+        actual_id = PARAM_ID
+    }
 
-    cast_list.forEach((actor, index) => {
-        let nodo_texto = document.createTextNode(`${actor.name}`)
+    setIframeAndVideo(actual_id, "#details-iframe");
+    setTitle(actual_id, "#movie-title");
+    setDurationAndExtDuration(actual_id, "#movie-duration", "#movie-ext-duration");
+    setGenre(actual_id, "#movie-genre");
+    setCast(actual_id, "#movie-cast")
+    setSimilars(actual_id, ".similar-movies")
+}
 
-        if ( index != cast_list.length - 1 )
-            nodo_texto = document.createTextNode(`${actor.name}, `)
+function getSerieDetail() {
+    let actual_id;
+    if ( !PARAM_ID ) {
+        actual_id = 0
+    } else {
+        actual_id = PARAM_ID
+    }
 
-        let nodo_a = document.createElement("a");
-        nodo_a.href = PREFIX_WIKIPEDIA + actor.wiki_name
-        nodo_a.target = "_blank"
-
-        nodo_a.appendChild(nodo_texto)
-        nodo_cast.appendChild(nodo_a)
-    });
-
-    nodo_desc = document.querySelector("#series-description")
-    nodo_desc.textContent = ''
-    let nodo_new_desc = document.createTextNode(CONTENT_LIST[ACTUAL_ID].desc)
-    nodo_desc.appendChild(nodo_new_desc)
-
-
-    nodo_similar_series_1 = document.querySelector(".similar-series .similar-series-1")
-    nodo_similar_series_2 = document.querySelector(".similar-series .similar-series-2")
-    nodo_similar_series_1.textContent = ''
-    nodo_similar_series_2.textContent = ''
-
-    let similars_array = CONTENT_LIST[ACTUAL_ID].similars
-
-    let nodo_a = document.createElement("a");
-    nodo_a.href = `?id=${CONTENT_LIST[ACTUAL_ID].similars[0]}`
-    nodo_a.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[0])[0].portada_id
-
-    let nodo_a2 = document.createElement("a");
-    nodo_a2.href = `?id=${CONTENT_LIST[ACTUAL_ID].similars[1]}`
-    nodo_a2.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[1])[0].portada_id
-
-    nodo_similar_series_1.appendChild(nodo_a)
-    nodo_similar_series_1.appendChild(nodo_a2)
-
-    let nodo_a3 = document.createElement("a");
-    nodo_a3.href = `?id=${CONTENT_LIST[ACTUAL_ID].similars[2]}`
-    nodo_a3.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[2])[0].portada_id
-
-    let nodo_a4 = document.createElement("a");
-    nodo_a4.href = `?id=${CONTENT_LIST[ACTUAL_ID].similars[3]}`
-    nodo_a4.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[3])[0].portada_id
-
-    nodo_similar_series_2.appendChild(nodo_a3)
-    nodo_similar_series_2.appendChild(nodo_a4)
+    setIframeAndVideo(actual_id, "#details-iframe");
+    setTitle(actual_id, "#serie-title");
+    setSeasonAndChapter(actual_id, "#serie-season", "#serie-chapter")
+    setGenre(actual_id, "#serie-genre");
+    setCast(actual_id, "#serie-cast")
+    setDescription(actual_id, "#series-description")
+    setSimilars(actual_id, ".similar-series")
 }
 
 if ( PAGE_SUFIX == MOVIES_PAGE )
