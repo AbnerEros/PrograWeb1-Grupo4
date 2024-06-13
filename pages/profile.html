@@ -50,7 +50,7 @@
         </section>  
     </header>
     <main>
-        <form action="./home.html" class="save-form">
+        <form action="./profile.html" class="save-form">
             <div class="user-name">
                 <h2 class="title">Datos del usuario</h2>
                 <div class="user-img">
@@ -65,13 +65,13 @@
                 <h3>Contraseña:</h3>
                 <input class="input_style_1" type="password" name="password" id="password" placeholder="••••••••" required>
                 <h3>Nueva contraseña:</h3>
-                <input class="input_style_1" type="password" name="NuevaContraseña" id="NuevaContraseña" placeholder="Ingrese su contraseña" required>
+                <input class="input_style_1" type="password" name="new-password" id="new-password" placeholder="Ingrese su contraseña" required>
                 <h3>Repita su contraseña:</h3>
-                <input class="input_style_1" type="password" name="RepetirContrasea" placeholder="Repita su contraseña" id="ingresoDeContraseña" required> 
+                <input class="input_style_1" type="password" name="repeat-password" id="repeat-password" placeholder="Repita su contraseña" required> 
             </div>
             <button id="update-password" class="btn">Actualizar contraseña</button>
         </form>
-        <form action="./home.html" class="save-form">
+        <form action="./profile.html" class="save-form">
             <div class="pay-method">
                 <h1>Método de pago</h1>
                 <div class="coupon-transfer">
@@ -95,14 +95,14 @@
                 <div class="credit-card">
                     <div class="credit-card-col1">
                         <div class="credit-card-label">
-                            <input type="radio" id="tarjeta-credito" name="cupon-pago" value="tarjeta-credito" checked>
+                            <input type="radio" id="tarjeta-credito" name="cupon-pago" value="tarjeta-credito">
                             <h3>Tarjeta de credito:</h3>
                         </div>
-                        <input class="input_style_1" id="tarjetaDeCredito" type="text" id="numero-tarjeta" placeholder="Ingrese el número de la tarjeta" maxlength="16" pattern="[0-9]" title="Por favor, ingrese un número de tarjeta válido (16 dígitos)">
+                        <input class="input_style_1" type="number" id="numero-tarjeta" name="numero-tarjeta" placeholder="Ingrese el número de la tarjeta" maxlength="16" pattern="[0-9]" title="Por favor, ingrese un número de tarjeta válido (16 dígitos)">
                     </div>
                     <div class="credit-card-col2">
                         <h3>CVV/CVC:</h3>
-                        <input class="input_style_1" type="text" id="cvv" maxlength="3" pattern="[0-9]{3}" placeholder="Ingrese el CVV/CVC (3 dígitos)" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos)">
+                        <input class="input_style_1" type="number" name="numero-cvv" id="cvv" maxlength="3" pattern="[0-9]{3}" placeholder="Ingrese el CVV/CVC (3 dígitos)" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos)">
                     </div>
                 </div>
             </div>
