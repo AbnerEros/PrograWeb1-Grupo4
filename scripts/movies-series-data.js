@@ -270,7 +270,7 @@ const BLACK_MIRROR = {
     desc: 'Black Mirror es una producción británica desarrollada por Charlie Brooker, Una serie de episodios independientes entre sí y, con un reparto y tramas totalmente diferentes, cuyo único punto común es el poder de las nuevas tecnologías para mover el mundo. Esta serie hace un análisis de las nuevas tecnologías de una forma avanzada y futurista que en ocasiones amenazan la integridad de las personas. Un camino por lo peligroso, las obsesiones, la moral, la soledad y los sentimientos envueltos en diferentes mundos controlados por lo tecnológico con un final, en su mayoría, catastrófico, aunque otras veces satisfactorio.',
     trailer_id: "C3Hg8qgU4ss?si=YUApyOV9hs46M-qk",
     video_id: "5jY1ecibLYo",
-    similars: [1, 2, 3, 4],
+    similars: [0, 1, 2, 3, 4],
     portada_id: "black-mirror"
 }
 const BREAKING_BAD = {
@@ -295,7 +295,7 @@ const BREAKING_BAD = {
     desc: 'Walter White es un frustrado profesor de química en un instituto, padre de un joven discapacitado y con su esposa Skyler embarazada. Además, trabaja en un lavadero de vehículos por las tardes. Cuando le diagnostican un cáncer pulmonar terminal se plantea qué pasará con su familia cuando él muera. En una redada de la DEA, a la cual es invitado por su cuñado, el agente Hank Schrader, Walt reconoce a un antiguo alumno suyo, Jesse Pinkman, a quien contacta para fabricar y vender metanfetamina y así asegurar el bienestar económico de su familia. Pero el acercamiento al mundo de las drogas y el trato con traficantes y mafiosos contamina la personalidad de Walter, el cual va abandonando poco a poco su personalidad recta y predecible para convertirse en alguien sin demasiados escrúpulos cuando se trata de conseguir lo que quiere.',
     trailer_id: "HhesaQXLuRY?si=ABWtBCuYsC0gfLBY",
     video_id: "G55zPLbXrYM",
-    similars: [0, 2, 3, 4],
+    similars: [0, 1, 2, 3, 4],
     portada_id: "breaking-bad"
 }
 const FRIENDS = {
@@ -325,7 +325,7 @@ const FRIENDS = {
     desc: 'La historia da inicio en un café de Nueva York, Central Perk, en el cual se encuentran los personajes: Mónica Geller, Chandler Bing, Phoebe Buffay y Joey Tribbiani; donde también se incorporan con el paso de los minutos Ross Geller y por último Rachel Green. Este encuentro da comienzo a una etapa donde seis amigos viven en la ciudad de Nueva York. Es una comedia basada en la amistad, los buenos y malos momentos como: los triunfos, el amor, el pasado y el futuro.',
     trailer_id: "s2TyVQGoCYo?si=oXVVcO_Jo4nzHCzV",
     video_id: "hWruEaP4ysI",
-    similars: [0, 1, 3, 4,],
+    similars: [0, 1, 2, 3, 4,],
     portada_id: "friends"
 }
 const GAME_OF_THRONES = {
@@ -353,7 +353,7 @@ const GAME_OF_THRONES = {
     desc: 'La primera temporada comienza quince años después de la guerra civil conocida como la "Rebelión de Robert", con la cual Robert Baratheon expulsó del Trono de Hierro a los Targaryen y se proclamó gobernante de Poniente. Tiempo después, y tras la repentina muerte de la Mano del Rey, Jon Arryn, Robert invita a su amigo Eddard "Ned" Stark (Lord de Invernalia) a asumir el oficio vacante. Este último acepta y, tan pronto llega a Desembarco del Rey (la capital de Poniente y sede del Trono de Hierro), va descubriendo la verdad detrás de una serie de intrigas y conspiraciones que involucran a otras familias nobiliarias y que están relacionadas con la tragedia de Arryn. Sin embargo, cuando Robert muere también repentinamente, los Lannister reclaman el poder y ejecutan a Stark para evitar la difusión de sus investigaciones. Estos acontecimientos desatan una guerra entre los reinos de Poniente que se extiende hasta el final de la serie, y a la cual eventualmente se suma Daenerys, la única superviviente de la casa Targaryen, que en el exilio reúne un vasto ejército y cría a tres dragones para reclamar el poder despojado a su familia tiempo atrás. Simultáneamente, más allá de los territorios de Poniente limitados por un muro de hielo que es vigilado por la Guardia de la Noche, otra amenaza se cierne sobre los siete reinos ante la llegada de criaturas sobrenaturales conocidas como "caminantes blancos" y guiadas por el denominado Rey de la Noche.',
     trailer_id: "uwN0YVQNBB8?si=IpmCCnpHDn1GUndu",
     video_id: "RfI_mUIvYq8",
-    similars: [0, 1, 2, 4],
+    similars: [0, 1, 2, 3, 4],
     portada_id: "game-of-thrones"
 }
 const HOW_I_MET = {
@@ -382,7 +382,7 @@ const HOW_I_MET = {
     desc: 'En el año 2030, el arquitecto Ted Mosby (Josh Radnor) decide contarles a sus dos hijos la historia de cómo conoció a su madre. Por lo tanto, inicia una narración de recuerdos recopilados desde el 2005, año en el que dos de sus mejores amigos, Marshall Eriksen (Jason Segel) y Lily Aldrin (Alyson Hannigan), deciden casarse tras nueve años de noviazgo. Esa decisión hace que Ted, soltero empedernido, al igual que su otro mejor amigo Barney Stinson (Neil Patrick Harris), decida encontrar al amor de su vida desesperadamente. De una manera curiosa, aparece en ese instante la reportera canadiense Robin Scherbatsky (Cobie Smulders), que se convertirá en una nueva amiga del grupo y parte importante en la vida de Ted. A partir de este hecho, inicia la búsqueda implacable de una esposa que se convierta en madre de sus hijos.',
     trailer_id: "BxJ9wBuQUFI?si=PhsYv_P6yy_KiiV2",
     video_id: "Dqf1BmN4Dag",
-    similars: [0, 1, 2, 3],
+    similars: [0, 1, 2, 3, 4],
     portada_id: "how-i-met-your-mother"
 }
 

@@ -62,12 +62,15 @@
                 <h1>Cambiar contraseña</h1>
                 <h3>E-mail:</h3>
                 <input class="input_style_1" type="email" name="email" id="email" placeholder="email@gmail.com" required>
-                <h3>Contraseña:</h3>
+                <h3 class="password-label">Contraseña actual:</h3>
                 <input class="input_style_1" type="password" name="password" id="password" placeholder="••••••••" required>
+                <h4 class="show-password" id="show-password">👀 Ver contraseña</h4>
                 <h3>Nueva contraseña:</h3>
-                <input class="input_style_1" type="password" name="new-password" id="new-password" placeholder="Ingrese su contraseña" required>
+                <input class="input_style_1" type="password" name="new-password" id="new-password" placeholder="••••••••" required>
+                <h4 class="show-password" id="show-new-password">👀 Ver contraseña</h4>
                 <h3>Repita su contraseña:</h3>
-                <input class="input_style_1" type="password" name="repeat-password" id="repeat-password" placeholder="Repita su contraseña" required> 
+                <input class="input_style_1" type="password" name="repeat-password" id="repeat-password" placeholder="••••••••" required>
+                <h4 class="show-password" id="show-repeat-password">👀 Ver contraseña</h4>
             </div>
             <button id="update-password" class="btn">Actualizar contraseña</button>
         </form>
@@ -99,10 +102,15 @@
                             <h3>Tarjeta de credito:</h3>
                         </div>
                         <input class="input_style_1" type="number" id="numero-tarjeta" name="numero-tarjeta" placeholder="Ingrese el número de la tarjeta" maxlength="16" pattern="[0-9]" title="Por favor, ingrese un número de tarjeta válido (16 dígitos)">
+                        <h3 class="name-label">Nombre del titular:</h3>
+                        <input class="input_style_1" type="text" name="nombre-tarjeta" id="nombre-tarjeta" maxlength="50" placeholder="Ingrese el nombre tal cual aparece en la tarjeta" title="Por favor, ingrese el nombre del titular tal cual aparece en la tarjeta">
                     </div>
                     <div class="credit-card-col2">
-                        <h3>CVV/CVC:</h3>
-                        <input class="input_style_1" type="number" name="numero-cvv" id="cvv" maxlength="3" pattern="[0-9]{3}" placeholder="Ingrese el CVV/CVC (3 dígitos)" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos)">
+                        <h3>Vencimiento:</h3>
+                        <input class="input_style_1" type="month" name="vencimiento" id="vencimiento" maxlength="3" pattern="[0-9]{3}" placeholder="Ingrese el mes de vencimiento" title="Por favor, ingrese el mes de vencimiento de la tarjeta">
+                        <h3 class="cvv-label">CVV/CVC:</h3>
+                        <input class="input_style_1" type="password" name="numero-cvv" id="cvv" maxlength="3" pattern="[0-9]{3}" placeholder="Ingrese el CVV/CVC (3 dígitos)" title="Por favor, ingrese un código CVV/CVC válido (3 dígitos)">
+                        <h4 class="show-password" id="show-cvv">👀 Ver código temporalmente</h4>
                     </div>
                 </div>
             </div>

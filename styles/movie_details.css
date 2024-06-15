@@ -1,8 +1,20 @@
+body main {
+    padding: 0
+}
+
+.menu-section nav ul li a {
+    border-radius: 0.5rem;
+}
+
 .section-details {
     display: flex;
-    padding-top: 20px;
+    padding: 2rem 5% 0;
     font-family: Roboto, sans-serif;
     min-height: 32rem;
+}
+
+.series-description {
+    padding: 0 5% 3rem;
 }
 
 .section-details .details-iframe {
@@ -183,6 +195,74 @@
     outline-offset: -4px;
 }
 
+/* CAROUSEL CSS */
+
+#similars-carousel {
+    margin: 0;
+    background-color: #2c2c30;
+    padding-bottom: 1rem;
+}
+
+#similars-carousel .carousel-cell {
+    border: 0;
+    padding: 3px;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: calc(88vw * 0.5625 / 5);
+    width: calc(88vw /  5);
+    filter: blur(1px)
+}
+
+.carousel-cell img {
+    width: 100%;
+    height: 100%;
+}
+
+#similars-carousel .carousel-cell.is-selected {
+    filter: none;
+    border: 3px solid white;
+    padding: 0;
+}
+
+#similars-carousel .flickity-page-dots {
+    display: none;
+}
+
+.flickity-prev-next-button.next:focus {
+    box-shadow: none;
+}
+
+.main-carousel div a#portada-black-mirror {
+    background-image: url(../img/series/black-mirror.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
+}
+
+.main-carousel div a#portada-breaking-bad {
+    background-image: url(../img/series/breaking-bad.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
+}
+
+.main-carousel div a#portada-friends {
+    background-image: url(../img/series/friends.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
+}
+
+.main-carousel div a#portada-game-of-thrones {
+    background-image: url(../img/series/game-of-thrones.webp);
+    background-size: 100% 100%;
+    background-position-x: center;
+}
+
+.main-carousel div a#portada-how-i-met-your-mother {
+    background-image: url(../img/series/how-i-met-your-mother.png);
+    background-size: 100% 100%;
+    background-position-x: center;
+}
+/* CAROUSEL CSS */
+
 .section-similars .similar-movies div a#portada-kung-fu-panda {
     background-image: url(../img/movies/kung-fu-panda.jpg);
 }
@@ -252,20 +332,29 @@
 }
 
 @media screen and (max-width: 1500px) {
-    .section-similars .similar-movies div a,
-    .section-similars .similar-series div a {
-        min-height: 10rem;
+    #similars-carousel .carousel-cell {
+        margin-top: 10px;
+        margin-right: 10px;
+        height: calc(88vw * 0.5625 / 3);
+        width: calc(88vw /  3);
     }
 }
 
 @media screen and (max-width: 1200px) {
+    #similars-carousel .carousel-cell {
+        margin-top: 10px;
+        margin-right: 10px;
+        height: calc(88vw * 0.5625 / 2);
+        width: calc(88vw /  2);
+    }
+
     main.movie-details-main {
         padding: 5%;
     }
 
     .section-details {
         flex-direction: column;
-        padding: 0;
+        margin: auto;
     }
 
     .section-details .details-iframe iframe {
@@ -362,6 +451,13 @@
 }
 
 @media screen and (max-width: 600px) {
+    #similars-carousel .carousel-cell {
+        margin-top: 10px;
+        margin-right: 10px;
+        height: calc(88vw * 0.5625);
+        width: calc(88vw);
+    }
+
     .section-similars .similar-movies,
     .section-similars .similar-series {
         flex-direction: column;

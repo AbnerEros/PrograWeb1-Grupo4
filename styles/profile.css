@@ -88,11 +88,20 @@ main {
 }
 
 .change-password h3 {
-        margin: 0.5rem 0;
+        margin: 0 0 0.5rem;
+}
+
+.change-password h3.password-label {
+        margin: 1rem 0 0.5rem;
 }
 
 .pay-method h3 {
         margin: 0 0 0.75rem;
+}
+
+.pay-method .name-label,
+.credit-card .credit-card-col2 h3.cvv-label {
+        margin: 1rem 0 0;
 }
 
 .transfer {
@@ -122,6 +131,15 @@ main {
 
 .credit-card-col1 .input_style_1, .credit-card-col2 .input_style_1 {
         margin: 1rem 0 0;
+}
+
+.show-password {
+        text-align: end;
+        font-family: sans-serif;
+        color: gray;
+        font-size: 0.7rem;
+        margin: 0.25rem 0 0;
+        cursor: pointer;
 }
 
 .credit-card .credit-card-col2 {
@@ -221,7 +239,7 @@ main {
         }
 
         .pay-method .coupon .rapi-pago, .pay-method .coupon .pago-facil {
-                width: 75%;
+                width: 50%;
         }
 
         .btn-border {
@@ -242,6 +260,13 @@ main {
         }
 
         .pay-method .credit-card-col2 {
-                margin: 2rem 0 0;
+                margin: 1.5rem 0 0;
+        }
+}
+
+
+@media screen and (max-width: 600px) {
+        .pay-method .coupon .rapi-pago, .pay-method .coupon .pago-facil {
+                width: 75%;
         }
 }
