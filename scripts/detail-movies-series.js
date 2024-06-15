@@ -64,13 +64,13 @@ function setGenre(serie_id, genre_id) {
 }
 
 function setCast(serie_id, cast_id) {
-    let all_cast = document.querySelectorAll("#serie-cast a")
+    let all_cast = document.querySelectorAll(cast_id + " a")
     all_cast.forEach((node) => {
         node.remove()
     });
     
     // Para las películas de animación quiero que aparezca "Actores (de voz)" en la página
-    if ( CONTENT_LIST[serie_id].genre.split(",").shift() == "Animación" ) {
+    if ( CONTENT_LIST[serie_id].genre.split(",").shift() == "Animación" && !document.querySelector(cast_id + "-title").textContent.includes("(de voz)") ) {
         let nodo_cast_title = document.querySelector(cast_id + "-title")
         nodo_cast_title.textContent += " (de voz)"
     }
@@ -94,10 +94,13 @@ function setCast(serie_id, cast_id) {
 }
 
 function setSimilars(serie_id, similars_id) {
-    let final_similars_id = similars_id
+    let final_similars_id = similars_id 
     let similars_array = CONTENT_LIST[serie_id].similars
 
     nodo_similars_a = document.querySelectorAll(similars_id + ' a')
+    nodo_similars_a.forEach((node) => {
+        node.remove()
+    });
 
     if ( document.querySelector(`${similars_id} .flickity-slider`) )
         final_similars_id = `${similars_id} .flickity-slider`
@@ -107,6 +110,8 @@ function setSimilars(serie_id, similars_id) {
         nodo_a.classList.add("carousel-cell")
         nodo_a.classList.add("carousel-id-" + i)
         nodo_a.style.cursor = 'pointer'
+        nodo_a.style.position = 'absolute'
+        nodo_a.style.left = '0px'
         nodo_a.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[i])[0].portada_id
         document.querySelector(final_similars_id).appendChild(nodo_a)
     }
@@ -116,6 +121,8 @@ function setSimilars(serie_id, similars_id) {
         nodo_a.classList.add("carousel-cell");
         nodo_a.classList.add("carousel-id-"+ (i + similars_array.length) )
         nodo_a.style.cursor = 'pointer'
+        nodo_a.style.position = 'absolute'
+        nodo_a.style.left = '0px'
         nodo_a.id = `portada-` + CONTENT_LIST.filter( x => x.id == similars_array[i])[0].portada_id;
         document.querySelector(final_similars_id).appendChild(nodo_a);
     }
@@ -174,20 +181,20 @@ function setDescription(serie_id, description_id) {
     nodo_desc.textContent = CONTENT_LIST[serie_id].desc
 }
 
-function getMovieDetail(actual_id) {
-    setIframeAndVideo(actual_id, "#details-iframe");
-    setTitle(actual_id, "#movie-title");
-    setDurationAndExtDuration(actual_id, "#movie-duration", "#movie-ext-duration");
-    setGenre(actual_id, "#movie-genre");
-    setCast(actual_id, "#movie-cast")
-    setSimilars(actual_id, SIMILARS_CAROUSEL_ID)
+function setMovieDetail(movie_id) {
+    setDocumentTitle(movie_id)
+    setIframeAndVideo(movie_id, "#details-iframe");
+    setTitle(movie_id, "#movie-title");
+    setDurationAndExtDuration(movie_id, "#movie-duration", "#movie-ext-duration");
+    setGenre(movie_id, "#movie-genre");
+    setCast(movie_id, "#movie-cast")
 }
 
 function setDocumentTitle(serie_id) {
     document.title = CONTENT_LIST[serie_id].serie_name
 }
 
-function setCarouselEventListener() {
+function setCarouselEventListener(flickity_carousel) {
     let SIMILARS_CAROUSEL_SLIDERS = document.querySelectorAll('a.carousel-cell');
     SIMILARS_CAROUSEL_SLIDERS.forEach(slider => {
         slider.addEventListener("click", function() {
@@ -204,29 +211,43 @@ function setSerieDetail(serie_id) {
     setGenre(serie_id, "#serie-genre");
     setCast(serie_id, "#serie-cast")
     setDescription(serie_id, "#series-description")
-    setSimilars(serie_id, SIMILARS_CAROUSEL_ID)
-    setCarouselEventListener()
 }
 
 if ( PARAM_ID )
     actual_id = PARAM_ID
 
-if ( PAGE_SUFIX == MOVIES_PAGE )
-    getMovieDetail(actual_id);
-else if ( PAGE_SUFIX == SERIES_PAGE ) {
-    setSerieDetail(actual_id);
-}
-
-let flickity_carousel = new Flickity( SIMILARS_CAROUSEL, {
-    cellAlign: 'center',
-    wrapAround: true,
-    freeScroll: true,
-    pageDots: true,
-    accessibility: true,
-    imagedLoaded: true,
-    on: {
-        change: function( index ) {
-            setSerieDetail( index % CONTENT_LIST.length );
+if ( PAGE_SUFIX == MOVIES_PAGE ) {
+    setMovieDetail(actual_id);
+    setSimilars(actual_id, SIMILARS_CAROUSEL_ID);
+    const flickity_carousel_movies = new Flickity( SIMILARS_CAROUSEL, {
+        cellAlign: 'center',
+        wrapAround: true,
+        freeScroll: true,
+        pageDots: true,
+        accessibility: true,
+        imagedLoaded: true,
+        on: {
+            change: function( index ) {
+                setMovieDetail( index % CONTENT_LIST.length );
+            }
         }
-    }
-});
+    });
+    setCarouselEventListener(flickity_carousel_movies);
+} else if ( PAGE_SUFIX == SERIES_PAGE ) {
+    setSerieDetail(actual_id);
+    setSimilars(actual_id, SIMILARS_CAROUSEL_ID);
+    const flickity_carousel_series = new Flickity( SIMILARS_CAROUSEL, {
+        cellAlign: 'center',
+        wrapAround: true,
+        freeScroll: true,
+        pageDots: true,
+        accessibility: true,
+        imagedLoaded: true,
+        on: {
+            change: function( index ) {
+                setSerieDetail( index % CONTENT_LIST.length );
+            }
+        }
+    });
+    setCarouselEventListener(flickity_carousel_series);
+}

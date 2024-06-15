@@ -213,9 +213,6 @@ function setDefaultListeners() {
                 case 'show-repeat-password':
                     showPassword(USER_REPEAT_NEW_PASSWORD)
                     break;
-                case 'show-cvv':
-                    showPassword(CVV)
-                    break;
             }
         })
     });

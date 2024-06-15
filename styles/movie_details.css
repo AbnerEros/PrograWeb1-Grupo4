@@ -8,7 +8,7 @@ body main {
 
 .section-details {
     display: flex;
-    padding: 2rem 5% 0;
+    padding: 2rem 5%;
     font-family: Roboto, sans-serif;
     min-height: 32rem;
 }
@@ -200,13 +200,13 @@ body main {
 #similars-carousel {
     margin: 0;
     background-color: #2c2c30;
-    padding-bottom: 1rem;
+    padding: 0.5rem 0;
 }
 
 #similars-carousel .carousel-cell {
     border: 0;
     padding: 3px;
-    margin-top: 10px;
+    margin-top: 0;
     margin-right: 10px;
     height: calc(88vw * 0.5625 / 5);
     width: calc(88vw /  5);
@@ -261,75 +261,79 @@ body main {
     background-size: 100% 100%;
     background-position-x: center;
 }
-/* CAROUSEL CSS */
 
-.section-similars .similar-movies div a#portada-kung-fu-panda {
+.main-carousel div a#portada-kung-fu-panda {
     background-image: url(../img/movies/kung-fu-panda.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-ratatouille {
+.main-carousel div a#portada-ratatouille {
     background-image: url(../img/movies/ratatouille.png);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-shrek {
+.main-carousel div a#portada-shrek {
     background-image: url(../img/movies/shrek1.webp);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-la-era-del-hielo {
+.main-carousel div a#portada-la-era-del-hielo {
     background-image: url(../img/movies/la-era-del-hielo.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-toy-story {
+.main-carousel div a#portada-toy-story {
     background-image: url(../img/movies/toy_story.webp);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-madagascar {
+.main-carousel div a#portada-madagascar {
     background-image: url(../img/movies/madagascar.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-lotr1 {
+.main-carousel div a#portada-lotr1 {
     background-image: url(../img/movies/lotr1.avif);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-lotr2 {
+.main-carousel div a#portada-lotr2 {
     background-image: url(../img/movies/lotr2.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-lotr3 {
+.main-carousel div a#portada-lotr3 {
     background-image: url(../img/movies/lotr3.avif);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-hobbit1 {
+.main-carousel div a#portada-hobbit1 {
     background-image: url(../img/movies/hobbit1.jpeg);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-hobbit2 {
+.main-carousel div a#portada-hobbit2 {
     background-image: url(../img/movies/hobbit2.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
 
-.section-similars .similar-movies div a#portada-hobbit3 {
+.main-carousel div a#portada-hobbit3 {
     background-image: url(../img/movies/hobbit3.jpg);
+    background-size: 100% 100%;
+    background-position-x: center;
 }
-
-.section-similars .similar-series div a#portada-black-mirror {
-    background-image: url(../img/series/black-mirror.jpg);
-}
-
-.section-similars .similar-series div a#portada-breaking-bad {
-    background-image: url(../img/series/breaking-bad.jpg);
-}
-
-.section-similars .similar-series div a#portada-friends {
-    background-image: url(../img/series/friends.jpg);
-}
-
-.section-similars .similar-series div a#portada-game-of-thrones {
-    background-image: url(../img/series/game-of-thrones.webp);
-}
-
-.section-similars .similar-series div a#portada-how-i-met-your-mother {
-    background-image: url(../img/series/how-i-met-your-mother.png);
-}
+/* CAROUSEL CSS */
 
 @media screen and (max-width: 1500px) {
     #similars-carousel .carousel-cell {
@@ -341,6 +345,10 @@ body main {
 }
 
 @media screen and (max-width: 1200px) {
+    body header {
+        padding-bottom: 0;
+    }
+
     #similars-carousel .carousel-cell {
         margin-top: 10px;
         margin-right: 10px;
@@ -418,12 +426,6 @@ body main {
         font-size: 1.2rem;
     }
 
-    .section-similars {
-        display: flex;
-        margin-top: 1rem;
-        flex-direction: column;
-    }
-
     .section-similars h1 {
         margin: 0;
     }
@@ -451,6 +453,7 @@ body main {
 }
 
 @media screen and (max-width: 600px) {
+
     #similars-carousel .carousel-cell {
         margin-top: 10px;
         margin-right: 10px;

@@ -6,12 +6,11 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.svg">
     <link rel="stylesheet" href="../styles/movie_details.css">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles/flickity.css" media="screen">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-
-    <title>El Hobbit: un Viaje Inesperado</title>
 </head>
 <body>
     <header>
@@ -51,6 +50,7 @@
         </section> 
     </header>
     <main>
+        <section id="similars-carousel" class="section-similars similar-movies main-carousel"></section>
         <section class="section-details">
             <div id="details-iframe" class="details-iframe">
                 <iframe src="https://www.youtube.com/embed/mIeR92fwNtw?si=NHEmhveV89v2YnYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -79,13 +79,6 @@
                 </div>
             </div>
         </section>
-        <section class="section-similars">
-            <h1>Similares</h1>
-            <div class="similar-movies">
-                <div class="similar-movies-1"></div>
-                <div class="similar-movies-2"></div>
-            </div>
-        </section>
     </main>
     <footer>
         <section class="footer-section footer-left-section">
@@ -108,7 +101,7 @@
             </div>
         </section>
     </footer>
-    <script src="./scripts/flickity.pkgd.min.js"></script>
+    <script src="../scripts/flickity.pkgd.min.js"></script>
     <script src="../scripts/detail-movies-series.js"></script>
 </body>
 </html>
