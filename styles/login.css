@@ -1,11 +1,26 @@
-.login-main {
+html body {
+    width: 100%;
     display: flex;
-    min-height: 42rem;
+    flex-direction: column;
+}
+
+body header,
+body footer {
+    height: 10%;
+}
+
+body .login-main {
+    display: flex;
+    flex: 1;
+    height: 80%;
+    padding: 2rem 0;
+    min-height: 0;
 }
 
 .container {
-    width: 75%;
-    margin: 2rem auto;
+    height: 100%;
+    width: 100%;
+    margin: auto;
     display: flex;
     flex-direction: column;
 }
@@ -47,6 +62,7 @@
 .container .login input {
     margin: 0.5rem auto;
     width: 100%;
+    padding: 0;
 }
 
 .container .login .btn {
@@ -92,7 +108,7 @@
     z-index: -1;
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     top: 0;
     left: 0;
 }
@@ -107,15 +123,15 @@
     }
 
     .container {
-        width: 90%;
+        width: 80%;
         margin: 1rem auto;
     }
 
     .container .login form {
-        width: 100%;
+        width: 75%;
     }
 
-    .container .suscribe a, .container .suscribe a button {
-        width: 100%;
+    .container .suscribe a {
+        width: 75%;
     }
 }

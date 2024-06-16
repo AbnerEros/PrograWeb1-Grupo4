@@ -70,9 +70,14 @@ function setCast(serie_id, cast_id) {
     });
     
     // Para las películas de animación quiero que aparezca "Actores (de voz)" en la página
-    if ( CONTENT_LIST[serie_id].genre.split(",").shift() == "Animación" && !document.querySelector(cast_id + "-title").textContent.includes("(de voz)") ) {
+    if ( document.querySelector(cast_id + "-title") && CONTENT_LIST[serie_id].genre.split(",").shift() == "Animación" && !document.querySelector(cast_id + "-title").textContent.includes("(de voz)") ) {
         let nodo_cast_title = document.querySelector(cast_id + "-title")
         nodo_cast_title.textContent += " (de voz)"
+    }
+    
+    if ( document.querySelector(cast_id + "-title") && CONTENT_LIST[serie_id].genre.split(",").shift() != "Animación" && document.querySelector(cast_id + "-title").textContent.includes("(de voz)") ) {
+        let nodo_cast_title = document.querySelector(cast_id + "-title")
+        nodo_cast_title.textContent = "Actores"
     }
 
     let nodo_cast = document.querySelector(cast_id);
@@ -233,6 +238,7 @@ if ( PAGE_SUFIX == MOVIES_PAGE ) {
         }
     });
     setCarouselEventListener(flickity_carousel_movies);
+    flickity_carousel_movies.select(actual_id);
 } else if ( PAGE_SUFIX == SERIES_PAGE ) {
     setSerieDetail(actual_id);
     setSimilars(actual_id, SIMILARS_CAROUSEL_ID);
@@ -250,4 +256,5 @@ if ( PAGE_SUFIX == MOVIES_PAGE ) {
         }
     });
     setCarouselEventListener(flickity_carousel_series);
+    flickity_carousel_series.select(actual_id);
 }
