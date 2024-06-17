@@ -55,7 +55,7 @@
                 <h2 class="title">Datos del usuario</h2>
                 <div class="user-img">
                     <img src="../img/capy.jpg" alt="Perfil de Usuario" id="fotoDePerfil">
-                    <h1>Carpincho22</h1>
+                    <h1 id="username"></h1>
                 </div>
             </div>
             <div class="change-password">
@@ -72,6 +72,7 @@
                 <input class="input_style_1" type="password" name="repeat-password" id="repeat-password" placeholder="••••••••" required>
                 <h4 class="show-password" id="show-repeat-password">👀 Ver contraseña</h4>
             </div>
+            <h4 class="error-message" id="password-error-message"></h4>
             <button id="update-password" class="btn">Actualizar contraseña</button>
         </form>
         <form action="./profile.html" class="save-form">
@@ -113,6 +114,7 @@
                     </div>
                 </div>
             </div>
+            <h4 class="error-message" id="pay-method-error-message"></h4>
             <button id="update-pay-method" class="btn" disabled>Actualizar método de pago</button>
         </form>
         <a class="btn-cancel" href="./home.html">

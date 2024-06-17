@@ -113,6 +113,13 @@ body .login-main {
     left: 0;
 }
 
+.error-message {
+    font-family: sans-serif;
+    text-align: end;
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+}
+
 @media screen and (max-width: 1200px) {
     body {
         min-height: 0

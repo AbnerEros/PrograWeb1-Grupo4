@@ -242,7 +242,9 @@ footer .footer-section .media-logos img {
 }
 
 .error-message {
-    color: red;
+    font-size: 1rem;
+    margin: 0;
+    color: rgb(143, 0, 0);
 }
 
 @media screen and (max-width: 1200px) {
