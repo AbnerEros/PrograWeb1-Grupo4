@@ -28,7 +28,7 @@
             <h2> Crea tu cuenta </h2>
             <form action="../index.html">
                 <section class="wrapper">
-                    <div class = "box a">                                              
+                    <div class = "box a field-name field-email">                                              
                         <label for="nombre">Nombre:</label>
                         <input class="input_style_1" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
                         <label for="apellido">Apellido:</label>
@@ -47,7 +47,8 @@
                             <option value ="opcion2">Suscripción anual con anuncios - $10000 pesos</option>
                             <option value ="opcion3">Suscripción mensual - $2500 pesos</option>
                             <option value ="opcion4">Suscripción anual- $25000 pesos</option>                         
-                        </select>                
+                        </select>
+                        <p class="help is-danger is-hidden"></p>                   
                     </div>                
                     <div class = "box b">
                         <h3> Seleccione un método de pago: </h3>                 
@@ -116,6 +117,6 @@
                 </div>
             </section>
         </footer>
-        <script src="../scripts/register.js""></script>
+        <script src="../scripts/register.js"></script>
     </body>    
 </html>

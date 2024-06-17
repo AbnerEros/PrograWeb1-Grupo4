@@ -169,6 +169,21 @@ footer {
     display: block;
 }
 
+.error-message {
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    font-size: large;
+}
+
+.help {
+
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    font-size: large;
+}
+
+
+
 @media screen and (max-width: 1200px) {
     .mobile {
         display: block;

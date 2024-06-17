@@ -1,62 +1,88 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const wrapper = document.getElementById ('wrapper');
-    const nameInput = document.getElementById ('nombre');
-    const lastnameInput = document.getElementById ('apellido');
-    const emailInput = document.getElementById ('email');
-    const submitButton = document.getElementById ('btn');
-    const errorMessage = document.getElementById ('error-message');
+const REGEX_LETTERS = /^[A-Za-z]+$/i;
+const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const validateInput = (input, pattern) => {
-        const value = input.value.trim();
-        const isValid = pattern.test(value);
-        return isValid;
-    };
+const ERROR_MESSAGE = {
+  nombre: {
+    empty: "El nombre es requerido",
+    noValid: "El nombre debe contener solamente letras",
+  },
 
-    const checkFormValidity = () => {
-        const isFirstNameValid = validateInput (nameInput, /^[A-Za-z]+$/);
-        const isLastNameValid = validateInput (lastnameInput,  /^[A-Za-z]+$/);
-        const isEmailValid = validateInput (emailInput, /^[^\s@]+@[^\s@]+\.[^\s@]+$/ );
+  apellido: {
+    empty: "El apellido es requerido",
+    noValid: "El apellido debe contener solamente letras",
+  },
+  email: {
+    empty: "El email es requerido",
+    noValid: "Ingrese un formato valido",
+  },
+};
 
-        if (isFirstNameValid && isLastNameValid && isEmailValid){
-            errorMessage.textContent = '';
-            submitButton.disabled = false;
-        } else {
-            if (!isValid || isLastNameValid){
-                errorMessage.textContent = "El nombre y el apellido solo pueden contener letras.";
-            } else if (!isEmailValid){
-                errorMessage.textContent = "Por favor, introduce un correo electronico válido.";
-            }
-            submitButton.disabled = true;
-            }
-        };
+const submitBtn = document.querySelector(".btn");
+submitBtn.addEventListener("click", validate);
 
-        nameInput.addEventListener ('input', checkFormValidity);
-        lastnameInput.addEventListener ('input', checkFormValidity);
-        emailInput.addEventListener ('input', checkFormValidity);
+function validate(event) {
+  event.preventDefault();
 
-        wrapper.addEventListener ('submit', function (event){
-            event.preventDefault();
+  const inputName = document.querySelector("#nombre");
+  const inputLastName = document.querySelector('#apellido');
+  const inputEmail = document.querySelector("#email");
+  const errorMsg = document.querySelector(".field-name .help");
+  const errorEmailMsg = document.querySelector(".field-email .help");
 
-            const nombre = nameInput.value.trim();
-            const apellido = lastnameInput.value.trim();
-            const email = emailInput.value.trim();
-            
-            if (nombre && apellido && email &&
-                /^[A-Za-z]+$/.test(firstName) && 
-                /^[A-Za-z]+$/.test(lastName) && 
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                alert('Formulario enviado correctamente.');
-                // Aquí puedes manejar el envío del formulario
-            } else {
-                errorMessage.textContent = 'Por favor, completa los campos correctamente.';
-            }      
-        
-    });
-    
+  if (inputName.value === "") {
+    inputName.classList.add("is-danger");
+    errorMsg.classList.remove("is-hidden");
+    errorMsg.textContent = ERROR_MESSAGE.name.empty;
+    inputName.focus();
+  } else {
+    inputName.classList.remove("is-danger");
+    errorMsg.classList.add("is-hidden");
+  }
 
+  if (inputLastName.value === "") {
+    inputLastName.classList.add("is-danger");
+    errorMsg.classList.remove("is-hidden");
+    errorMsg.textContent = ERROR_MESSAGE.name.empty;
+    inputLastName.focus();
+  } else {
+    inputLastName.classList.remove("is-danger");
+    errorMsg.classList.add("is-hidden");
+  }
 
+  if (inputEmail.value === "") {
+    inputEmail.classList.add("is-danger");
+    errorEmailMsg.classList.remove("is-hidden");
+    errorEmailMsg.textContent = ERROR_MESSAGE.email.empty;
+    inputEmail.focus();
+  }
 
+  if (!letterValidate(inputName.value)) {
+    errorMsg.classList.remove("is-hidden");
+    inputName.classList.add("is-danger");
+    errorMsg.textContent = `${ERROR_MESSAGE.name.noValid} ${ERROR_MESSAGE.name.empty}`;
+    inputName.focus();
+  }
 
+  if (!letterValidate(inputLastName.value)) {
+    errorMsg.classList.remove("is-hidden");
+    inputLastName.classList.add("is-danger");
+    errorMsg.textContent = `${ERROR_MESSAGE.name.noValid} ${ERROR_MESSAGE.name.empty}`;
+    inputLastName.focus();
+  }
 
+  if (!emailValidate(inputEmail.value)) {
+    errorEmailMsg.classList.remove("is-hidden");
+    errorEmailMsg.textContent = ERROR_MESSAGE.email.noValid;
+  } else {
+    inputEmail.classList.remove("is-danger");
+    errorEmailMsg.classList.add("is-hidden");
+  }
+}
 
-});
+function letterValidate(text) {
+  return REGEX_LETTERS.test(text);
+}
+
+function emailValidate(email) {
+  return REGEX_EMAIL.test(email);
+}
