@@ -1,42 +1,62 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const wrapper = document.getElementById ('wrapper');
     const nameInput = document.getElementById ('nombre');
     const lastnameInput = document.getElementById ('apellido');
+    const emailInput = document.getElementById ('email');
+    const submitButton = document.getElementById ('btn');
     const errorMessage = document.getElementById ('error-message');
 
-    nameInput.addEventListener('input', function(event) {
-        const nombre = nameInput.value.trim();
-        const isValid = /^[A-Za-z]+$/i.test('nombre');
+    const validateInput = (input, pattern) => {
+        const value = input.value.trim();
+        const isValid = pattern.test(value);
+        return isValid;
+    };
 
-        if(!isValid){
-            errorMessage.textContent = 'el nombre de usuario solo puede contener letras.';
-            nameInput.setCustomValidity ('El nombre de usuario solo puede contener letras');
-        } else {
+    const checkFormValidity = () => {
+        const isFirstNameValid = validateInput (nameInput, /^[A-Za-z]+$/);
+        const isLastNameValid = validateInput (lastnameInput,  /^[A-Za-z]+$/);
+        const isEmailValid = validateInput (emailInput, /^[^\s@]+@[^\s@]+\.[^\s@]+$/ );
+
+        if (isFirstNameValid && isLastNameValid && isEmailValid){
             errorMessage.textContent = '';
-            nameInput.setCustomValidity ('');
-        }
-
-
-        });
-    
-        lastnameInput.addEventListener ('input', function(event){
-            const apellido = lastnameInput.value.trim();
-            const isValid = /^[A-Za-z]+$/.test('apellido')
-
-            if(!isValid){
-                errorMessage.textContent = 'el apellido de usuario solo puede contener letras.';
-                nameInput.setCustomValidity ('El apellido de usuario solo puede contener letras');
-            } else {
-                errorMessage.textContent = '';
-                nameInput.setCustomValidity ('');
+            submitButton.disabled = false;
+        } else {
+            if (!isValid || isLastNameValid){
+                errorMessage.textContent = "El nombre y el apellido solo pueden contener letras.";
+            } else if (!isEmailValid){
+                errorMessage.textContent = "Por favor, introduce un correo electronico válido.";
             }
+            submitButton.disabled = true;
+            }
+        };
 
-        });
+        nameInput.addEventListener ('input', checkFormValidity);
+        lastnameInput.addEventListener ('input', checkFormValidity);
+        emailInput.addEventListener ('input', checkFormValidity);
+
+        wrapper.addEventListener ('submit', function (event){
+            event.preventDefault();
+
+            const nombre = nameInput.value.trim();
+            const apellido = lastnameInput.value.trim();
+            const email = emailInput.value.trim();
+            
+            if (nombre && apellido && email 
+                /^[A-Za-z]+$/.test(firstName) && 
+                /^[A-Za-z]+$/.test(lastName) && 
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Formulario enviado correctamente.');
+                // Aquí puedes manejar el envío del formulario
+            } else {
+                errorMessage.textContent = 'Por favor, completa los campos correctamente.';
+            }      
+        
+    });
+    
+
+
+
+
+
 
 });
-
-
-
-
-
-
-
