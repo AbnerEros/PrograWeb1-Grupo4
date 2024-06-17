@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const apellido = lastnameInput.value.trim();
             const email = emailInput.value.trim();
             
-            if (nombre && apellido && email 
+            if (nombre && apellido && email &&
                 /^[A-Za-z]+$/.test(firstName) && 
                 /^[A-Za-z]+$/.test(lastName) && 
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
