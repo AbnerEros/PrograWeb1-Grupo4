@@ -1,7 +1,7 @@
 const PAY_METHODS_INPUTS = document.querySelectorAll(".pay-method input")
 const CHANGE_PASSWORD_INPUTS = document.querySelectorAll(".change-password input")
 
-const INPUT_CREDIT = document.querySelector(".credit-card .credit-card-label #tarjeta-credito")
+const CREDIT_INPUT = document.querySelector(".credit-card .credit-card-label #tarjeta-credito")
 const CVV_AND_VENC_DIV = document.querySelector(".credit-card .credit-card-col2")
 const CARD_CVV = document.querySelector(".credit-card .credit-card-col2 #cvv")
 const CARD_VENC = document.querySelector(".credit-card .credit-card-col2 #vencimiento")
@@ -12,6 +12,8 @@ const USERNAME_H1 = document.querySelector(".user-name h1#username")
 const PASSWORD_ERROR_MSG = document.querySelector("#password-error-message")
 const PAY_METHOD_ERROR_MSG = document.querySelector("#pay-method-error-message")
 
+const PAGOFACIL_INPUT = document.querySelector(".pago-facil input")
+const RAPIPAGO_INPUT = document.querySelector(".rapi-pago input")
 const TRANSFER_INPUT = document.querySelector(".transfer input")
 const TRANSFER_P = document.querySelector(".transfer p")
 const PAY_METHOD_BTN = document.querySelector("#update-pay-method")
@@ -20,6 +22,11 @@ const USER_EMAIL = document.querySelector(".change-password input[id='email']")
 const USER_ACTUAL_PASSWORD = document.querySelector(".change-password input[id='password']")
 const USER_NEW_PASSWORD = document.querySelector(".change-password input[id='new-password']")
 const USER_REPEAT_NEW_PASSWORD = document.querySelector(".change-password input[id='repeat-password']")
+
+const MODAL_PAY_METHOD = document.querySelector("#pay-method-modal")
+const MODAL_CHANGE_PASSWORD = document.querySelector("#change-password-modal")
+const MODAL_PAY_METHOD_CLOSE_BTN = document.querySelector("#pay-method-modal #pay-method-modal-btn-continue")
+const MODAL_CHANGE_PASSWORD_CLOSE_BTN = document.querySelector("#change-password-modal #change-password-modal-btn-continue")
 
 const SHOW_PASSWORD_DELAY_TIME = 1500
 const DELAY = ms => new Promise(res => setTimeout(res, ms));
@@ -50,6 +57,7 @@ const VISIBILITY_HIDDEN = 'hidden'
 const VISIBILITY_VISIBLE = 'visible'
 const DISPLAY_BLOCK = 'block'
 const DISPLAY_NONE = 'none'
+const DISPLAY_FLEX = 'flex'
 
 const TODAY_DATE = new Date()
 const TODAY_DAY = TODAY_DATE.getUTCDate()
@@ -252,10 +260,12 @@ async function showPassword(input) {
 function showPaymentModal() {
     // Muestro el modal de método de pago actualizado
     // Quiero guardar el método de pago del cliente en el localStorage y luego utilizarlo desde ahí
+    MODAL_PAY_METHOD.style.display = DISPLAY_FLEX
 }
 
 function showChangePasswordModal() {
     // Muestro el modal de contraseña actualizada
+    MODAL_CHANGE_PASSWORD.style.display = DISPLAY_FLEX
 }
 
 function setDefaultProfileValues() {
@@ -291,10 +301,10 @@ function setDefaultProfileValues() {
 function setDefaultListeners() {
     PAY_METHODS_INPUTS.forEach(input => {
         input.addEventListener("input", function() {
-            if (INPUT_CREDIT.checked === true) {
+            if (CREDIT_INPUT.checked === true) {
                 fixCardNumberAndCvvLength()
                 showCardInfo()
-                pay_method_error_msg = isCardInfoOk()
+                let pay_method_error_msg = isCardInfoOk()
                 if ( pay_method_error_msg == "OK" ) {
                     changeVisibility(PAY_METHOD_ERROR_MSG, VISIBILITY_HIDDEN)
                     changeBtnState(PAY_METHOD_BTN, ENABLE_STATE)
@@ -344,14 +354,51 @@ function setDefaultListeners() {
             }
         })
     });
+
+    MODAL_PAY_METHOD_CLOSE_BTN.addEventListener("click", function() {
+        MODAL_PAY_METHOD.style.display = DISPLAY_NONE
+    })
+
+    MODAL_CHANGE_PASSWORD_CLOSE_BTN.addEventListener("click", function() {
+        MODAL_CHANGE_PASSWORD.style.display = DISPLAY_NONE
+    })
 }
 
 function setDefaultParamCatcher() {
     // Quiero mostrar un modal cuando recién hayas cambiado la contraseña o actualizado el método de pago
     if ( URL_GEN ) {
         if ( PARAM_CUPON_PAGO ) {
-            localStorage.setItem("pay_method", PARAM_CUPON_PAGO)
-            showPaymentModal()
+            localStorage.setItem("pay_method", PARAM_CUPON_PAGO);
+            showPaymentModal();
+
+            switch ( PARAM_CUPON_PAGO ) {
+                case 'tarjeta-credito':
+                    localStorage.setItem("pay_method_card", PARAM_CARD_NUMBER);
+                    localStorage.setItem("pay_method_cvv", PARAM_CVV_NUMBER);
+                    localStorage.setItem("pay_method_card_name", PARAM_CARD_NAME);
+                    localStorage.setItem("pay_method_card_venc", PARAM_CARD_VENC);
+                    CARD_NUMBER.value = PARAM_CARD_NUMBER;
+                    CARD_CVV.value = PARAM_CVV_NUMBER;
+                    CARD_NAME.value = PARAM_CARD_NAME;
+                    CARD_VENC.value = PARAM_CARD_VENC;
+                    CREDIT_INPUT.checked = true;
+                    showCardInfo();
+                    break;
+                case 'transferencia':
+                    TRANSFER_INPUT.checked = true;
+                    changeVisibility(TRANSFER_P, VISIBILITY_VISIBLE);
+                    hideCardInfo();
+                    break;
+                case 'pagofacil':
+                    PAGOFACIL_INPUT.checked = true;
+                    hideCardInfo();
+                    break;
+                case 'rapipago':
+                    RAPIPAGO_INPUT.checked = true;
+                    hideCardInfo();
+                    break;
+                
+            }
     
             if ( PARAM_CUPON_PAGO == 'tarjeta-credito' ) {
                 localStorage.setItem("pay_method_card", PARAM_CARD_NUMBER)
@@ -362,6 +409,9 @@ function setDefaultParamCatcher() {
                 CARD_CVV.value = PARAM_CVV_NUMBER
                 CARD_NAME.value = PARAM_CARD_NAME
                 CARD_VENC.value = PARAM_CARD_VENC
+            } else if (PARAM_CUPON_PAGO == 'transferencia') {
+                TRANSFER_INPUT.checked = true;
+                changeVisibility(TRANSFER_P, VISIBILITY_VISIBLE);
             }
         }
         else if ( PARAM_EMAIL ) {
