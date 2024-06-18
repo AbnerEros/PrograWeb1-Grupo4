@@ -19,7 +19,7 @@ const HOBBIT1 = {
     video_id: "TeSzBaedb2Y",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "hobbit1",
-    html_link:  "hobbit1.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "hobbit1.jpeg"
 }
 const HOBBIT2 = {
@@ -42,7 +42,7 @@ const HOBBIT2 = {
     video_id: "sXN9IHrnVVU",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "hobbit2",
-    html_link:  "hobbit2.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "hobbit2.jpg"
 }
 const HOBBIT3 = {
@@ -65,7 +65,7 @@ const HOBBIT3 = {
     video_id: "WYi4Bp1hmC0",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "hobbit3",
-    html_link:  "hobbit3.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "hobbit3.jpg"
 }
 const KUNG_FU_PANDA = {
@@ -89,7 +89,7 @@ const KUNG_FU_PANDA = {
     video_id: "aw1x1EfgJ6E",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "kung-fu-panda",
-    html_link:  "kung-fu-panda.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "kung-fu-panda.jpg"
 }
 const ERA_DEL_HIELO = {
@@ -110,7 +110,7 @@ const ERA_DEL_HIELO = {
     video_id: "vYX1Tc1sdz4",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "la-era-del-hielo",
-    html_link:  "la-era-del-hielo.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "la-era-del-hielo.jpg"
 }
 const LOTR1 = {
@@ -134,7 +134,7 @@ const LOTR1 = {
     video_id: "1BGaWPDBBHc",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "lotr1",
-    html_link:  "lotr1.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "lotr1.avif"
 }
 const LOTR2 = {
@@ -158,7 +158,7 @@ const LOTR2 = {
     video_id: "Z9TbbMEJb2c",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "lotr2",
-    html_link:  "lotr2.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "lotr2.jpg"
 }
 const LOTR3 = {
@@ -182,7 +182,7 @@ const LOTR3 = {
     video_id: "TPBq1khnb-w",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "lotr3",
-    html_link:  "lotr3.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "lotr3.avif"
 }
 const MADAGASCAR = {
@@ -203,7 +203,7 @@ const MADAGASCAR = {
     video_id: "YqcXX92WGY8",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "madagascar",
-    html_link:  "madagascar.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "madagascar.jpg"
 }
 const RATATOUILLE = {
@@ -224,7 +224,7 @@ const RATATOUILLE = {
     video_id: "G3lSONLLx70",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "ratatouille",
-    html_link:  "ratatouille.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "ratatouille.png"
 }
 const SHREK = {
@@ -245,7 +245,7 @@ const SHREK = {
     video_id: "Qk0fiNebwzk",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "shrek",
-    html_link:  "shrek.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "shrek1.webp"
 }
 const TOY_STORY = {
@@ -266,7 +266,7 @@ const TOY_STORY = {
     video_id: "-YAB7XsfxaY",
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "toy-story",
-    html_link:  "toy-story.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "toy_story.webp"
 }
 
@@ -296,7 +296,7 @@ const BLACK_MIRROR = {
     video_id: "5jY1ecibLYo",
     similars: [0, 1, 2, 3, 4],
     portada_id: "black-mirror",
-    html_link:  "black-mirror.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "black-mirror.jpg"
 }
 const BREAKING_BAD = {
@@ -323,7 +323,7 @@ const BREAKING_BAD = {
     video_id: "G55zPLbXrYM",
     similars: [0, 1, 2, 3, 4],
     portada_id: "breaking-bad",
-    html_link:  "breaking-bad.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "breaking-bad.jpg"
 }
 const FRIENDS = {
@@ -355,7 +355,7 @@ const FRIENDS = {
     video_id: "hWruEaP4ysI",
     similars: [0, 1, 2, 3, 4,],
     portada_id: "friends",
-    html_link:  "friends.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "friends.jpg"
 }
 const GAME_OF_THRONES = {
@@ -385,7 +385,7 @@ const GAME_OF_THRONES = {
     video_id: "RfI_mUIvYq8",
     similars: [0, 1, 2, 3, 4],
     portada_id: "game-of-thrones",
-    html_link:  "game-of-thrones.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "game-of-thrones.jpg"
 }
 const HOW_I_MET = {
@@ -416,7 +416,7 @@ const HOW_I_MET = {
     video_id: "Dqf1BmN4Dag",
     similars: [0, 1, 2, 3, 4],
     portada_id: "how-i-met-your-mother",
-    html_link:  "how-i-met-your-mother.html",
+    html_link:  "./details-movies.html?id=",
     img_src: "how-i-met-your-mother.png"
 }
 
