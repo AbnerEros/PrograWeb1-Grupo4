@@ -296,7 +296,7 @@ const BLACK_MIRROR = {
     video_id: "5jY1ecibLYo",
     similars: [0, 1, 2, 3, 4],
     portada_id: "black-mirror",
-    html_link:  "./details-movies.html?id=",
+    html_link:  "./details-series.html?id=",
     img_src: "black-mirror.jpg"
 }
 const BREAKING_BAD = {
@@ -323,7 +323,7 @@ const BREAKING_BAD = {
     video_id: "G55zPLbXrYM",
     similars: [0, 1, 2, 3, 4],
     portada_id: "breaking-bad",
-    html_link:  "./details-movies.html?id=",
+    html_link:  "./details-series.html?id=",
     img_src: "breaking-bad.jpg"
 }
 const FRIENDS = {
@@ -355,7 +355,7 @@ const FRIENDS = {
     video_id: "hWruEaP4ysI",
     similars: [0, 1, 2, 3, 4,],
     portada_id: "friends",
-    html_link:  "./details-movies.html?id=",
+    html_link:  "./details-series.html?id=",
     img_src: "friends.jpg"
 }
 const GAME_OF_THRONES = {
@@ -385,7 +385,7 @@ const GAME_OF_THRONES = {
     video_id: "RfI_mUIvYq8",
     similars: [0, 1, 2, 3, 4],
     portada_id: "game-of-thrones",
-    html_link:  "./details-movies.html?id=",
+    html_link:  "./details-series.html?id=",
     img_src: "game-of-thrones.jpg"
 }
 const HOW_I_MET = {
@@ -416,7 +416,7 @@ const HOW_I_MET = {
     video_id: "Dqf1BmN4Dag",
     similars: [0, 1, 2, 3, 4],
     portada_id: "how-i-met-your-mother",
-    html_link:  "./details-movies.html?id=",
+    html_link:  "./details-series.html?id=",
     img_src: "how-i-met-your-mother.png"
 }
 
