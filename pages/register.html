@@ -41,17 +41,26 @@
                         <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
                         <p class="help is-danger is-hidden"></p> 
                         </div> 
-                        <label for="apellido">Usuario:</label>
-                        <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su usuario" required>
+                        <div class = "field-user">
+                        <label for="usuario">Usuario:</label>
+                        <input class="input_style_1" type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required>
+                        <p class="help is-danger is-hidden"></p> 
+                        </div>
                         <div class = "field-email">
                         <label for="email">Email:</label>
                         <input class="input_style_1" type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" required>      
                         <p class="help is-danger is-hidden"></p> 
                         </div>
+                        <div class = "field-password">                       
                         <label for="contrasena">Contraseña:</label>
-                        <input class="input_style_1" type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
-                        <label for="contrasena"> Repetir contraseña:</label>
-                        <input class="input_style_1" type="password" id="contrasena" name="contrasena" placeholder="Repita contraseña" required>
+                        <input class="input_style_1" type="password" id="contraseña" name="contraseña" placeholder="Ingrese su contraseña" required>
+                        <p class="help is-danger is-hidden"></p>
+                        </div>
+                        <div class = "field-repeat_password">
+                        <label for="repetir-contraseña"> Repetir contraseña:</label>
+                        <input class="input_style_1" type="password" id="repetir-contraseña" name="repetir-contraseña" placeholder="Repita contraseña" required>
+                        <p class="help is-danger is-hidden"></p>
+                        </div>
                         <label for = "Selecciona el plan que mas desea"> Planes: </label>
                         <select class="input_style_1" id="opciones" name="opciones">
                             <option value ="opcion1">Suscripción mensual con anuncios - $1000 pesos</option>
