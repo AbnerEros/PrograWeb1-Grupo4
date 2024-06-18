@@ -246,7 +246,7 @@ const SHREK = {
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "shrek",
     html_link:  "shrek.html",
-    img_src: "shrek.png"
+    img_src: "shrek1.webp"
 }
 const TOY_STORY = {
     id: 11,
@@ -267,7 +267,7 @@ const TOY_STORY = {
     similars: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     portada_id: "toy-story",
     html_link:  "toy-story.html",
-    img_src: "toy-story.webp"
+    img_src: "toy_story.webp"
 }
 
 // Series
