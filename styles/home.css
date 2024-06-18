@@ -41,6 +41,7 @@ main {
 .categories {
     padding: 0;
     width: 50%;
+    display: flex;
 }
 
 .categories label {
@@ -49,7 +50,8 @@ main {
     font-size: 2rem;
     font-weight: 400;
     color: #343440;
-    width: 30%;
+    width: fit-content;
+    margin-right: 1rem;
 }
 
 .top-section .categories select {
@@ -62,11 +64,11 @@ main {
     outline: 2px solid rgba(0, 0, 0, 0.3);
     border-radius: 0.5rem;
     min-height: 2.2rem;
-    margin-left: 1rem;
     
     vertical-align: middle;
     appearance: none;
     text-indent: 0.5rem;
+    padding-left: 0.5rem;
 }
 
 .search-bar {
@@ -89,6 +91,10 @@ main {
 }
 
 @media screen and (max-width: 1200px) {
+    .categories {
+        flex-direction: column;
+    }
+
     .top-section {
         flex-direction: column;
         padding: 0;
@@ -105,7 +111,7 @@ main {
     }
 
     .top-section article.categories label {
-        text-align: end;
+        text-align: left;
     }
 
     .top-section article.search-bar {
