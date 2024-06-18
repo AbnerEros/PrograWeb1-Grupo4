@@ -66,7 +66,7 @@ const TODAY_YEAR = TODAY_DATE.getUTCFullYear()
 
 const PROFILE_ERROR_MESSAGES = {
     CARD_NUMBER: {
-        IS_NOT_EVEN: "Si la suma de los números de la tarjeta (sin incluir el último) es par, el último número debe ser par.",
+        IS_NOT_EVEN: "Si la suma de los números de la tarjeta (sin incluir el último) es par, el último número debe ser impar.",
         IS_NOT_ODD: "Si la suma de los números de la tarjeta (sin incluir el último) es impar, el último número debe ser par.",
         LENGTH: "El número de la tarjeta debe tener entre 16 y 19 caracteres de longitud.",
         ONLY_NUMBERS: "El número de la tarjeta sólo debe contener números.",
@@ -104,8 +104,8 @@ const PROFILE_ERROR_MESSAGES = {
 }
 
 function fixCardNumberAndCvvLength() {
-    if ( CARD_NUMBER.value.length > 16 )
-        CARD_NUMBER.value = CARD_NUMBER.value.substring(0, 16)
+    if ( CARD_NUMBER.value.length > 19 )
+        CARD_NUMBER.value = CARD_NUMBER.value.substring(0, 19)
         
     if ( CARD_CVV.value.length > 3 )
         CARD_CVV.value = CARD_CVV.value.substring(0, 3)
