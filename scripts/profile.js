@@ -3,7 +3,7 @@ const CHANGE_PASSWORD_INPUTS = document.querySelectorAll(".change-password input
 
 const INPUT_CREDIT = document.querySelector(".credit-card .credit-card-label #tarjeta-credito")
 const CVV_AND_VENC_DIV = document.querySelector(".credit-card .credit-card-col2")
-const CVV = document.querySelector(".credit-card .credit-card-col2 #cvv")
+const CARD_CVV = document.querySelector(".credit-card .credit-card-col2 #cvv")
 const CARD_VENC = document.querySelector(".credit-card .credit-card-col2 #vencimiento")
 const CARD_NUMBER = document.querySelector(".credit-card .input_style_1[type='number']")
 const CARD_NAME_LABEL = document.querySelector(".credit-card .credit-card-col1 .name-label")
@@ -46,20 +46,61 @@ const PARAM_CARD_VENC = URL_GEN.searchParams.get("vencimiento")
 
 const ENABLE_STATE = 1
 const DISABLE_STATE = 0
-const HIDDEN_ELEMENT = 'hidden'
-const VISIBLE_ELEMENT = 'visible'
+const VISIBILITY_HIDDEN = 'hidden'
+const VISIBILITY_VISIBLE = 'visible'
+const DISPLAY_BLOCK = 'block'
+const DISPLAY_NONE = 'none'
 
 const TODAY_DATE = new Date()
 const TODAY_DAY = TODAY_DATE.getUTCDate()
 const TODAY_MONTH = TODAY_DATE.getUTCMonth() + 1
 const TODAY_YEAR = TODAY_DATE.getUTCFullYear()
 
+const PROFILE_ERROR_MESSAGES = {
+    CARD_NUMBER: {
+        IS_NOT_EVEN: "Si la suma de los números de la tarjeta (sin incluir el último) es par, el último número debe ser par.",
+        IS_NOT_ODD: "Si la suma de los números de la tarjeta (sin incluir el último) es impar, el último número debe ser par.",
+        LENGTH: "El número de la tarjeta debe tener entre 16 y 19 caracteres de longitud.",
+        ONLY_NUMBERS: "El número de la tarjeta sólo debe contener números.",
+        EMPTY: "Debe rellenar el número de la tarjeta"
+    },
+    CARD_CVV: {
+        LENGTH: "El número de CVV/CVC debe tener 3 caracteres de longitud.",
+        NOT_VALID: "El número de CVV/CVC debe ser de 3 números distintos de 0 (cero).",
+        ONLY_NUMBERS: "El número de CVV/CVC sólo debe contener números.",
+        EMPTY: "Debe rellenar el CVV/CVC de la tarjeta"
+    },
+    CARD_NAME: {
+        ONLY_LETTERS_AND_SPACES: "El nombre del titular debe contener sólo letras y espacios.",
+        EMPTY: "Debe rellenar el nombre del titular de la tarjeta"
+    },
+    CARD_DATE: {
+        FORMAT: "El mes de vencimiento debe tener el formato correcto.",
+        NOT_VALID_YEAR: "El año de vencimiento debe ser mayor o igual al año actual.",
+        NOT_VALID_MONTH: "El mes de vencimiento debe ser mayor o igual al mes actual.",
+        EMPTY: "Debe rellenar el mes de vencimiento de la tarjeta"
+    },
+    EMAIL: {
+        FORMAT: "Formato inválido de email."
+    },
+    PASSWORD: {
+        EMPTY: "Debe ingresar la contraseña actual.",
+        NOT_CORRECT: "La contraseña actual es incorrecta."
+    },
+    NEW_PASSWORD: {
+        NOT_VALID: "La nueva contraseña debe tener al menos 8 caracteres de longitud.",
+        FORMAT: "La nueva contraseña debe contener al menos 2 letras, 2 números y 2 caracteres especiales.",
+        PASSWORDS_EQUAL: "La nueva contraseña debe escribirse igual ambas veces.",
+        DIFFERENT: "La nueva contraseña debe ser diferente a la actual."
+    }
+}
+
 function fixCardNumberAndCvvLength() {
     if ( CARD_NUMBER.value.length > 16 )
         CARD_NUMBER.value = CARD_NUMBER.value.substring(0, 16)
         
-    if ( CVV.value.length > 3 )
-        CVV.value = CVV.value.substring(0, 3)
+    if ( CARD_CVV.value.length > 3 )
+        CARD_CVV.value = CARD_CVV.value.substring(0, 3)
 
     if ( CARD_NAME.value.length > 50 )
         CARD_NAME.value = CARD_NAME.value.substring(0, 50)
@@ -82,38 +123,53 @@ function isCardInfoOk() {
     year_venc = date_venc.getUTCFullYear()
     let sumCardNumbers;
     
+    if ( !CARD_NUMBER.value )
+        return PROFILE_ERROR_MESSAGES.CARD_NUMBER.EMPTY
+
+    if ( !CARD_VENC.value )
+        return PROFILE_ERROR_MESSAGES.CARD_DATE.EMPTY
+
+    if ( !CARD_NAME.value )
+        return PROFILE_ERROR_MESSAGES.CARD_NAME.EMPTY
+
+    if ( !CARD_CVV.value )
+        return PROFILE_ERROR_MESSAGES.CARD_CVV.EMPTY
+
+    if ( CARD_NUMBER.value.length < 16 || CARD_NUMBER.value.length > 19 )
+        return PROFILE_ERROR_MESSAGES.CARD_NUMBER.LENGTH
+
+    if ( CARD_CVV.value.length != 3 )
+        return PROFILE_ERROR_MESSAGES.CARD_CVV.LENGTH
+
+    if ( !REGEX_3_NUMBERS_NOT_ZERO.test(CARD_CVV.value) )
+        return PROFILE_ERROR_MESSAGES.CARD_CVV.NOT_VALID
+
+    if ( isNaN(Number(CARD_NUMBER.value)) )
+        return PROFILE_ERROR_MESSAGES.CARD_NUMBER.ONLY_NUMBERS
+
+    if ( isNaN(Number(CARD_CVV.value)) )
+        return PROFILE_ERROR_MESSAGES.CARD_CVV.ONLY_NUMBERS
+
+    if ( !REGEX_LETTERS_AND_SPACES.test(CARD_NAME.value) )
+        return PROFILE_ERROR_MESSAGES.CARD_NAME.ONLY_LETTERS_AND_SPACES
+
+    if ( !REGEX_YEAR_MONTH.test(CARD_VENC.value) )
+        return PROFILE_ERROR_MESSAGES.CARD_DATE.FORMAT
+
+    if ( year_venc < TODAY_YEAR)
+        return PROFILE_ERROR_MESSAGES.CARD_DATE.NOT_VALID_YEAR
+
+    if ( month_venc < TODAY_MONTH && year_venc == TODAY_YEAR  )
+        return PROFILE_ERROR_MESSAGES.CARD_DATE.NOT_VALID_MONTH
+
     if ( !isNaN(Number(CARD_NUMBER.value)) )
         sumCardNumbers = sumNumbersInString( String(CARD_NUMBER.value.substring(0, CARD_NUMBER.value.length - 1)) )
 
     if ( sumCardNumbers % 2 == 0 && CARD_NUMBER.value.substring(CARD_NUMBER.value.length - 1, CARD_NUMBER.value.length) % 2 == 0 )
-        return "Si la suma de los números de la tarjeta (sin incluir el último) es par, el último número debe ser par"
+        return PROFILE_ERROR_MESSAGES.CARD_NUMBER.IS_NOT_EVEN
     
     if ( sumCardNumbers % 2 == 1 && CARD_NUMBER.value.substring(CARD_NUMBER.value.length - 1, CARD_NUMBER.value.length) % 2 == 1 )
-        return "Si la suma de los números de la tarjeta (sin incluir el último) es impar, el último número debe ser par"
-
-    if ( CARD_NUMBER.value.length < 16 || CARD_NUMBER.value.length > 19 )
-        return "El número de la tarjeta debe tener entre 16 y 19 caracteres de longitud."
-
-    if ( CVV.value.length != 3 )
-        return "El número de CVV/CVC debe tener 3 caracteres de longitud."
-
-    if ( !REGEX_3_NUMBERS_NOT_ZERO.test(CVV.value) )
-        return "El número de CVV/CVC debe ser de 3 números distintos de 0 (cero)."
-
-    if ( isNaN(Number(CARD_NUMBER.value)) )
-        return "El número de la tarjeta sólo debe contener números."
-
-    if ( isNaN(Number(CVV.value)) )
-        return "El número de CVV/CVC sólo debe contener números."
-
-    if ( !REGEX_LETTERS_AND_SPACES.test(CARD_NAME.value) )
-        return "El nombre del titular debe contener sólo letras y espacios."
-
-    if ( !REGEX_YEAR_MONTH.test(CARD_VENC.value) )
-        return "El mes de vencimiento debe tener el formato correcto."
-
-    if ( !(month_venc >= TODAY_MONTH && year_venc == TODAY_YEAR ) || !(year_venc > TODAY_YEAR) )
-        return "El mes de vencimiento debe ser mayor o igual al mes actual."
+        return PROFILE_ERROR_MESSAGES.CARD_NUMBER.IS_NOT_ODD
 
     return "OK"
 }
@@ -131,49 +187,49 @@ String.prototype.hashCode = function() {
 
 function isChangePasswordInfoOk() {
     if ( !REGEX_EMAIL.test(USER_EMAIL.value) )
-        return "Formato inválido de email."
+        return PROFILE_ERROR_MESSAGES.EMAIL.FORMAT
 
     if ( !USER_ACTUAL_PASSWORD.value )
-        return "Debe ingresar la contraseña actual."
+        return PROFILE_ERROR_MESSAGES.PASSWORD.EMPTY
 
     if ( USER_ACTUAL_PASSWORD.value.hashCode() != localStorage.getItem("password") )
-        return "La contraseña actual es incorrecta."
+        return PROFILE_ERROR_MESSAGES.PASSWORD.NOT_CORRECT
 
     if ( USER_NEW_PASSWORD.value.length < 8 )
-        return "La nueva contraseña debe tener al menos 8 caracteres de longitud."
+        return PROFILE_ERROR_MESSAGES.NEW_PASSWORD.NOT_VALID
 
     if ( !REGEX_ATLEAST2_LETTERS.test(USER_NEW_PASSWORD.value) || !REGEX_ATLEAST2_SPECIAL.test(USER_NEW_PASSWORD.value) || !REGEX_ATLEAST2_NUMBERS.test(USER_NEW_PASSWORD.value) )
-        return "La nueva contraseña debe contener al menos 2 letras, 2 números y 2 caracteres especiales."
+        return PROFILE_ERROR_MESSAGES.NEW_PASSWORD.FORMAT
 
     if ( USER_NEW_PASSWORD.value != USER_REPEAT_NEW_PASSWORD.value )
-        return "La nueva contraseña debe escribirse igual ambas veces."
+        return PROFILE_ERROR_MESSAGES.NEW_PASSWORD.PASSWORDS_EQUAL
 
     if ( USER_ACTUAL_PASSWORD.value == USER_NEW_PASSWORD.value )
-        return "La nueva contraseña debe ser diferente a la actual."
+        return PROFILE_ERROR_MESSAGES.NEW_PASSWORD.DIFFERENT
 
     return "OK"
 }
 
 function showCardInfo() {
-    CARD_NUMBER.style.display = 'block'
+    CARD_NUMBER.style.display = DISPLAY_BLOCK
     CARD_NUMBER.required = true
-    CVV_AND_VENC_DIV.style.display = 'block'
-    CVV.required = true
+    CVV_AND_VENC_DIV.style.display = DISPLAY_BLOCK
+    CARD_CVV.required = true
     CARD_VENC.required = true
-    CARD_NAME.style.display = 'block'
+    CARD_NAME.style.display = DISPLAY_BLOCK
     CARD_NAME.required = true
-    CARD_NAME_LABEL.style.display = 'block'
+    CARD_NAME_LABEL.style.display = DISPLAY_BLOCK
 }
 
 function hideCardInfo() {
-    CARD_NUMBER.style.display = 'none'
+    CARD_NUMBER.style.display = DISPLAY_NONE
     CARD_NUMBER.required = false
-    CVV_AND_VENC_DIV.style.display = 'none'
-    CVV.required = false
+    CVV_AND_VENC_DIV.style.display = DISPLAY_NONE
+    CARD_CVV.required = false
     CARD_VENC.required = false
-    CARD_NAME.style.display = 'none'
+    CARD_NAME.style.display = DISPLAY_NONE
     CARD_NAME.required = false
-    CARD_NAME_LABEL.style.display = 'none'
+    CARD_NAME_LABEL.style.display = DISPLAY_NONE
 }
 
 function changeBtnState(btn, state) {
@@ -204,10 +260,10 @@ function showChangePasswordModal() {
 
 function setDefaultProfileValues() {
     USERNAME_H1.textContent = localStorage.getItem("username")
-    changeVisibility(TRANSFER_P, HIDDEN_ELEMENT)
+    changeVisibility(TRANSFER_P, VISIBILITY_HIDDEN)
     CARD_NUMBER.required = true
     CARD_NAME.required = true
-    CVV.required = true
+    CARD_CVV.required = true
     CARD_VENC.required = true
     PAY_METHOD_BTN.disabled = true;
     CHANGE_PASSWORD_BTN.disabled = true;
@@ -220,14 +276,14 @@ function setDefaultProfileValues() {
     
         if ( localStorage.getItem("pay_method") == "tarjeta-credito" ) {
             CARD_NUMBER.value = localStorage.getItem("pay_method_card")
-            CVV.value = localStorage.getItem("pay_method_cvv")
+            CARD_CVV.value = localStorage.getItem("pay_method_cvv")
             CARD_NAME.value = localStorage.getItem("pay_method_card_name")
             CARD_VENC.value = localStorage.getItem("pay_method_card_venc")
         } else
             hideCardInfo()
         
         if ( localStorage.getItem("pay_method") == "transferencia" )
-            changeVisibility(TRANSFER_P, VISIBLE_ELEMENT)
+            changeVisibility(TRANSFER_P, VISIBILITY_VISIBLE)
     } else
         hideCardInfo()
 }
@@ -240,11 +296,11 @@ function setDefaultListeners() {
                 showCardInfo()
                 pay_method_error_msg = isCardInfoOk()
                 if ( pay_method_error_msg == "OK" ) {
-                    changeVisibility(PAY_METHOD_ERROR_MSG, HIDDEN_ELEMENT)
+                    changeVisibility(PAY_METHOD_ERROR_MSG, VISIBILITY_HIDDEN)
                     changeBtnState(PAY_METHOD_BTN, ENABLE_STATE)
                 } else {
                     PAY_METHOD_ERROR_MSG.textContent = pay_method_error_msg
-                    changeVisibility(PAY_METHOD_ERROR_MSG, VISIBLE_ELEMENT)
+                    changeVisibility(PAY_METHOD_ERROR_MSG, VISIBILITY_VISIBLE)
                     changeBtnState(PAY_METHOD_BTN, DISABLE_STATE)
                 }
             } else {
@@ -253,9 +309,9 @@ function setDefaultListeners() {
             }
     
             if ( TRANSFER_INPUT.checked === true )
-                changeVisibility(TRANSFER_P, VISIBLE_ELEMENT)
+                changeVisibility(TRANSFER_P, VISIBILITY_VISIBLE)
             else
-                changeVisibility(TRANSFER_P, HIDDEN_ELEMENT)
+                changeVisibility(TRANSFER_P, VISIBILITY_HIDDEN)
         })   
     });
     
@@ -263,11 +319,11 @@ function setDefaultListeners() {
         input.addEventListener("input", function() {
             let password_error_msg = isChangePasswordInfoOk()
             if ( password_error_msg === "OK" ) {
-                changeVisibility(PASSWORD_ERROR_MSG, HIDDEN_ELEMENT)
+                changeVisibility(PASSWORD_ERROR_MSG, VISIBILITY_HIDDEN)
                 changeBtnState(CHANGE_PASSWORD_BTN, ENABLE_STATE)
             } else {
                 PASSWORD_ERROR_MSG.textContent = password_error_msg
-                changeVisibility(PASSWORD_ERROR_MSG, VISIBLE_ELEMENT)
+                changeVisibility(PASSWORD_ERROR_MSG, VISIBILITY_VISIBLE)
                 changeBtnState(CHANGE_PASSWORD_BTN, DISABLE_STATE)
             }
         })
@@ -303,14 +359,14 @@ function setDefaultParamCatcher() {
                 localStorage.setItem("pay_method_card_name", PARAM_CARD_NAME)
                 localStorage.setItem("pay_method_card_venc", PARAM_CARD_VENC)
                 CARD_NUMBER.value = PARAM_CARD_NUMBER
-                CVV.value = PARAM_CVV_NUMBER
+                CARD_CVV.value = PARAM_CVV_NUMBER
                 CARD_NAME.value = PARAM_CARD_NAME
                 CARD_VENC.value = PARAM_CARD_VENC
             }
         }
         else if ( PARAM_EMAIL ) {
-            localStorage.setItem("update_password_email", PARAM_EMAIL)
-            localStorage.setItem("update_password_password", PARAM_NEW_PASSWORD)
+            localStorage.setItem("email", PARAM_EMAIL)
+            localStorage.setItem("password", PARAM_NEW_PASSWORD.hashCode())
             showChangePasswordModal()
         }
     }

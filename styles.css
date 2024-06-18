@@ -242,9 +242,15 @@ footer .footer-section .media-logos img {
 }
 
 .error-message {
+    width: fit-content;
+    border-radius: 5px;
     font-size: 1rem;
     margin: 0;
-    color: rgb(143, 0, 0);
+    margin-left: auto;
+    color: rgb(255, 255, 255);
+    padding: 0.25rem;
+    background-color: rgba(255, 0, 0, 0.5);
+    visibility: hidden;
 }
 
 @media screen and (max-width: 1200px) {
