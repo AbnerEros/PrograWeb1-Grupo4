@@ -28,15 +28,26 @@
             <h2> Crea tu cuenta </h2>
             <form action="../index.html">
                 <section class="wrapper">
-                    <div class = "box a field-name field-email">                                              
+                    <div class = "box a">
+                        <br>
+                        <br>
+                        <div class = "field-name">                                            
                         <label for="nombre">Nombre:</label>
                         <input class="input_style_1" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+                        <p class="help is-danger is-hidden"></p> 
+                        </div> 
+                        <div class = "field-last_name">
                         <label for="apellido">Apellido:</label>
                         <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+                        <p class="help is-danger is-hidden"></p> 
+                        </div> 
                         <label for="apellido">Usuario:</label>
                         <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su usuario" required>
+                        <div class = "field-email">
                         <label for="email">Email:</label>
                         <input class="input_style_1" type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" required>      
+                        <p class="help is-danger is-hidden"></p> 
+                        </div>
                         <label for="contrasena">Contraseña:</label>
                         <input class="input_style_1" type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
                         <label for="contrasena"> Repetir contraseña:</label>
@@ -47,8 +58,7 @@
                             <option value ="opcion2">Suscripción anual con anuncios - $10000 pesos</option>
                             <option value ="opcion3">Suscripción mensual - $2500 pesos</option>
                             <option value ="opcion4">Suscripción anual- $25000 pesos</option>                         
-                        </select>
-                        <p class="help is-danger is-hidden"></p>                   
+                        </select>                                          
                     </div>                
                     <div class = "box b">
                         <h3> Seleccione un método de pago: </h3>                 

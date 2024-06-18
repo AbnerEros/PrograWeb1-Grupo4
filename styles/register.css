@@ -170,16 +170,16 @@ footer {
 }
 
 .error-message {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: red;
-    font-size: large;
+    font-size: small;
 }
 
 .help {
 
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: red;
-    font-size: large;
+    font-size: small;
 }
 
 

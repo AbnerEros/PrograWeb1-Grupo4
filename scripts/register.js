@@ -1,13 +1,14 @@
 const REGEX_LETTERS = /^[A-Za-z]+$/i;
 const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const REGEX_USERNAME = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/;
 
 const ERROR_MESSAGE = {
-  nombre: {
+  name: {
     empty: "El nombre es requerido",
     noValid: "El nombre debe contener solamente letras",
   },
 
-  apellido: {
+  lastName: {
     empty: "El apellido es requerido",
     noValid: "El apellido debe contener solamente letras",
   },
@@ -15,9 +16,14 @@ const ERROR_MESSAGE = {
     empty: "El email es requerido",
     noValid: "Ingrese un formato valido",
   },
+  username: {
+    empty: "El usuario es requerido",
+    noValid: "Ingrese un usuario que contenga letras y numeros"
+  }
+
 };
 
-const submitBtn = document.querySelector(".btn");
+const submitBtn = document.querySelector(".Botones");
 submitBtn.addEventListener("click", validate);
 
 function validate(event) {
@@ -27,6 +33,7 @@ function validate(event) {
   const inputLastName = document.querySelector('#apellido');
   const inputEmail = document.querySelector("#email");
   const errorMsg = document.querySelector(".field-name .help");
+  const errorLastMsg = document.querySelector (".field-last_name .help")
   const errorEmailMsg = document.querySelector(".field-email .help");
 
   if (inputName.value === "") {
@@ -41,12 +48,12 @@ function validate(event) {
 
   if (inputLastName.value === "") {
     inputLastName.classList.add("is-danger");
-    errorMsg.classList.remove("is-hidden");
-    errorMsg.textContent = ERROR_MESSAGE.name.empty;
+    errorLastMsg.classList.remove("is-hidden");
+    errorLastMsg.textContent = ERROR_MESSAGE.lastName.empty;
     inputLastName.focus();
   } else {
     inputLastName.classList.remove("is-danger");
-    errorMsg.classList.add("is-hidden");
+    errorLastMsg.classList.add("is-hidden");
   }
 
   if (inputEmail.value === "") {
@@ -66,7 +73,7 @@ function validate(event) {
   if (!letterValidate(inputLastName.value)) {
     errorMsg.classList.remove("is-hidden");
     inputLastName.classList.add("is-danger");
-    errorMsg.textContent = `${ERROR_MESSAGE.name.noValid} ${ERROR_MESSAGE.name.empty}`;
+    errorLastMsg.textContent = `${ERROR_MESSAGE.lastName.noValid} ${ERROR_MESSAGE.lastName.empty}`;
     inputLastName.focus();
   }
 
