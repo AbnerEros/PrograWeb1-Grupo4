@@ -230,3 +230,38 @@ function cardKeyValidate(cardKey) {
 function cardNumberValidate(cardNumber) {
   return REGEX_CARD_NUMBER.test(cardNumber);
 }
+
+function validateFields() {
+  const userValid = userInput.value.trim() !== '';
+  const emailValid = emailInput.value.trim() !== '';
+  submitBtn.disabled = !(userValid && emailValid);
+}
+
+function saveToLocalStorage() {
+  const username = userInput.value.trim();
+  const email = emailInput.value.trim();
+  if (username && email) {
+      localStorage.setItem('username', username);
+      localStorage.setItem('email', email);
+  }
+}
+
+userInput.addEventListener('input', validateFields);
+emailInput.addEventListener('input', validateFields);
+
+submitBtn.addEventListener('click', function (event) {
+  event.preventDefault();
+  saveToLocalStorage();
+  alert('Información guardada en el local storage.');
+});
+
+
+const savedUsername = localStorage.getItem('username');
+const savedEmail = localStorage.getItem('email');
+if (savedUsername) {
+  userInput.value = savedUsername;
+}
+if (savedEmail) {
+  emailInput.value = savedEmail;
+}
+validateFields();  // Asegura que el botón esté en el estado correcto al cargar la página

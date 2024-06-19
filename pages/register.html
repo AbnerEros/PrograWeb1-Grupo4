@@ -28,9 +28,7 @@
             <h2> Crea tu cuenta </h2>
             <form action="../index.html">
                 <section class="wrapper">
-                    <div class = "box a">
-                        <br>
-                        <br>
+                        <div class = "box a">                        
                         <div class = "field-name">                                            
                         <label for="nombre">Nombre:</label>
                         <input class="input_style_1" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
@@ -80,18 +78,22 @@
                         <div class = "grid b">
                             <article class = field-card_number>                                                  
                             <label for="Datos de la Tarjeta">Número de la tarjeta:</label>                              
-                            <input class="input_style_1" type="number" id="tarjeta-numero" name="Numeros" maxlength="16" placeholder="Numeros">
-                            <p class="help is-danger is-hidden"></p>
-                            </article>
+                            <input class="input_style_1" type="number" id="tarjeta-numero" name="Numeros" maxlength="16" placeholder="Ingrese los 16 numeros">
+                            <br>
+                            <br>
                             <label for="Vencimiento">Vencimiento:</label>
                             <input class="input_style_1" type="month" id="Fecha" name="Fecha" maxlength="5" placeholder="Formato MM/AA">
-                        </div>
-                        <div class = "grid c">
-                            <article class = field-card_key>        
-                            <label for="CVV"> Código de seguridad :</label>   <label for="apyn"> Nombre del titular : </label>
-                            <input class="input_style_1" type="password" id="CVV" name="numeros" maxlength="3" placeholder="Ingresá los tres números de la parte de atrás">   
                             <p class="help is-danger is-hidden"></p>
+                            </article>                                                    
+                            <article class = field-card_key>
+                            <label for="CVV"> CVV :</label> 
+                            <br>                                    
+                            <input class="input_style_1" type="password" id="CVV" name="numeros" maxlength="3" placeholder="Ingresá los tres números"> 
+                            <br>
+                            <br>
+                            <label for="apyn"> Nombre del titular : </label>                           
                             <input class="input_style_1" type="text" id="apyn" name="apyn" placeholder = "Como figura en el plástico"> 
+                            <p class="help is-danger is-hidden"></p>
                             </article>        
                         </div>
                         <h3 class="subtitle-coupon">Cupón de Pago</h3>

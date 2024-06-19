@@ -51,13 +51,15 @@ input[type="radio"] {
 .box.a {
     display: flex;
     flex-direction: column;
-    padding: 5 rem;
-    width: 100%;
+    margin: 1rem 0 0;
+    
     
 }
 
 .box.a label {
-    margin: 1.5rem 0;
+    display: block;
+    width: 100%;
+    margin: 2.8rem 1;
     font-size: 1.2rem;
 }
 
@@ -88,11 +90,12 @@ input[type="radio"] {
 }
 
 .grid.b{
-    display: grid;
-    grid-template-columns: 47.5% auto;
-    grid-template-rows: auto auto;
-    gap: 5%;    
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    column-gap: 10%;
+    row-gap: 20%;   
+ 
 }
 
 .grid.b .input_style_1[type="number"]::-webkit-inner-spin-button,
