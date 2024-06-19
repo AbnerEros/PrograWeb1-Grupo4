@@ -53,7 +53,7 @@
                         </div>
                         <div class = "field-password">                       
                         <label for="contrasena">Contraseña:</label>
-                        <input class="input_style_1" type="password" id="contraseña" name="contraseña" placeholder="Ingrese su contraseña" required>
+                        <input class="input_style_1" type="password" id="contraseña" name="contraseña" placeholder="Debe contener 8 caracteres, minimo 2 letras, 2 numeros y 2 caracteres especiales" required>
                         <p class="help is-danger is-hidden"></p>
                         </div>
                         <div class = "field-repeat_password">
@@ -77,16 +77,22 @@
                             <input type="radio" id="tarjeta-credito" name="metodo-pago" value="tarjeta-credito">                         
                             <input type="radio" id="tarjeta-debito" name="metodo-pago" value="tarjeta-debito">                              
                         </div>
-                        <div class = "grid b">                                                  
-                            <label for="Datos de la Tarjeta">Número de la tarjeta:</label>                                     
+                        <div class = "grid b">
+                            <article class = field-card_number>                                                  
+                            <label for="Datos de la Tarjeta">Número de la tarjeta:</label>                              
+                            <input class="input_style_1" type="number" id="tarjeta-numero" name="Numeros" maxlength="16" placeholder="Numeros">
+                            <p class="help is-danger is-hidden"></p>
+                            </article>
                             <label for="Vencimiento">Vencimiento:</label>
-                            <input class="input_style_1" type="number" id="Numeros" name="Numeros" maxlength="16" placeholder="Numeros">
                             <input class="input_style_1" type="month" id="Fecha" name="Fecha" maxlength="5" placeholder="Formato MM/AA">
                         </div>
-                        <div class = "grid c">        
+                        <div class = "grid c">
+                            <article class = field-card_key>        
                             <label for="CVV"> Código de seguridad :</label>   <label for="apyn"> Nombre del titular : </label>
-                            <input class="input_style_1" type="password" id="numeros" name="numeros" maxlength="3" placeholder="Ingresá los tres números">   
-                            <input class="input_style_1" type="text" id="apyn" name="apyn" placeholder = "Como figura en el plástico">         
+                            <input class="input_style_1" type="password" id="CVV" name="numeros" maxlength="3" placeholder="Ingresá los tres números de la parte de atrás">   
+                            <p class="help is-danger is-hidden"></p>
+                            <input class="input_style_1" type="text" id="apyn" name="apyn" placeholder = "Como figura en el plástico"> 
+                            </article>        
                         </div>
                         <h3 class="subtitle-coupon">Cupón de Pago</h3>
                         <div class = "grid d">
