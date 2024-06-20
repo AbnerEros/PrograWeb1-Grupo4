@@ -54,7 +54,7 @@
                 <article class="categories">
                     <label for = "Selecciona la categoria deseada"> Categorias </label>
                     <select name="Categorias" class="category-select">
-                        <option value="" disabled selected>Seleccionar categoria</option>
+                        <option value="todas" selected>Todas</option>
                         <option value="comedia">Comedia</option>
                         <option value="suspenso">Suspenso</option>
                         <option value="accion">Accion</option>
@@ -68,8 +68,7 @@
                     </select>    
                 </article>
                 <article class="search-bar">
-                    <input type="text" placeholder="Buscar por nombre">
-                    <button type="submit" class="btn">Buscar</button>
+                    <input type="text" placeholder="Buscar por nombre" id="search-input">
                 </article>
             </section>
             <section class="grid-container">

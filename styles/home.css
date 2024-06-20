@@ -10,7 +10,7 @@ main {
 }
 
 .grid-container {
-    padding: 2rem 0;
+    padding: 1rem 0 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: 1rem;
@@ -36,6 +36,7 @@ main {
     justify-content: space-between;
     align-items: end;
     padding-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .categories {
@@ -76,6 +77,7 @@ main {
     justify-content: end;
     width: 50%;
     justify-self: center;
+    height: 100%;
 }
 
 .search-bar input {
@@ -86,8 +88,11 @@ main {
     outline: 2px solid rgba(0, 0, 0, 0.3);
     border: none;
     border-radius: 0.5rem;
-    width: 56%;
+    width: 75%;
     margin-right: 1%;
+    height: 100%;
+    min-height: 38px;
+    padding: 0;
 }
 
 @media screen and (max-width: 1200px) {
