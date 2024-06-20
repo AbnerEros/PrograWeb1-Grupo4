@@ -82,10 +82,14 @@ function validate(event) {
 
   if (isValid) {
     console.log("Formulario válido y listo para enviar.");
+    saveToLocalStorage();
+    alert('Información se ha guardado correctamente.');
+    window.location.href = "../index.html";
   }
 
-  submitBtn.disabled = !isValid; 
+
 }
+
 
 function validateField(input, regex, emptyMsg, invalidMsg, errorMsgElem) {
   if (input.value === "") {
@@ -152,6 +156,17 @@ function cardKeyValidate(cardKey) {
 
 function cardNumberValidate(cardNumber) {
   return REGEX_CARD_NUMBER.test(cardNumber);
+}
+
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr;
+  if (this.length === 0) return hash;
+  for (i = 0; i < this.length; i++) {
+      chr = this.charCodeAt(i);
+      hash = ((hash << 5) - hash) + chr;
+      hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
 }
 
 submitBtn.addEventListener("click", validate);
