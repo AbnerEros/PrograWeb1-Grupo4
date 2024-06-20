@@ -47,6 +47,8 @@ const inputPassword = document.querySelector('#contraseña');
 const inputRepeatPassword = document.querySelector('#repetir-contraseña');
 const inputCardKey = document.querySelector('#CVV');
 const inputCardNumber = document.querySelector('#tarjeta-numero');
+const inputCardName = document.querySelector('#tarjeta-nombre');
+const inputCardVenc = document.querySelector('#tarjeta-venc');
 const errorMsg = document.querySelector(".field-name .help");
 const errorLastMsg = document.querySelector (".field-last_name .help");
 const errorUserMsg = document.querySelector (".field-user .help");
@@ -56,9 +58,7 @@ const errorRepeatPasswordMsg = document.querySelector(".field-repeat_password .h
 const errorCardKeyMsg = document.querySelector(".field-card_key .help");
 const errorCardNumberMsg = document.querySelector(".field-card_number .help");
 
-function validate(event) {
-  event.preventDefault();
-  
+function validate(event) {  
   let isValid = true;
 
   isValid = validateField(inputName, REGEX_LETTERS, ERROR_MESSAGE.name.empty, ERROR_MESSAGE.name.noValid, errorMsg) && isValid;
@@ -77,17 +77,16 @@ function validate(event) {
     hideError(inputRepeatPassword, errorRepeatPasswordMsg);
   }
 
-  isValid = validateField(inputCardKey, cardKeyValidate, ERROR_MESSAGE.cardKey.empty, ERROR_MESSAGE.cardKey.noValid, errorCardKeyMsg) && isValid;
-  isValid = validateCardNumber(inputCardNumber, errorCardNumberMsg) && isValid;
+  if ( CREDIT_INPUT.checked === true ) {
+    isValid = validateField(inputCardKey, REGEX_CARD_KEY, ERROR_MESSAGE.cardKey.empty, ERROR_MESSAGE.cardKey.noValid, errorCardKeyMsg) && isValid;
+    isValid = validateCardNumber(inputCardNumber, errorCardNumberMsg) && isValid;
+  }
 
   if (isValid) {
     console.log("Formulario válido y listo para enviar.");
     saveToLocalStorage();
-    alert('Información se ha guardado correctamente.');
     window.location.href = "../index.html";
   }
-
-
 }
 
 
@@ -143,11 +142,13 @@ function showError(input, errorMsgElem, msg) {
   input.classList.add("is-danger");
   errorMsgElem.classList.remove("is-hidden");
   errorMsgElem.textContent = msg;
+  errorMsgElem.style.visibility = 'visible'
 }
 
 function hideError(input, errorMsgElem) {
   input.classList.remove("is-danger");
   errorMsgElem.classList.add("is-hidden");
+  errorMsgElem.style.visibility = 'hidden'
 }
 
 function cardKeyValidate(cardKey) {
@@ -168,8 +169,6 @@ String.prototype.hashCode = function() {
   }
   return hash;
 }
-
-submitBtn.addEventListener("click", validate);
 
 const userInput = document.querySelector("#usuario");
 const emailInput = document.querySelector("#email");
@@ -197,16 +196,65 @@ userInput.addEventListener('input', validateFields);
 emailInput.addEventListener('input', validateFields);
 inputPassword.addEventListener('input', validateFields);
 
-
 submitBtn.addEventListener('click', function (event) {
   event.preventDefault();
+  validate(event);
   saveToLocalStorage();
-  alert('Información se ha guardado correctamente.');
 });
 
-const savedUsername = localStorage.getItem('username');
-const savedEmail = localStorage.getItem('email');
-const savedPassword = localStorage.getItem('password')
+
+function fixCardNumberAndCvvLength() {
+  if ( inputCardNumber.value.length > 19 )
+    inputCardNumber.value = inputCardNumber.value.substring(0, 19)
+      
+  if ( inputCardKey.value.length > 3 )
+    inputCardKey.value = inputCardKey.value.substring(0, 3)
+
+  if ( inputCardName.value.length > 50 )
+    inputCardName.value = inputCardName.value.substring(0, 50)
+}
+
+const PAY_METHOD_SECTION = document.querySelector(".box.b .grid.b")
+function showCardInfo() {
+  PAY_METHOD_SECTION.style.display = 'flex'
+  inputCardNumber.required = true
+  inputCardKey.required = true
+  inputCardVenc.required = true
+  inputCardName.required = true
+}
+
+function hideCardInfo() {
+  PAY_METHOD_SECTION.style.display = 'none'
+  inputCardNumber.required = false
+  inputCardKey.required = false
+  inputCardVenc.required = false
+  inputCardName.required = false
+}
+
+const PAY_METHODS_INPUTS = document.querySelectorAll('.box.b input[name="metodo-pago"]')
+const CREDIT_INPUT = document.querySelector('.box.b .grid.a #tarjeta-credito')
+const TRANSFER_INPUT = document.querySelector('.box.b .transferencia #transferencia')
+const TRANSFER_P = document.querySelector('.box.b h4')
+
+PAY_METHODS_INPUTS.forEach(input => {
+  input.addEventListener("input", function() {
+      if (CREDIT_INPUT.checked === true) {
+          fixCardNumberAndCvvLength()
+          showCardInfo()
+      } else
+          hideCardInfo()
+
+      if ( TRANSFER_INPUT.checked === true )
+        TRANSFER_P.style.visibility = 'visible'
+      else
+        TRANSFER_P.style.visibility = 'hidden'
+  })   
+});
+
+const savedUsername = localStorage.getItem('savedUsername');
+const savedEmail = localStorage.getItem('savedEmail');
+const savedPassword = localStorage.getItem('savedPassword');
+
 if (savedUsername) {
   userInput.value = savedUsername;
 }
@@ -214,6 +262,7 @@ if (savedEmail) {
   emailInput.value = savedEmail;
 }
 if (savedPassword){
-  passworldInput.value = savedPassword;
+  passwordInput.value = savedPassword;
 }
+
 validateFields();  // Asegura que el botón esté en el estado correcto al cargar la página

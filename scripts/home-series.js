@@ -100,6 +100,7 @@ function updateSearch(search) {
                 h1.style.fontWeight = 400
                 h1.style.marginBottom = 0
                 MOVIES_AND_SERIES_SECTION.insertAdjacentElement("beforebegin", h1)
+                addSeries()
             }
     }
 }

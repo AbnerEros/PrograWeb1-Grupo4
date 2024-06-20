@@ -32,32 +32,32 @@
                         <div class = "field-name">                                            
                         <label for="nombre">Nombre:</label>
                         <input class="input_style_1" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
-                        <p class="help is-danger is-hidden"></p> 
+                        <p class="help is-danger is-hidden">.</p> 
                         </div> 
                         <div class = "field-last_name">
                         <label for="apellido">Apellido:</label>
                         <input class="input_style_1" type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
-                        <p class="help is-danger is-hidden"></p> 
+                        <p class="help is-danger is-hidden">.</p> 
                         </div> 
                         <div class = "field-user">
                         <label for="usuario">Usuario:</label>
                         <input class="input_style_1" type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required>
-                        <p class="help is-danger is-hidden"></p> 
+                        <p class="help is-danger is-hidden">.</p> 
                         </div>
                         <div class = "field-email">
                         <label for="email">Email:</label>
                         <input class="input_style_1" type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" required>      
-                        <p class="help is-danger is-hidden"></p> 
+                        <p class="help is-danger is-hidden">.</p> 
                         </div>
                         <div class = "field-password">                       
                         <label for="contrasena">Contraseña:</label>
                         <input class="input_style_1" type="password" id="contraseña" name="contraseña" placeholder="Debe contener 8 caracteres, minimo 2 letras, 2 numeros y 2 caracteres especiales" required>
-                        <p class="help is-danger is-hidden"></p>
+                        <p class="help is-danger is-hidden">.</p>
                         </div>
                         <div class = "field-repeat_password">
                         <label for="repetir-contraseña"> Repetir contraseña:</label>
                         <input class="input_style_1" type="password" id="repetir-contraseña" name="repetir-contraseña" placeholder="Repita contraseña" required>
-                        <p class="help is-danger is-hidden"></p>
+                        <p class="help is-danger is-hidden">.</p>
                         </div>
                         <label for = "Selecciona el plan que mas desea"> Planes: </label>
                         <select class="input_style_1" id="opciones" name="opciones">
@@ -68,32 +68,26 @@
                         </select>                                          
                     </div>                
                     <div class = "box b">
-                        <h3> Seleccione un método de pago: </h3>                 
-                        <div class = "grid a">                                    
-                            <label for="tarjetaCredito">Tarjeta de crédito</label>                                     
-                            <label for="tarjetaCredito">Tarjeta de débito</label>                    
-                            <input type="radio" id="tarjeta-credito" name="metodo-pago" value="tarjeta-credito">                         
-                            <input type="radio" id="tarjeta-debito" name="metodo-pago" value="tarjeta-debito">                              
+                        <h3> Seleccione un método de pago: </h3>
+                        <div class = "grid a">
+                            <label for="tarjetaCredito">Tarjeta de crédito</label>
+                            <input type="radio" id="tarjeta-credito" name="metodo-pago" value="tarjeta-credito" checked>
                         </div>
                         <div class = "grid b">
-                            <article class = field-card_number>                                                  
-                            <label for="Datos de la Tarjeta">Número de la tarjeta:</label>                              
-                            <input class="input_style_1" type="number" id="tarjeta-numero" name="Numeros" maxlength="16" placeholder="Ingrese los 16 numeros">
-                            <p class="help is-danger is-hidden"></p>
-                            <br>
-                            <br>
-                            <label for="Vencimiento">Vencimiento:</label>
-                            <input class="input_style_1" type="month" id="Fecha" name="Fecha" maxlength="5" placeholder="Formato MM/AA">
-                            </article>                                                    
-                            <article class = field-card_key>
-                            <label for="CVV"> CVV :</label> 
-                            <br>                                    
-                            <input class="input_style_1" type="password" id="CVV" name="numeros" maxlength="3" placeholder="No puede ser 000"> 
-                            <p class="help is-danger is-hidden"></p>
-                            <br>
-                            <br>
-                            <label for="apyn"> Nombre del titular : </label>                           
-                            <input class="input_style_1" type="text" id="apyn" name="apyn" placeholder = "Como figura en el plástico"> 
+                            <article class="field-card_number">
+                                <label for="Datos de la Tarjeta">Número de la tarjeta:</label>                              
+                                <input class="input_style_1" type="number" id="tarjeta-numero" name="Numeros" maxlength="16" placeholder="Ingrese los 16 numeros" required>
+                                <p class="help is-danger is-hidden">.</p>
+                                <label for="apyn"> Nombre del titular : </label>                           
+                                <input class="input_style_1" type="text" id="tarjeta-nombre" name="apyn" placeholder = "Como figura en el plástico" required>
+                            </article>
+                            <article class="field-card_key">
+                                <label for="Vencimiento">Vencimiento:</label>
+                                <input class="input_style_1" type="month" id="tarjeta-venc" name="Fecha" maxlength="5" placeholder="Formato MM/AA" required>
+                                <p style="visibility: hidden; margin: 0; padding: 0;">.</p>
+                                <label for="CVV"> CVV :</label>             
+                                <input class="input_style_1" type="password" id="CVV" name="numeros" maxlength="3" placeholder="No puede ser 000" required> 
+                                <p class="help is-danger is-hidden">.</p>
                             </article>        
                         </div>
                         <h3 class="subtitle-coupon">Cupón de Pago</h3>
