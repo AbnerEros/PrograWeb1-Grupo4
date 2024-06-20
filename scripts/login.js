@@ -1,6 +1,6 @@
 const LOGIN_FORM = document.querySelector('form');
-const USERNAME_INPUT = document.getElementById ('savedUsername');
-const PASSWORD_INPUT = document.getElementById ('savedPassword');  
+const USERNAME_INPUT = document.getElementById ('username');
+const PASSWORD_INPUT = document.getElementById ('password');  
 const LOGIN_ERROR_MSG = document.querySelector("#login-error-message")
 const VISIBILITY_HIDDEN = 'hidden'
 const VISIBILITY_VISIBLE = 'visible'

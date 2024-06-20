@@ -173,6 +173,7 @@ submitBtn.addEventListener("click", validate);
 
 const userInput = document.querySelector("#usuario");
 const emailInput = document.querySelector("#email");
+const passwordInput = document.querySelector('#contraseña');
 
 function validateFields() {
   const userValid = userInput.value.trim() !== '';
