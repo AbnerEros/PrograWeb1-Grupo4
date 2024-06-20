@@ -178,17 +178,18 @@ const passwordInput = document.querySelector('#contraseña');
 function validateFields() {
   const userValid = userInput.value.trim() !== '';
   const emailValid = emailInput.value.trim() !== '';
+  
   submitBtn.disabled = !(userValid && emailValid);
 }
 
 function saveToLocalStorage() {
   const username = userInput.value.trim();
   const email = emailInput.value.trim();
-  const password = inputPassword.value.trim();
+  const password = passwordInput.value.trim().hashCode();
   if (username && email && password) {
-      localStorage.setItem('username', username);
-      localStorage.setItem('email', email);
-      localStorage.setItem('password', password)
+      localStorage.setItem('savedUsername', username);
+      localStorage.setItem('savedEmail', email);
+      localStorage.setItem('savedPassword', password)
   }
 }
 
@@ -213,6 +214,6 @@ if (savedEmail) {
   emailInput.value = savedEmail;
 }
 if (savedPassword){
-  inputPassword.value = savedPassword;
+  passworldInput.value = savedPassword;
 }
 validateFields();  // Asegura que el botón esté en el estado correcto al cargar la página
