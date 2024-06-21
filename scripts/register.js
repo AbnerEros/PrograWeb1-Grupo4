@@ -185,10 +185,12 @@ function saveToLocalStorage() {
   const username = userInput.value.trim();
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim().hashCode();
-  if (username && email && password) {
+  const cardnumber = inputCardNumber.value.trim();
+  if (username && email && password &&cardnumber) {
       localStorage.setItem('savedUsername', username);
       localStorage.setItem('savedEmail', email);
-      localStorage.setItem('savedPassword', password)
+      localStorage.setItem('savedPassword', password);
+      localStorage.setItem ('saveCardNumber', cardnumber)
   }
 }
 
