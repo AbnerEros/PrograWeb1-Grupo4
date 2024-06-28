@@ -190,6 +190,7 @@ function saveToLocalStorage() {
   const inputCardNumber = document.querySelector('#tarjeta-numero');
   const inputCardName = document.querySelector('#tarjeta-nombre');
   const inputCardVenc = document.querySelector('#tarjeta-venc');
+  const pay_method = document.querySelector('#tarjeta-venc');
 
   const email = inputEmail.value.trim();
   const username = inputUsername.value.trim();
@@ -198,7 +199,6 @@ function saveToLocalStorage() {
   const card_number = inputCardNumber.value.trim();
   const card_name = inputCardName.value.trim();
   const card_venc = inputCardVenc.value.trim();
-
 
   if ( card_number )
     localStorage.setItem("pay_method_card", card_number)
@@ -220,6 +220,7 @@ function saveToLocalStorage() {
 
   if ( password )
     localStorage.setItem('password', password);
+
 }
 
 userInput.addEventListener('input', validateFields);
@@ -271,16 +272,18 @@ const TRANSFER_P = document.querySelector('.box.b h4')
 
 PAY_METHODS_INPUTS.forEach(input => {
   input.addEventListener("input", function() {
-      if (CREDIT_INPUT.checked === true) {
-          fixCardNumberAndCvvLength()
-          showCardInfo()
-      } else
-          hideCardInfo()
+    localStorage.setItem("pay_method", input.value);
 
-      if ( TRANSFER_INPUT.checked === true )
-        TRANSFER_P.style.visibility = 'visible'
-      else
-        TRANSFER_P.style.visibility = 'hidden'
+    if (CREDIT_INPUT.checked === true) {
+        fixCardNumberAndCvvLength()
+        showCardInfo()
+    } else
+        hideCardInfo()
+
+    if ( TRANSFER_INPUT.checked === true )
+      TRANSFER_P.style.visibility = 'visible'
+    else
+      TRANSFER_P.style.visibility = 'hidden'
   })   
 });
 
