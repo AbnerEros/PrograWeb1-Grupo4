@@ -4,6 +4,9 @@ const REGEX_USERNAME = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/;
 const REGEX_PASSWORD = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
 const REGEX_CARD_KEY = /^[1-9]{3}$/; 
 const REGEX_CARD_NUMBER = /^\d{16,19}$/;
+const REGEX_ATLEAST2_SPECIAL = /(?:[^`!@#$%^&*\-_=+'\/.,]*[`!@#$%^&*\-_=+'\/.,]){2}/
+const REGEX_ATLEAST2_LETTERS = /(?:[^a-zA-Z]*[a-zA-Z]){2}/
+const REGEX_ATLEAST2_NUMBERS = /(?:[^\d]*[\d]){2}/
 
 const ERROR_MESSAGE = {
   name: {
@@ -65,7 +68,7 @@ function validate(event) {
   isValid = validateField(inputLastName, REGEX_LETTERS, ERROR_MESSAGE.lastName.empty, ERROR_MESSAGE.lastName.noValid, errorLastMsg) && isValid;
   isValid = validateField(inputEmail, REGEX_EMAIL, ERROR_MESSAGE.email.empty, ERROR_MESSAGE.email.noValid, errorEmailMsg) && isValid;
   isValid = validateField(inputUserName, REGEX_USERNAME, ERROR_MESSAGE.username.empty, ERROR_MESSAGE.username.noValid, errorUserMsg) && isValid;
-  isValid = validateField(inputPassword, REGEX_PASSWORD, ERROR_MESSAGE.password.empty, ERROR_MESSAGE.password.noValid, errorPasswordMsg) && isValid;
+  isValid = validatePassword(inputPassword, ERROR_MESSAGE.password.empty, ERROR_MESSAGE.password.noValid, errorPasswordMsg) && isValid;
 
   if (inputRepeatPassword.value === "") {
     showError(inputRepeatPassword, errorRepeatPasswordMsg, ERROR_MESSAGE.password.empty);
@@ -82,32 +85,30 @@ function validate(event) {
     isValid = validateCardNumber(inputCardNumber, errorCardNumberMsg) && isValid;
   }
 
-  if (isValid) {
-    console.log("Formulario válido y listo para enviar.");
-    saveToLocalStorage();
-    window.location.href = "../index.html";
-  }
+  if (isValid)
+    return true
+  else
+    return false
 }
 
+function validatePassword(input, emptyMsg, invalidMsg, errorMsgElem) {
+  if (input.value === "") {
+    showError(input, errorMsgElem, emptyMsg);
+    return false;
+  } else if ( REGEX_ATLEAST2_LETTERS.test(input.value) && REGEX_ATLEAST2_NUMBERS.test(input.value) && REGEX_ATLEAST2_SPECIAL.test(input.value)) {
+    hideError(input, errorMsgElem);
+    return true;
+  } else {
+    showError(input, errorMsgElem, invalidMsg);
+    return false;
+  }
+}
 
 function validateField(input, regex, emptyMsg, invalidMsg, errorMsgElem) {
   if (input.value === "") {
     showError(input, errorMsgElem, emptyMsg);
     return false;
   } else if (!regex.test(input.value)) {
-    showError(input, errorMsgElem, invalidMsg);
-    return false;
-  } else {
-    hideError(input, errorMsgElem);
-    return true;
-  }
-}
-
-function validateField(input, validator, emptyMsg, invalidMsg, errorMsgElem) {
-  if (input.value === "") {
-    showError(input, errorMsgElem, emptyMsg);
-    return false;
-  } else if (typeof validator === 'function' ? !validator(input.value) : !validator.test(input.value)) {
     showError(input, errorMsgElem, invalidMsg);
     return false;
   } else {
@@ -182,16 +183,43 @@ function validateFields() {
 }
 
 function saveToLocalStorage() {
-  const username = userInput.value.trim();
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim().hashCode();
-  const cardnumber = inputCardNumber.value.trim();
-  if (username && email && password &&cardnumber) {
-      localStorage.setItem('savedUsername', username);
-      localStorage.setItem('savedEmail', email);
-      localStorage.setItem('savedPassword', password);
-      localStorage.setItem ('saveCardNumber', cardnumber)
-  }
+  const inputEmail = document.querySelector("#email");
+  const inputUsername = document.querySelector('#usuario');
+  const inputPassword = document.querySelector('#contraseña');
+  const inputCvv = document.querySelector('#CVV');
+  const inputCardNumber = document.querySelector('#tarjeta-numero');
+  const inputCardName = document.querySelector('#tarjeta-nombre');
+  const inputCardVenc = document.querySelector('#tarjeta-venc');
+
+  const email = inputEmail.value.trim();
+  const username = inputUsername.value.trim();
+  const password = inputPassword.value.trim().hashCode();
+  const card_cvv = inputCvv.value.trim();
+  const card_number = inputCardNumber.value.trim();
+  const card_name = inputCardName.value.trim();
+  const card_venc = inputCardVenc.value.trim();
+
+
+  if ( card_number )
+    localStorage.setItem("pay_method_card", card_number)
+
+  if ( card_cvv )
+    localStorage.setItem("pay_method_cvv", card_cvv)
+
+  if ( card_name )
+    localStorage.setItem("pay_method_card_name", card_name)
+
+  if ( card_venc )
+    localStorage.setItem("pay_method_card_venc", card_venc)
+
+  if ( username )
+    localStorage.setItem('username', username);
+
+  if ( email )
+    localStorage.setItem('email', email);
+
+  if ( password )
+    localStorage.setItem('password', password);
 }
 
 userInput.addEventListener('input', validateFields);
@@ -200,10 +228,13 @@ inputPassword.addEventListener('input', validateFields);
 
 submitBtn.addEventListener('click', function (event) {
   event.preventDefault();
-  validate(event);
-  saveToLocalStorage();
-});
 
+  if ( validate(event) ) {
+    console.log("A")
+    saveToLocalStorage();
+    window.location.href = "../index.html";
+  }
+});
 
 function fixCardNumberAndCvvLength() {
   if ( inputCardNumber.value.length > 19 )
@@ -253,9 +284,9 @@ PAY_METHODS_INPUTS.forEach(input => {
   })   
 });
 
-const savedUsername = localStorage.getItem('savedUsername');
-const savedEmail = localStorage.getItem('savedEmail');
-const savedPassword = localStorage.getItem('savedPassword');
+const savedUsername = localStorage.getItem('username');
+const savedEmail = localStorage.getItem('email');
+const savedPassword = localStorage.getItem('password');
 
 if (savedUsername) {
   userInput.value = savedUsername;

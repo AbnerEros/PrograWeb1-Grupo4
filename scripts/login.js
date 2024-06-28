@@ -1,6 +1,4 @@
 const LOGIN_FORM = document.querySelector('form');
-const USERNAME_INPUT = document.getElementById ('savedUsername');
-const PASSWORD_INPUT = document.getElementById ('savedPassword');  
 const LOGIN_ERROR_MSG = document.querySelector("#login-error-message")
 const VISIBILITY_HIDDEN = 'hidden'
 const VISIBILITY_VISIBLE = 'visible'
@@ -22,24 +20,31 @@ String.prototype.hashCode = function() {
 }
 
 function isLoginInfoOk(){
-    if (USERNAME_INPUT.value != localStorage.getItem("savedUsername"))
+    let USERNAME_INPUT = document.getElementById ('username');
+    let PASSWORD_INPUT = document.getElementById ('password');  
+
+    if (USERNAME_INPUT.value != localStorage.getItem("username"))
         return LOGIN_ERROR_MESSAGES.NOT_VALID_USERNAME
     
-    if (PASSWORD_INPUT.value.hashCode() != localStorage.getItem("savedPassword"))
+    if (PASSWORD_INPUT.value.hashCode() != localStorage.getItem("password"))
         return LOGIN_ERROR_MESSAGES.NOT_VALID_PASSWORD
 
     return "OK"
 }
 
 LOGIN_FORM.addEventListener('submit', function(event) {
+    let USERNAME_INPUT = document.getElementById ('username');
+    let PASSWORD_INPUT = document.getElementById ('password');
+
     const savedUsername = USERNAME_INPUT.value.trim();
     const savedPassword = PASSWORD_INPUT.value.trim();
     let error_msg = isLoginInfoOk()
+    console.log(error_msg)
 
     if ( error_msg === 'OK' ) {
         LOGIN_ERROR_MSG.style.visibility = VISIBILITY_HIDDEN;
-        localStorage.setItem('savedUsername', savedUsername);
-        localStorage.setItem('savedPassword', savedPassword.hashCode());
+        localStorage.setItem('username', savedUsername);
+        localStorage.setItem('password', savedPassword.hashCode());
     } else {
         event.preventDefault();
         LOGIN_ERROR_MSG.style.visibility = VISIBILITY_VISIBLE;
