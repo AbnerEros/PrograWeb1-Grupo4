@@ -27,7 +27,7 @@ const ERROR_MESSAGE = {
   },
   password: {
     empty: "La contraseña es requerida",
-    noValid: "La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra, un número y un carácter especial",
+    noValid: "La contraseña debe tener al menos 8 caracteres, incluyendo al menos 2 letras, 2 números y 2 carácteres especiales",
     noMatch: "Las contraseñas no coinciden",
   },
   cardKey: {
