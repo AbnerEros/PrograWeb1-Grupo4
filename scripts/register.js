@@ -9,6 +9,8 @@ const REGEX_ATLEAST2_LETTERS = /(?:[^a-zA-Z]*[a-zA-Z]){2}/
 const REGEX_ATLEAST2_NUMBERS = /(?:[^\d]*[\d]){2}/
 let actualPayMethod;
 
+localStorage.setItem("pay_method", "tarjeta-credito");
+
 const ERROR_MESSAGE = {
   name: {
     empty: "El nombre es requerido",
@@ -265,10 +267,10 @@ function saveToLocalStorage() {
     password: password,
     email: email,
     pay_method: actualPayMethod,
-    card_number: card_number,
-    card_cvv: card_cvv,
-    card_name: card_name,
-    card_venc: card_venc
+    pay_method_card: card_number,
+    pay_method_cvv: card_cvv,
+    pay_method_card_name: card_name,
+    pay_method_card_venc: card_venc
   }
 
   if ( localStorage.getItem("users_db") ) {

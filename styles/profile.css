@@ -213,6 +213,30 @@ main {
         margin: 0 0 0.5rem;
 }
 
+.btn-red {
+        color: white;
+        background-color: rgb(156, 0, 0);
+        border-color: rgb(156, 0, 0);
+}
+
+.btn-red:hover {
+        background-color: transparent;
+        color: rgb(156, 0, 0);
+}
+
+#delete-suscription-modal .modal-section .modal-subtitle {
+        font-size: 1.5rem;
+        font-family: Roboto, sans-serif;
+        text-align: center;
+        color: #343440;
+        height: 30%;
+        margin: 0 auto;
+}
+
+#delete-suscription-modal .modal-section .modal-title {
+        height: 30%;
+}
+
 @media screen and (max-width: 1200px) {
         .save-form {
                 width: 90%;
@@ -250,7 +274,6 @@ main {
         }
 
         .btn-border {
-                margin-bottom: 2rem;
                 height: 2rem;
         }
 

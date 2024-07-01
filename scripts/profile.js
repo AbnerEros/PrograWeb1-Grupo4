@@ -21,6 +21,7 @@ const TRANSFER_INPUT = document.querySelector(".transfer input")
 const TRANSFER_P = document.querySelector(".transfer p")
 const PAY_METHOD_BTN = document.querySelector("#update-pay-method")
 const CHANGE_PASSWORD_BTN = document.querySelector("#update-password")
+const DELETE_SUSCRIPTION_BTN = document.querySelector("#delete-suscription")
 const USER_EMAIL = document.querySelector(".change-password input[id='email']")
 const USER_ACTUAL_PASSWORD = document.querySelector(".change-password input[id='password']")
 const USER_NEW_PASSWORD = document.querySelector(".change-password input[id='new-password']")
@@ -28,8 +29,12 @@ const USER_REPEAT_NEW_PASSWORD = document.querySelector(".change-password input[
 
 const MODAL_PAY_METHOD = document.querySelector("#pay-method-modal")
 const MODAL_CHANGE_PASSWORD = document.querySelector("#change-password-modal")
+const MODAL_DELETE_SUSCRIPTION = document.querySelector("#delete-suscription-modal")
+
 const MODAL_PAY_METHOD_CLOSE_BTN = document.querySelector("#pay-method-modal #pay-method-modal-btn-continue")
 const MODAL_CHANGE_PASSWORD_CLOSE_BTN = document.querySelector("#change-password-modal #change-password-modal-btn-continue")
+const MODAL_DELETE_SUSCRIPTION_NO = document.querySelector("#delete-suscription-modal #delete-suscription-modal-btn-no")
+const MODAL_DELETE_SUSCRIPTION_YES = document.querySelector("#delete-suscription-modal #delete-suscription-modal-btn-yes")
 
 const SHOW_PASSWORD_DELAY_TIME = 1500
 const DELAY = ms => new Promise(res => setTimeout(res, ms));
@@ -270,6 +275,7 @@ function showChangePasswordModal() {
 
 function setDefaultProfileValues() {
     USERNAME_H1.textContent = localStorage.getItem("username")
+    USER_EMAIL.value = localStorage.getItem("email")
     changeVisibility(TRANSFER_P, VISIBILITY_HIDDEN)
     CARD_NUMBER.required = true
     CARD_NAME.required = true
@@ -296,6 +302,17 @@ function setDefaultProfileValues() {
             changeVisibility(TRANSFER_P, VISIBILITY_VISIBLE)
     } else
         hideCardInfo()
+}
+
+function cleanActualUserLocalStorageData() {
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+    localStorage.removeItem("pay_method");
+    localStorage.removeItem("pay_method_card");
+    localStorage.removeItem("pay_method_card_name");
+    localStorage.removeItem("pay_method_card_venc");
+    localStorage.removeItem("pay_method_cvv");
 }
 
 function setDefaultListeners() {
@@ -356,11 +373,32 @@ function setDefaultListeners() {
     });
 
     MODAL_PAY_METHOD_CLOSE_BTN.addEventListener("click", function() {
-        MODAL_PAY_METHOD.style.display = DISPLAY_NONE
+        MODAL_PAY_METHOD.style.display = DISPLAY_NONE;
     })
 
     MODAL_CHANGE_PASSWORD_CLOSE_BTN.addEventListener("click", function() {
-        MODAL_CHANGE_PASSWORD.style.display = DISPLAY_NONE
+        MODAL_CHANGE_PASSWORD.style.display = DISPLAY_NONE;
+    })
+
+    DELETE_SUSCRIPTION_BTN.addEventListener("click", function() {
+        MODAL_DELETE_SUSCRIPTION.style.display = DISPLAY_FLEX;
+    })
+
+    MODAL_DELETE_SUSCRIPTION_NO.addEventListener("click", function() {
+        MODAL_DELETE_SUSCRIPTION.style.display = DISPLAY_NONE;
+    })
+    
+    MODAL_DELETE_SUSCRIPTION_YES.addEventListener("click", function() {
+        localStorageUsers = JSON.parse(localStorage.getItem("users_db"));
+        actualUserId = localStorageUsers.findIndex(user => user.username == localStorage.getItem("username"));
+
+        if ( actualUserId < 0 )
+            return;
+
+        localStorageUsers.splice(actualUserId, 1);
+        localStorage.setItem("users_db", JSON.stringify(localStorageUsers));
+        cleanActualUserLocalStorageData();
+        window.location.href = "../index.html";
     })
 }
 
@@ -419,15 +457,14 @@ function setDefaultParamCatcher() {
 
             if ( actualUserId >= 0 ) {
                 localStorageUsers[actualUserId].pay_method = PARAM_CUPON_PAGO
-                localStorageUsers[actualUserId].card_cvv = PARAM_CVV_NUMBER
-                localStorageUsers[actualUserId].card_name = PARAM_CARD_NAME
-                localStorageUsers[actualUserId].card_number = PARAM_CARD_NUMBER
-                localStorageUsers[actualUserId].card_venc = PARAM_CARD_VENC
+                localStorageUsers[actualUserId].pay_method_cvv = PARAM_CVV_NUMBER
+                localStorageUsers[actualUserId].pay_method_card_name = PARAM_CARD_NAME
+                localStorageUsers[actualUserId].pay_method_card = PARAM_CARD_NUMBER
+                localStorageUsers[actualUserId].pay_method_card_venc = PARAM_CARD_VENC
 
                 localStorage.setItem("users_db", JSON.stringify(localStorageUsers))
             }
-        }
-        else if ( PARAM_EMAIL ) {
+        } else if ( PARAM_EMAIL ) {
             USER_EMAIL.value = PARAM_EMAIL
             localStorageUsers = JSON.parse(localStorage.getItem("users_db"))
             actualUserId = localStorageUsers.findIndex(user => user.username == localStorage.getItem("username"))

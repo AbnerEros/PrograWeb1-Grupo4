@@ -44,8 +44,39 @@ LOGIN_FORM.addEventListener('submit', function(event) {
 
     if ( error_msg === 'OK' ) {
         LOGIN_ERROR_MSG.style.visibility = VISIBILITY_HIDDEN;
-        localStorage.setItem('username', savedUsername);
-        localStorage.setItem('password', savedPassword.hashCode());
+
+        
+        let storage_users = JSON.parse(localStorage.getItem("users_db"))
+        let actual_id = storage_users.findIndex(user => user.username == savedUsername)
+        let actual_user = storage_users[actual_id]
+
+        localStorage.setItem('username', actual_user.username);
+        localStorage.setItem('password', actual_user.password);
+
+
+        if ( actual_user.username )
+            localStorage.setItem('username', actual_user.username);
+
+        if ( actual_user.email )
+            localStorage.setItem('email', actual_user.email);
+
+        if ( actual_user.password )
+            localStorage.setItem('password', actual_user.password);
+
+        if ( actual_user.pay_method )
+            localStorage.setItem("pay_method", actual_user.pay_method);
+
+        if ( actual_user.pay_method_card )
+            localStorage.setItem("pay_method_card", actual_user.pay_method_card)
+
+        if ( actual_user.pay_method_cvv )
+            localStorage.setItem("pay_method_cvv", actual_user.pay_method_cvv)
+
+        if ( actual_user.pay_method_card_name )
+            localStorage.setItem("pay_method_card_name", actual_user.pay_method_card_name)
+
+        if ( actual_user.pay_method_card_venc )
+            localStorage.setItem("pay_method_card_venc", actual_user.pay_method_card_venc)
     } else {
         event.preventDefault();
         LOGIN_ERROR_MSG.style.visibility = VISIBILITY_VISIBLE;

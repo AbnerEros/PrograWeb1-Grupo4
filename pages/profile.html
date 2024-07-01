@@ -31,6 +31,16 @@
             </div>
         </section>
     </div>
+    <div class="modal-fullscreen" id="delete-suscription-modal">
+        <section class="modal-section">
+            <h1 class="modal-title" id="delete-suscription-modal-title">¿Estás seguro que quiere eliminar su membresía?</h1>
+            <h3 class="modal-subtitle" id="delete-suscription-modal-subtitle">(Esto eliminará tu usuario)</h3>
+            <div class="modal-btn-div">
+                <a class="modal-btn btn" id="delete-suscription-modal-btn-yes">Sí</a>
+                <a class="modal-btn btn-border" id="delete-suscription-modal-btn-no">No</a>
+            </div>
+        </section>
+    </div>
     <header>
         <section class="header-section logo-section">
             <img 
@@ -79,7 +89,7 @@
             <div class="change-password">
                 <h1>Cambiar contraseña</h1>
                 <h3>E-mail:</h3>
-                <input class="input_style_1" type="email" name="email" id="email" placeholder="email@gmail.com" disabled>
+                <input class="input_style_1" type="email" name="email" id="email" placeholder="email@gmail.com" required>
                 <h3 class="password-label">Contraseña actual:</h3>
                 <input class="input_style_1" type="password" name="password" id="password" placeholder="••••••••" required>
                 <h4 class="show-password" id="show-password">👀 Ver contraseña</h4>
@@ -137,6 +147,9 @@
         </form>
         <a class="btn-cancel" href="./home.html">
             <button class="btn-border">Cancelar</button>
+        </a>
+        <a class="btn-delete-suscription btn-cancel">
+            <button class="btn-border btn-red" id="delete-suscription">Eliminar mi membresía</button>
         </a>
     </main>
     <footer>
