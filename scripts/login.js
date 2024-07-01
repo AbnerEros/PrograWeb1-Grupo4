@@ -36,16 +36,13 @@ function isLoginInfoOk(){
 
 LOGIN_FORM.addEventListener('submit', function(event) {
     let USERNAME_INPUT = document.getElementById('username');
-    let PASSWORD_INPUT = document.getElementById('password');
     const savedUsername = USERNAME_INPUT.value.trim();
-    const savedPassword = PASSWORD_INPUT.value.trim();
 
     let error_msg = isLoginInfoOk()
 
     if ( error_msg === 'OK' ) {
         LOGIN_ERROR_MSG.style.visibility = VISIBILITY_HIDDEN;
 
-        
         let storage_users = JSON.parse(localStorage.getItem("users_db"))
         let actual_id = storage_users.findIndex(user => user.username == savedUsername)
         let actual_user = storage_users[actual_id]

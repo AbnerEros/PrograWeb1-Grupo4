@@ -224,19 +224,6 @@ main {
         color: rgb(156, 0, 0);
 }
 
-#delete-suscription-modal .modal-section .modal-subtitle {
-        font-size: 1.5rem;
-        font-family: Roboto, sans-serif;
-        text-align: center;
-        color: #343440;
-        height: 30%;
-        margin: 0 auto;
-}
-
-#delete-suscription-modal .modal-section .modal-title {
-        height: 30%;
-}
-
 @media screen and (max-width: 1200px) {
         .save-form {
                 width: 90%;
