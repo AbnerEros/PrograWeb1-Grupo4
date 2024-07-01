@@ -312,6 +312,10 @@ footer .footer-section .media-logos img {
     align-content: center;
 }
 
+#header-close-session {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1200px) {
     body {
         min-height: 0
