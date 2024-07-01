@@ -7,28 +7,31 @@ const REGEX_CARD_NUMBER = /^\d{16,19}$/;
 const REGEX_ATLEAST2_SPECIAL = /(?:[^`!@#$%^&*\-_=+'\/.,]*[`!@#$%^&*\-_=+'\/.,]){2}/
 const REGEX_ATLEAST2_LETTERS = /(?:[^a-zA-Z]*[a-zA-Z]){2}/
 const REGEX_ATLEAST2_NUMBERS = /(?:[^\d]*[\d]){2}/
+let actualPayMethod;
 
 const ERROR_MESSAGE = {
   name: {
     empty: "El nombre es requerido",
-    noValid: "El nombre debe contener solamente letras",
+    noValid: "El nombre debe contener solamente letras"
   },
   lastName: {
     empty: "El apellido es requerido",
-    noValid: "El apellido debe contener solamente letras",
+    noValid: "El apellido debe contener solamente letras"
   },
   email: {
     empty: "El email es requerido",
     noValid: "Ingrese un formato valido",
+    existing: "El email ya está registrado"
   },
   username: {
     empty: "El usuario es requerido",
     noValid: "Ingrese un usuario que contenga letras y números",
+    existing: "El nombre de usuario ya existe"
   },
   password: {
     empty: "La contraseña es requerida",
     noValid: "La contraseña debe tener al menos 8 caracteres, incluyendo al menos 2 letras, 2 números y 2 carácteres especiales",
-    noMatch: "Las contraseñas no coinciden",
+    noMatch: "Las contraseñas no coinciden"
   },
   cardKey: {
     empty: "La clave de la tarjeta es requerida",
@@ -61,14 +64,51 @@ const errorRepeatPasswordMsg = document.querySelector(".field-repeat_password .h
 const errorCardKeyMsg = document.querySelector(".field-card_key .help");
 const errorCardNumberMsg = document.querySelector(".field-card_number .help");
 
+inputCardNumber.addEventListener("input", () => {
+  fixCardNumberAndCvvLength()
+})
+
+function validateIfUsernameNotExists(input, errorMsg, errorElem) {
+  let localStorageUsers = JSON.parse(localStorage.getItem("users_db"))
+
+
+  if ( !localStorageUsers )
+    return true;
+
+  if ( localStorageUsers.findIndex(user => user.username == input.value) >= 0 ) {
+    showError(input, errorElem, errorMsg);
+    return false;
+  } else {
+    hideError(input, errorElem);
+    return true;
+  }
+}
+
+function validateIfEmailNotExists(input, errorMsg, errorElem) {
+  let localStorageUsers = JSON.parse(localStorage.getItem("users_db"))
+
+  if ( !localStorageUsers )
+    return true;
+
+  if ( localStorageUsers.findIndex(user => user.email == input.value) >= 0 ) {
+    showError(input, errorElem, errorMsg);
+    return false;
+  } else {
+    hideError(input, errorElem);
+    return true;
+  }
+}
+
 function validate(event) {  
   let isValid = true;
 
-  isValid = validateField(inputName, REGEX_LETTERS, ERROR_MESSAGE.name.empty, ERROR_MESSAGE.name.noValid, errorMsg) && isValid;
-  isValid = validateField(inputLastName, REGEX_LETTERS, ERROR_MESSAGE.lastName.empty, ERROR_MESSAGE.lastName.noValid, errorLastMsg) && isValid;
-  isValid = validateField(inputEmail, REGEX_EMAIL, ERROR_MESSAGE.email.empty, ERROR_MESSAGE.email.noValid, errorEmailMsg) && isValid;
-  isValid = validateField(inputUserName, REGEX_USERNAME, ERROR_MESSAGE.username.empty, ERROR_MESSAGE.username.noValid, errorUserMsg) && isValid;
-  isValid = validatePassword(inputPassword, ERROR_MESSAGE.password.empty, ERROR_MESSAGE.password.noValid, errorPasswordMsg) && isValid;
+  isValid = isValid && validateField(inputName, REGEX_LETTERS, ERROR_MESSAGE.name.empty, ERROR_MESSAGE.name.noValid, errorMsg);
+  isValid = isValid && validateField(inputLastName, REGEX_LETTERS, ERROR_MESSAGE.lastName.empty, ERROR_MESSAGE.lastName.noValid, errorLastMsg);
+  isValid = isValid && validateField(inputEmail, REGEX_EMAIL, ERROR_MESSAGE.email.empty, ERROR_MESSAGE.email.noValid, errorEmailMsg);
+  isValid = isValid && validateField(inputUserName, REGEX_USERNAME, ERROR_MESSAGE.username.empty, ERROR_MESSAGE.username.noValid, errorUserMsg);
+  isValid = isValid && validatePassword(inputPassword, ERROR_MESSAGE.password.empty, ERROR_MESSAGE.password.noValid, errorPasswordMsg);
+  isValid = isValid && validateIfUsernameNotExists(inputUserName, ERROR_MESSAGE.username.existing, errorUserMsg);
+  isValid = isValid && validateIfEmailNotExists(inputEmail, ERROR_MESSAGE.email.existing, errorEmailMsg);
 
   if (inputRepeatPassword.value === "") {
     showError(inputRepeatPassword, errorRepeatPasswordMsg, ERROR_MESSAGE.password.empty);
@@ -190,7 +230,6 @@ function saveToLocalStorage() {
   const inputCardNumber = document.querySelector('#tarjeta-numero');
   const inputCardName = document.querySelector('#tarjeta-nombre');
   const inputCardVenc = document.querySelector('#tarjeta-venc');
-  const pay_method = document.querySelector('#tarjeta-venc');
 
   const email = inputEmail.value.trim();
   const username = inputUsername.value.trim();
@@ -221,6 +260,32 @@ function saveToLocalStorage() {
   if ( password )
     localStorage.setItem('password', password);
 
+  let newUser = {
+    username: username,
+    password: password,
+    email: email,
+    pay_method: actualPayMethod,
+    card_number: card_number,
+    card_cvv: card_cvv,
+    card_name: card_name,
+    card_venc: card_venc
+  }
+
+  if ( localStorage.getItem("users_db") ) {
+    localStorageUsers = JSON.parse(localStorage.getItem("users_db"))
+
+    localStorageUsers.push(newUser)
+    localStorage.setItem( "users_db", JSON.stringify (localStorageUsers) )
+  }
+  else {
+    let user_array = new Array()
+    user_array.push(newUser)
+    localStorage.setItem( "users_db", 
+      JSON.stringify (
+        [user_array[0]]
+      )
+    )
+  }
 }
 
 userInput.addEventListener('input', validateFields);
@@ -231,7 +296,6 @@ submitBtn.addEventListener('click', function (event) {
   event.preventDefault();
 
   if ( validate(event) ) {
-    console.log("A")
     saveToLocalStorage();
     window.location.href = "../index.html";
   }
@@ -273,9 +337,9 @@ const TRANSFER_P = document.querySelector('.box.b h4')
 PAY_METHODS_INPUTS.forEach(input => {
   input.addEventListener("input", function() {
     localStorage.setItem("pay_method", input.value);
+    actualPayMethod = input.value;
 
     if (CREDIT_INPUT.checked === true) {
-        fixCardNumberAndCvvLength()
         showCardInfo()
     } else
         hideCardInfo()

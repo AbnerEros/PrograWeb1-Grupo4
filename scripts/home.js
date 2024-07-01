@@ -1,3 +1,6 @@
+if ( !localStorage.getItem('username') )
+    window.location.href = "../index.html";
+
 const CONTENT_SERIES = JSON.parse(localStorage.getItem("series_list"));
 const CONTENT_MOVIES = JSON.parse(localStorage.getItem("movies_list"));
 const PREFIX_PATH_IMAGES_MOVIES = "../img/movies/";

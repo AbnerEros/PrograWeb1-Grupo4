@@ -1,3 +1,6 @@
+if ( !localStorage.getItem('username') )
+    window.location.href = "../index.html";
+
 const PREFIX_WIKIPEDIA = "https://es.wikipedia.org/wiki/"
 const PREFIX_YOUTUBE_IFRAME = "https://www.youtube.com/embed/"
 const PREFIX_YOUTUBE_VIDEO = "https://www.youtube.com/watch?v="

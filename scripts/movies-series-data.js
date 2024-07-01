@@ -420,24 +420,33 @@ const HOW_I_MET = {
     img_src: "how-i-met-your-mother.png"
 }
 
-const STORAGE_MOVIES = "movies_list"
-const STORAGE_SERIES = "series_list"
+const STORAGE_MOVIES = "movies_list";
+const STORAGE_SERIES = "series_list";
 
 function databaseMovies() {
     if ( localStorage.getItem(STORAGE_MOVIES) )
-        localStorage.removeItem(STORAGE_MOVIES)
+        localStorage.removeItem(STORAGE_MOVIES);
 
-    const MOVIES = [HOBBIT1, HOBBIT2, HOBBIT3, KUNG_FU_PANDA, ERA_DEL_HIELO, LOTR1, LOTR2, LOTR3, MADAGASCAR, RATATOUILLE, SHREK, TOY_STORY]
-    localStorage.setItem(STORAGE_MOVIES, JSON.stringify(MOVIES))
+    const MOVIES = [HOBBIT1, HOBBIT2, HOBBIT3, KUNG_FU_PANDA, ERA_DEL_HIELO, LOTR1, LOTR2, LOTR3, MADAGASCAR, RATATOUILLE, SHREK, TOY_STORY];
+    localStorage.setItem(STORAGE_MOVIES, JSON.stringify(MOVIES));
 }
 
 function databaseSeries() {
     if ( localStorage.getItem(STORAGE_SERIES ) )
-        localStorage.removeItem(STORAGE_SERIES)
+        localStorage.removeItem(STORAGE_SERIES);
 
-    const SERIES = [BLACK_MIRROR, BREAKING_BAD, FRIENDS, GAME_OF_THRONES, HOW_I_MET]
-    localStorage.setItem(STORAGE_SERIES, JSON.stringify(SERIES))
+    const SERIES = [BLACK_MIRROR, BREAKING_BAD, FRIENDS, GAME_OF_THRONES, HOW_I_MET];
+    localStorage.setItem(STORAGE_SERIES, JSON.stringify(SERIES));
 }
 
-databaseMovies()
-databaseSeries()
+function setUsersArray() {
+    if ( localStorage.getItem("users_db") )
+        return;
+
+    const default_users_db = [];
+    localStorage.setItem("users_db", JSON.stringify(default_users_db));
+}
+
+databaseMovies();
+databaseSeries();
+setUsersArray();

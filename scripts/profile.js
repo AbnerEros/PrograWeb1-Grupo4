@@ -1,3 +1,6 @@
+if ( !localStorage.getItem('username') )
+    window.location.href = "../index.html";
+
 const PAY_METHODS_INPUTS = document.querySelectorAll(".pay-method input")
 const CHANGE_PASSWORD_INPUTS = document.querySelectorAll(".change-password input")
 
@@ -258,13 +261,10 @@ async function showPassword(input) {
 }
 
 function showPaymentModal() {
-    // Muestro el modal de método de pago actualizado
-    // Quiero guardar el método de pago del cliente en el localStorage y luego utilizarlo desde ahí
     MODAL_PAY_METHOD.style.display = DISPLAY_FLEX
 }
 
 function showChangePasswordModal() {
-    // Muestro el modal de contraseña actualizada
     MODAL_CHANGE_PASSWORD.style.display = DISPLAY_FLEX
 }
 
@@ -413,8 +413,32 @@ function setDefaultParamCatcher() {
                 TRANSFER_INPUT.checked = true;
                 changeVisibility(TRANSFER_P, VISIBILITY_VISIBLE);
             }
+            
+            localStorageUsers = JSON.parse(localStorage.getItem("users_db"))
+            actualUserId = localStorageUsers.findIndex(user => user.username == localStorage.getItem("username"))
+
+            if ( actualUserId >= 0 ) {
+                localStorageUsers[actualUserId].pay_method = PARAM_CUPON_PAGO
+                localStorageUsers[actualUserId].card_cvv = PARAM_CVV_NUMBER
+                localStorageUsers[actualUserId].card_name = PARAM_CARD_NAME
+                localStorageUsers[actualUserId].card_number = PARAM_CARD_NUMBER
+                localStorageUsers[actualUserId].card_venc = PARAM_CARD_VENC
+
+                localStorage.setItem("users_db", JSON.stringify(localStorageUsers))
+            }
         }
         else if ( PARAM_EMAIL ) {
+            USER_EMAIL.value = PARAM_EMAIL
+            localStorageUsers = JSON.parse(localStorage.getItem("users_db"))
+            actualUserId = localStorageUsers.findIndex(user => user.username == localStorage.getItem("username"))
+            
+            if ( actualUserId >= 0 ) {
+                localStorageUsers[actualUserId].email = PARAM_EMAIL
+                localStorageUsers[actualUserId].password = PARAM_NEW_PASSWORD.hashCode()
+
+                localStorage.setItem("users_db", JSON.stringify(localStorageUsers))
+            }
+
             localStorage.setItem("email", PARAM_EMAIL)
             localStorage.setItem("password", PARAM_NEW_PASSWORD.hashCode())
             showChangePasswordModal()
